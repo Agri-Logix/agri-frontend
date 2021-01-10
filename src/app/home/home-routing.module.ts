@@ -32,7 +32,12 @@ const routes: Routes = [
     {
       path: 'component3',
       component: SubHeader3Component,
-      data: { title: marker('Home') },
+      data: { title: marker('Irrigation') },
+    },
+    {
+      path: 'component4',
+      component: SubHeader3Component,
+      data: { title: marker('Devices') },
     },
   ]),
 ];

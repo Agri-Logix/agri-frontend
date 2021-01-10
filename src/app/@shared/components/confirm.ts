@@ -33,7 +33,7 @@ export class Confirm {
 
     deferred:any;
 
-    show(message):Promise<boolean>{
+    show(message:any):Promise<boolean>{
         this.message = message;
         this.deferred = defer();
         this._show = true;

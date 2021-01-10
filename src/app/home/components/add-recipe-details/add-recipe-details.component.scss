@@ -8,6 +8,21 @@
   margin-right: auto;
 }
 
+
+.max-width-63{
+max-width: 63% !important;
+}
+
+.max-width-37{
+  max-width: 37.5% !important;
+}
+
+input{
+  width: 3vw;
+  border-bottom: 1px solid;
+  margin-right: 2vw;
+  text-align: center;
+}
 input {
   // width: 2vw;
   width: 35px;

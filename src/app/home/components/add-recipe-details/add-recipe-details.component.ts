@@ -16,41 +16,42 @@ export class AddRecipeDetailsComponent implements OnInit {
   subscription: Subscription;
   debouncedFunction: any;
   details: any;
-  constructor(public apiService: ApiService, private _location: Location) {}
+  constructor(public apiService: ApiService, private _location: Location) { }
 
   async ngOnInit() {
     this.getDetails();
   }
 
-  editableRow(index: number) {
-    console.log(this.details.details.details[index]);
-    this.details.details.details[index].isEdit = !this.details.details.details[index].isEdit;
+  editableRow(index: number, key: string) {
+    this.details.details[key][index].isEdit = !this.details.details[key][index].isEdit;
   }
 
-  editRow(newValue: string | number, keyName: string, rowData: Object, subValue?: string) {
+  editRow(newValue: any, keyName: string, rowData: Object, objectName: string, subValue?: string, subIndex?: number) {
     console.log(this.debouncedFunction);
+    if (this.debouncedFunction) {
+      this.debouncedFunction.cancel();
+    }
     this.debouncedFunction = debounce(async () => {
-      let apiResponse = (await this.apiService.getRecipeGrowthPlan().toPromise()) as Object;
+      let apiResponse = await this.apiService.getRecipeGrowthPlan().toPromise() as Object;
       let headerIndex = new URLSearchParams(window.location.search).get('data');
-
-      console.log(apiResponse);
-      console.log(headerIndex);
       let updateModel = apiResponse['data'].find((x: any) => x.id === parseInt(headerIndex));
-      let index_of_rowData = updateModel['details'].indexOf(
-        updateModel['details'].find((x: any) => x.id === rowData['id'])
-      );
+      let index_of_rowData = updateModel[objectName].indexOf(updateModel[objectName].find((x: any) => x.id === rowData['id']));
       if (subValue) {
-        rowData[keyName][0][subValue] = newValue;
+        rowData[keyName][subIndex][subValue] = newValue;
       } else {
-        rowData[keyName] = newValue;
+        rowData[keyName] = newValue
       }
-      apiResponse['data'][apiResponse['data'].indexOf(updateModel)]['details'][index_of_rowData] = rowData;
-      this.apiService.editRecipe(apiResponse).subscribe((resp) => {
-        console.log(resp);
-        this.editableRow(rowData['id']);
+      apiResponse['data'][apiResponse['data'].indexOf(updateModel)][objectName][index_of_rowData] = rowData;
+      this.apiService.editRecipe(apiResponse).subscribe(resp => {
+        if (typeof (newValue) !== "boolean") {
+          this.editableRow(index_of_rowData, objectName);
+        }
       });
+
+
     }, 1000);
     this.debouncedFunction();
+
   }
 
   getDetails() {
@@ -65,6 +66,11 @@ export class AddRecipeDetailsComponent implements OnInit {
           val['isEdit'] = false;
           return val;
         });
+        this.details.details.run_times = this.details.details.run_times.map((val: Object) => {
+          val["isEdit"] = false;
+          return val;
+        });
+        console.log(this.details.details.run_times);
       }
     });
   }

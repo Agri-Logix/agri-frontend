@@ -41,7 +41,7 @@ export class SidebarLinksService {
             icon_active: 'custom_leaf_black',
           },
           {
-            link: '/component3',
+            link: '/component4',
             name: 'DEVICES',
             icon: 'custom_mobile',
             icon_active: 'custom_mobile_black',

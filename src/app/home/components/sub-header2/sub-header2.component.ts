@@ -14,8 +14,11 @@ export class SubHeader2Component implements OnInit {
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {
     this.route.url.subscribe((res:any)=> {
+      console.log(res);
+
       if(res[0].path=='component2') {
         this.addClass= true;
+        console.log(this.addClass);
       }
       else {
         this.addClass=  false;
