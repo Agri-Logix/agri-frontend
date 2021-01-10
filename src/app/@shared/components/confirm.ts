@@ -39,7 +39,7 @@ export class Confirm {
         this._show = true;
         return this.deferred.promise;
     }
-    hide(opt){
+    hide(opt:any){
         if(this.deferred)
             this.deferred.resolve(opt);
         this._show = false;
