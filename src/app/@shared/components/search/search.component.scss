@@ -1,0 +1,72 @@
+:host {
+  .form-group {
+    width: 25.875rem;
+    .search {
+      position: relative;
+      input {
+        height: 45px;
+        border-radius: 2.8125rem;
+        padding-left: 2.5625rem;
+        background: transparent;
+        border: 1px solid #fff;
+        box-shadow: none;
+        color: #808080;
+        border: 1px solid #e5e5e5;
+      }
+      ::placeholder {
+        color: #808080;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: red;
+      }
+
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: red;
+      }
+      .icons {
+        position: absolute;
+        padding-left: 0.75rem;
+        top: 0;
+        height: 100%;
+        width: 27px;
+        display: flex;
+        align-items: center;
+      }
+      .clear-icon {
+        position: absolute;
+
+        top: 0;
+        height: 100%;
+        width: 27px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        .mat-icon {
+          cursor: pointer;
+          font-size: 16px;
+          height: auto;
+        }
+      }
+    }
+  }
+  @media (max-width: 520px) {
+    .form-group {
+      width: 19.875rem;
+    }
+  }
+  @media (max-width: 498px) {
+    .form-group {
+      width: 15.075rem;
+    }
+  }
+  @media (max-width: 375px) {
+    .form-group {
+      width: 10.875rem;
+    }
+  }
+}

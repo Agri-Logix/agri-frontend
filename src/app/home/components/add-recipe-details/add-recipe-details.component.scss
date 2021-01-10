@@ -1,0 +1,31 @@
+:host {
+  padding-right: 0% !important;
+}
+
+.first-child-input {
+  // width: 12vw !important;
+  text-align: center;
+  margin-right: auto;
+}
+
+input {
+  // width: 2vw;
+  width: 35px;
+font-size: 12px;
+  // border: 1px solid;
+  // margin-right: 2vw;
+  margin-right: auto;
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,28 @@
+<div class="form-group">
+  <label *ngIf="label" for=""> {{ label }}</label>
+  <div class="search w-75">
+    <div class="icons">
+      <mat-icon style="color: black" *ngIf="!isLoading">search</mat-icon>
+      <app-loader *ngIf="isLoading" color="primary" [isLoading]="isLoading" size="0.5"></app-loader>
+    </div>
+    <input
+      class="form-control"
+      type="text"
+      #input
+      (input)="onChange($event.target.value); search($event.target.value)"
+      (blur)="onTouched()"
+      [disabled]="disabled"
+      [placeholder]="placeholder"
+    />
+
+    <div class="clear-icon" *ngIf="showClear">
+      <mat-icon svgIcon="custom_delete"></mat-icon>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="controlDir.control.errors" class="invalid-feedback">
+     <span>
+        Result not found
+      </span> 
+    </div> -->
+</div>

@@ -1,0 +1,161 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+.custom-margin {
+  margin-bottom: 130px !important;
+  span {
+    color: white !important;
+  }
+  .mat-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+.shell {
+  nav {
+    padding-top: 100px;
+  }
+}
+.pl-270 {
+  padding-left: 270px;
+}
+.mat-expansion-panel {
+  color: #172b4d !important;
+}
+
+.mat-sidenav {
+  position: relative;
+  // &::before {
+  //   position: fixed;
+  //   bottom: -100px;
+  //   /* margin-bottom: -100px; */
+  //   left: -100px;
+  //   overflow: hidden;
+  //   width: 200px;
+  //   border-radius: 50%;
+  //   opacity: 0.26;
+  //   border: 25px solid #fff;
+  //   height: 200px;
+  //   content: "";
+  // }
+  &::after {
+    position: fixed;
+    // bottom: -150px;
+    // left: -150px;
+    overflow: hidden;
+    width: 300px;
+    border-radius: 50%;
+    opacity: 0.26;
+    border: 25px solid #fff;
+    height: 300px;
+    content: "";
+  }
+  // background: #213f6c;
+  background: #304956;
+
+  font-family: "Poppins" !important;
+
+  .logo {
+    text-align: center;
+    padding-top: 1.5rem;
+    img {
+      width: 85px;
+    }
+  }
+
+  .mat-list {
+    padding-top: 0;
+    padding: 0;
+    .mat-list-item {
+      padding: 0px;
+      border-left: 3px solid transparent;
+      &.active {
+        border-color: #5e72e4;
+      }
+    }
+  }
+  .mat-list-base .mat-list-item {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .mat-list-item {
+    text-decoration: none;
+    font-family: "Poppins";
+    color: #172b4d;
+    border-left: 2px solid transparent;
+
+    // &.active,
+    // &:hover {
+    //   background: #3066b8;
+    //   border-radius: 30px;
+    // }
+
+    span {
+      // padding-left: 10px;
+    }
+  }
+}
+
+.mat-sidenav {
+  min-width: 270px;
+  max-width: 28%;
+  border-right: 0px;
+  position: fixed;
+}
+
+.mat-toolbar-shadow {
+  // background: transparent linear-gradient(180deg, #fc7d36 0%, #ee6231 54%, #eb5930 100%) 0% 0% no-repeat padding-box !important;
+  box-shadow: 0px 3px 6px #00000029 !important;
+  color: #fff !important;
+  background: #fff !important;
+  color: #fff !important;
+  z-index: 1;
+}
+.mat-toolbar-default {
+  z-index: 1;
+  background: #fff !important;
+  color: #fff !important;
+}
+
+.has-border {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.menu-button {
+  margin-right: 1rem;
+}
+
+.topbar-bg {
+  background: #fff;
+  z-index: 1;
+}
+
+.fixed-topbar {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  right: 0;
+}
+
+.top-image {
+  //  content: url(assets/bg-top.svg);
+  top: 0;
+  position: fixed;
+  width: 450px;
+  z-index: 0;
+  right: 0;
+}
+
+.user-account {
+  img {
+    width: 45px;
+    cursor: pointer;
+  }
+  .btn {
+    outline: none !important;
+    color: #2a2a2a;
+    font-size: 14px;
+  }
+}

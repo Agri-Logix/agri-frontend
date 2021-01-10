@@ -1,0 +1,120 @@
+<div class="shell" fxFlex>
+  <mat-sidenav-container style="background: #fff; width: 90% !important; min-width: 90% !important" fxFill>
+    <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile">
+      <nav>
+        <mat-list *ngIf="routes?.length > 0" fxLayout="column" fxLayoutGap="5px">
+          <ng-container *ngFor="let route of routes">
+            <a
+              fxLayoutAlign="center center"
+              mat-list-item
+              class="custom-margin"
+              [routerLink]="route?.link"
+              #rla="routerLinkActive"
+              routerLinkActive="active"
+              (click)="isMobile && sidenav.close()"
+            >
+              <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+                <div style="position: relative">
+                  <mat-icon [svgIcon]="rla.isActive ? route?.icon_active : route?.icon"></mat-icon>
+                </div>
+                <img
+                  *ngIf="rla.isActive"
+                  style="position: absolute; z-index: -1"
+                  class="mb-5"
+                  src="assets/circle.png"
+                  alt=""
+                />
+                <span style="padding-top: 20px; font-weight: 600" translate>{{ route?.name }}</span>
+                <!-- <span
+                  *ngIf="!rla.isActive"
+                  style="padding-top: 20px; font-weight: 600; color: black !important"
+                  translate
+                  >{{ route?.name }}</span
+                > -->
+              </div>
+            </a>
+          </ng-container>
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <app-toolbar></app-toolbar> -->
+      <mat-toolbar
+        id="tootlbar"
+        class="fixed-topbar"
+        [ngClass]="number <= 5 ? 'mat-toolbar-default ' : 'mat-toolbar-shadow'"
+        fxLayout="row"
+        fxLayoutAlign.xs="space-between center"
+        fxLayoutAlign="end center"
+      >
+        <!-- <img class="top-image" src="assets/bg-top.svg" alt="" /> -->
+        <div
+          fxLayout="row"
+          class="w-100"
+          [ngClass]="sidenav.opened ? 'pl-270' : 'pl-0'"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <!-- <span> {{ title }}</span> -->
+          </div>
+          <div class="col-md-3">
+            <div class="inline-flex tabs_border_2">
+              <p class="tabs___border darkgray_bg pl-2 pr-2 text-white d-flex align-center">
+                Alert
+                <img src="assets/images/icon/Alarm.png" alt="" class="img-fulid pl-2" width="25px" />
+              </p>
+              <p style="color: #304956" class="pl-2 pr-2 d-flex align-center">
+                Alarm
+                <img src="assets/images/icon/emojione-v1_alarm-clock.png" alt="" class="img-fluid pl-2" width="25px" />
+              </p>
+            </div>
+          </div>
+          <app-search
+            fxLayoutAlign="end center"
+            fxlayout="column"
+            fxFlex="80"
+            [placeholder]="'Search'"
+            name="search"
+            ngModel
+            class="mt-3"
+          >
+          </app-search>
+
+          <div class="">
+            <div fxLayout="row" class="user-account" fxLayoutGap="15px" fxLayoutAlign="center center">
+              <img
+                [src]="previewUrl"
+                style="border-radius: 50%; object-fit: contain"
+                onerror="this.src='assets/placeholder.jpg';"
+                alt="user"
+                [matMenuTriggerFor]="userMenu"
+              />
+              <button
+                class="text-capitalize text-white d-flex btn bg-transparent border-0 p-0"
+                [matMenuTriggerFor]="userMenu"
+              >
+                {{ username }}
+                <mat-icon class="keyboard_arrow_down"></mat-icon>
+              </button>
+              <mat-menu #userMenu="matMenu">
+                <mat-list>
+                  <mat-list-item>
+                    <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </mat-list>
+                <button mat-menu-item (click)="logout()" translate>Logout</button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+
+        <!-- <span>{{ title }}</span> -->
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

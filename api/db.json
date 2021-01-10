@@ -1,0 +1,804 @@
+{
+  "users": [
+    {
+      "email": "nouman@gmail.com",
+      "password": "$2a$10$LjM4NxzZU0P7JPGhOERBheTd0kgXwemctij5/brMK01n.hoVr5JWS",
+      "confirmpassword": "ahmed2405",
+      "firstname": "nouman",
+      "lastname": "ahmed",
+      "phone": 1231231234,
+      "termandconditions": true,
+      "id": 6
+    },
+    {
+      "email": "asad2@gmail.com",
+      "firstname": "Asad",
+      "lastname": "Ali",
+      "phone": 1231231232,
+      "password": "$2a$10$kEpz4/fWr9mX/OS5R/qioeyd4S8GiOMMDFS/iePSjtqDF7B0tLU1W",
+      "confirmpassword": "12312312a",
+      "termandconditions": true,
+      "isBanned": true,
+      "id": 7
+    },
+    {
+      "email": "salman@gmail.com",
+      "password": "$2a$10$O4mg9mX4EqJoP6PX/gOmE.xAk/rStLwdsPZiz8lfzClqFMgFJ/sm.",
+      "confirmpassword": "12312312a",
+      "firstname": "Salman",
+      "lastname": "Khan",
+      "phone": 1231231231,
+      "termandconditions": true,
+      "id": 8
+    },
+    {
+      "email": "rizwan@gmail.com",
+      "password": "$2a$10$5yAMy9y.0DOg/TDXzJw/POhixVR4OeNccQUYxLSerPSX34BFgvPVG",
+      "confirmpassword": "12312312a",
+      "firstname": "rizwan",
+      "lastname": "khan",
+      "phone": 1231231212,
+      "termandconditions": true,
+      "id": 9
+    },
+    {
+      "email": "asad5@gmail.com",
+      "password": "$2a$10$NiQKW1uo7/Mokrs4K1XMLeoxDFRYPWVOYJewgbWZnZ0h3WSVC74XS",
+      "confirmpassword": "12312312a",
+      "firstname": "asad",
+      "lastname": "ali",
+      "phone": 1231231230,
+      "termandconditions": true,
+      "id": 10
+    },
+    {
+      "email": "nouman@codesorbit.com",
+      "password": "$2a$10$ElED8JFIfTfHUfmcKezq8OIKD1rX7WiI08vmvKmejaAr/KxR0jcte",
+      "confirmpassword": "ahmed2405",
+      "firstname": "codes",
+      "lastname": "orbit",
+      "dob": "1996-05-23T19:00:00.000Z",
+      "phone": 3075337151,
+      "termandconditions": true,
+      "id": 11
+    },
+    {
+      "email": "asad3@gmail.com",
+      "password": "$2a$10$Kt/8L8Hnmswp.bAUyNJlMOYU1xM3KbzG.aNLhqjVG5w9DyZxK12H6",
+      "confirmpassword": "12312312a",
+      "firstname": "Asad",
+      "lastname": "Ali",
+      "dob": "2020-12-19T19:00:00.000Z",
+      "phone": 1231231245,
+      "termandconditions": true,
+      "id": 12
+    },
+    {
+      "email": "asad4@gmail.com",
+      "password": "$2a$10$oCV.KLhbd9krH8HCkNprZuI1QDP4zxR2EttbQv48f82GPd.zyjUC6",
+      "confirmpassword": "12312312a",
+      "firstname": "Asad",
+      "lastname": "Ali",
+      "dob": "2020-12-06T19:00:00.000Z",
+      "phone": 1231231267,
+      "termandconditions": true,
+      "id": 13
+    },
+    {
+      "email": "asad6@gmail.com",
+      "password": "$2a$10$GiFET1QW8r5G7t1gEe5owelGdnXhabES/Q3gM5pOhO0HYD9yOM7De",
+      "confirmpassword": "12312312a",
+      "firstname": "Asad",
+      "lastname": "Ali",
+      "dob": "2020-12-08T19:00:00.000Z",
+      "phone": 1231231239,
+      "termandconditions": true,
+      "id": 14
+    }
+  ],
+  "irrigation": [
+    {
+      "stats": {
+        "ph": "6",
+        "electical_condunctivity": ".05",
+        "tot_dis_solids": "700"
+      },
+      "data": [
+        {
+          "id": 1,
+          "room": 1,
+          "rec_cyc_stage": "Green Crack (1/12)",
+          "run_time": "27 mins",
+          "shutoff_time": "01/24/2021 11:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true
+        },
+        {
+          "id": 2,
+          "room": 10,
+          "rec_cyc_stage": "Cookies (4/12)",
+          "run_time": "27 mins",
+          "shutoff_time": "01/24/2021 11:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true
+        },
+        {
+          "id": 3,
+          "room": 2,
+          "rec_cyc_stage": "Cookies (12/12)",
+          "run_time": "27 mins",
+          "shutoff_time": "01/24/2021 11:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true
+        },
+        {
+          "id": 4,
+          "room": 4,
+          "rec_cyc_stage": "Cookies (6/12)",
+          "run_time": "27 mins",
+          "shutoff_time": "01/24/2021 11:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true
+        }
+      ]
+    }
+  ],
+  "recipees": {
+    "name": "Growth Plan",
+    "pumps": [
+      {
+        "id": 1,
+        "name": "ACID"
+      },
+      {
+        "id": 2,
+        "name": "Grow A"
+      },
+      {
+        "id": 3,
+        "name": "Grow B"
+      },
+      {
+        "id": 4,
+        "name": "Bloom A"
+      },
+      {
+        "id": 5,
+        "name": "Bloom B"
+      },
+      {
+        "id": 6,
+        "name": "E-Plus"
+      }
+    ],
+    "data": [
+      {
+        "id": 1,
+        "name": "Green Crack",
+        "description": "Green Plan  v1.0",
+        "total_days": "83",
+        "last_updated": "01/24/2021 11:00 AM",
+        "next_sched": "01/24/2021 11:00 AM",
+        "status": true,
+        "details": [
+          {
+            "id": 1,
+            "cycle": "1.5",
+            "stage": "Veg",
+            "grow_A": "4",
+            "grow_B": "4",
+            "bloom_A": "20",
+            "bloom_B": "20",
+            "bloom_C": "3",
+            "e_plus": "2",
+            "targets": [
+              {
+                "ph": "6",
+                "ec": ".05",
+                "tds": "10"
+              }
+            ],
+            "isEdit": true
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": true
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": true
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": true
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "OG Kush",
+        "description": "TEST Grow Plan v1",
+        "total_days": "13",
+        "last_updated": "09/21/2020 1:00 PM",
+        "next_sched": "01/24/2021 11:00 AM",
+        "status": true,
+        "details": [
+          {
+            "id": 2,
+            "cycle": "6",
+            "stage": "Veg",
+            "grow_A": "6",
+            "grow_B": "4",
+            "bloom_A": "20",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "2",
+            "targets": [
+              {
+                "ph": "2",
+                "ec": ".05",
+                "tds": "10"
+              }
+            ]
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Sour diesel",
+        "description": "Test Grow Plan v1.1",
+        "total_days": "80",
+        "last_updated": "01/25/2021 8:00 AM",
+        "next_sched": "01/24/2021 11:00 AM",
+        "status": true,
+        "details": [
+          {
+            "id": 3,
+            "cycle": "7",
+            "stage": "Veg",
+            "grow_A": "6",
+            "grow_B": "4",
+            "bloom_A": "20",
+            "bloom_B": "9",
+            "bloom_C": "",
+            "e_plus": "2",
+            "targets": [
+              {
+                "ph": "4",
+                "ec": ".05",
+                "tds": "10"
+              }
+            ],
+            "isEdit": true
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Cookies",
+        "description": "Grow Plan v1.0",
+        "total_days": "81",
+        "last_updated": "12/20/2020 3:00 PM",
+        "next_sched": "01/24/2021 11:00 AM",
+        "status": true,
+        "details": [
+          {
+            "id": 4,
+            "cycle": "10",
+            "stage": "Veg",
+            "grow_A": "6",
+            "grow_B": "4",
+            "bloom_A": "20",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "2",
+            "targets": [
+              {
+                "ph": "9",
+                "ec": ".05",
+                "tds": "4"
+              }
+            ]
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "start_time": "07:00 AM",
+            "end_time": "11:00 AM",
+            "total_duration": "4Hr 0Min",
+            "output": "85%",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lightning_schedule": [
+    {
+      "name": "Growth Plan",
+      "pumps": [
+        {
+          "id": 1,
+          "name": "ACID"
+        },
+        {
+          "id": 2,
+          "name": "Grow A"
+        },
+        {
+          "id": 3,
+          "name": "Grow B"
+        },
+        {
+          "id": 4,
+          "name": "Bloom A"
+        },
+        {
+          "id": 5,
+          "name": "Bloom B"
+        },
+        {
+          "id": 6,
+          "name": "E-Plus"
+        }
+      ],
+      "data": [
+        {
+          "id": 1,
+          "name": "Green Crack",
+          "description": "Green Plan  v1.0",
+          "total_days": "83",
+          "last_updated": "01/24/2021 11:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true,
+          "details": {
+            "id": 1,
+            "cycle": "1.5",
+            "stage": "Veg",
+            "sun_rise_min": "4",
+            "sun_set_min": "2",
+            "auto_dim_temp": "20",
+            "auto_shutoff_temp": [
+              {
+                "ph": [
+                  {
+                    "p": "5",
+                    "h": "2"
+                  }
+                ],
+                "ec": ".05",
+                "tds": "10"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "OG Kush",
+          "description": "TEST Grow Plan v1",
+          "total_days": "13",
+          "last_updated": "09/21/2020 1:00 PM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true,
+          "details": {
+            "id": 2,
+            "cycle": "1.6",
+            "stage": "Veg",
+            "sun_rise_min": "5",
+            "sun_set_min": "1",
+            "auto_dim_temp": "10",
+            "auto_shutoff_temp": [
+              {
+                "ph": [
+                  {
+                    "p": "5",
+                    "h": "2"
+                  }
+                ],
+                "ec": ".05",
+                "tds": "10"
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "name": "Sour diesel",
+          "description": "Test Grow Plan v1.1",
+          "total_days": "80",
+          "last_updated": "01/25/2021 8:00 AM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true,
+          "details": {
+            "id": 3,
+            "cycle": "1.2",
+            "stage": "Veg",
+            "sun_rise_min": "4",
+            "sun_set_min": "2",
+            "auto_dim_temp": "20",
+            "auto_shutoff_temp": [
+              {
+                "ph": [
+                  {
+                    "p": "5",
+                    "h": "2"
+                  }
+                ],
+                "ec": ".05",
+                "tds": "10"
+              }
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "name": "Cookies",
+          "description": "Grow Plan v1.0",
+          "total_days": "81",
+          "last_updated": "12/20/2020 3:00 PM",
+          "next_sched": "01/24/2021 11:00 AM",
+          "status": true,
+          "details": {
+            "id": 4,
+            "cycle": "1.7",
+            "stage": "Veg",
+            "sun_rise_min": "4",
+            "sun_set_min": "2",
+            "auto_dim_temp": "20",
+            "auto_shutoff_temp": [
+              {
+                "ph": [
+                  {
+                    "p": "5",
+                    "h": "2"
+                  }
+                ],
+                "ec": ".05",
+                "tds": "10"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

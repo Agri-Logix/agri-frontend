@@ -1,0 +1,60 @@
+<section class="statistic mt-5">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div *ngFor="let data of irrigationData | async" class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="statistic__item shadow_border">
+            <div class="col-md-12 d-flex pr-0">
+              <div class="col-md-10">
+                <h4 class="text-center">pH</h4>
+                <!-- <h4 class="text-center">p <sup>H</sup></h4> -->
+              </div>
+              <div class="col-md-2 pr-0 bar_dots">
+                <a href="#"> <i class="fa fa-ellipsis-h color-black"></i></a>
+              </div>
+            </div>
+            <div class="col-md-12 bars_content">
+              <img src="assets/images/icon/Vector.png" alt="" class="img-responsive" />
+              <h1 class="bar_font">{{ data.stats.ph }}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="statistic__item shadow_border">
+            <div class="col-md-12 d-flex pr-0">
+              <div class="col-md-10">
+                <h4 class="text-center">Electrical Conductivity</h4>
+              </div>
+              <div class="col-md-2 pr-0 bar_dots">
+                <a href="#"> <i class="fa fa-ellipsis-h color-black"></i></a>
+              </div>
+            </div>
+            <div class="col-md-12 bars_content">
+              <img src="assets/images/icon/Vector.png" alt="" class="img-responsive" />
+              <h1 class="bar_font">{{ data.stats.electical_condunctivity }} µS/cm</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="statistic__item shadow_border">
+            <div class="col-md-12 d-flex pr-0">
+              <div class="col-md-10">
+                <h4 class="text-center">Total Dissovled Solids</h4>
+              </div>
+              <div class="col-md-2 pr-0 bar_dots">
+                <a href="#"> <i class="fa fa-ellipsis-h color-black"></i></a>
+              </div>
+            </div>
+            <div class="col-md-12 bars_content">
+              <img src="assets/images/icon/Vector.png" alt="" class="img-responsive" />
+              <h1 class="bar_font">{{ data.stats.tot_dis_solids }} µmol</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-irrigation [irrigationData]="irrigationData"></app-irrigation>
+<app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>

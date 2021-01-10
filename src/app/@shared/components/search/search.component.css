@@ -1,0 +1,42 @@
+:host .form-group .search {
+  position: relative;
+}
+
+:host .form-group .search input {
+  height: 45px;
+}
+
+:host .form-group .search .icons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+:host .form-group .search .clear-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+:host .form-group .search .clear-icon .mat-icon {
+  cursor: pointer;
+  font-size: 16px;
+  height: auto;
+}
+/*# sourceMappingURL=search.component.css.map */

@@ -1,0 +1,138 @@
+{
+  "offers-filter": {
+    "total-restaurants": "344",
+    "location": [
+      {
+        "id": 1,
+        "name": "Surulere",
+        "count": "22"
+      },
+      {
+        "id": 2,
+        "name": "Lagos Island",
+        "count": "50"
+      }
+    ],
+    "cusines": [
+      {
+        "id": 1,
+        "name": "Efo Riro",
+        "count": "156"
+      },
+      {
+        "id": 2,
+        "name": "Chicken Peppersoup",
+        "count": "456"
+      },
+      {
+        "id": 3,
+        "name": "Fish Peppersoup",
+        "count": "120"
+      },
+      {
+        "id": 4,
+        "name": "Ewedu",
+        "count": "32"
+      },
+      {
+        "id": 5,
+        "name": "Oha Soup",
+        "count": "130"
+      },
+      {
+        "id": 6,
+        "name": "Coconut Rice",
+        "count": "120"
+      },
+      {
+        "id": 7,
+        "name": "Fried Rice",
+        "count": "111"
+      },
+      {
+        "id": 8,
+        "name": "Ewa Aganyin",
+        "count": "95"
+      },
+      {
+        "id": 9,
+        "name": "MoiMoi",
+        "count": "78"
+      }
+    ],
+    "feature": [
+      {
+        "id": 1,
+        "type": "Free Delivery",
+        "count": "111"
+      },
+      {
+        "id": 2,
+        "type": "Coupons",
+        "count": "120"
+      },
+      {
+        "id": 3,
+        "type": "Open Now",
+        "count": "156"
+      }
+    ],
+    "delivery_time": [
+      {
+        "id": 1,
+        "duration": "30 minutes"
+      },
+      {
+        "id": 2,
+        "duration": "45 minutes"
+      },
+      {
+        "id": 3,
+        "duration": "1 hour 15 minutes"
+      },
+      {
+        "id": 4,
+        "duration": "1 hour 30 minutes"
+      },
+      {
+        "id": 5,
+        "duration": "2 hours"
+      },
+      {
+        "id": 5,
+        "duration": "2 hours 30 minutes"
+      }
+    ],
+    "Category": [
+      {
+        "id": 1,
+        "name": "Delivery",
+        "count": "20"
+      },
+      {
+        "id": 2,
+        "name": "Dine-out",
+        "count": 30
+      },
+      {
+        "id": 3,
+        "name": "Cafes",
+        "count": 50
+      }
+    ],
+    "partners": [
+      {
+        "id": 1,
+        "name": "Gold Partner"
+      },
+      {
+        "id": 2,
+        "name": "Order Food Online"
+      },
+      {
+        "id": 3,
+        "name": "Osahan Eat"
+      }
+    ]
+  }
+}

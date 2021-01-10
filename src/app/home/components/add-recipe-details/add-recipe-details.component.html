@@ -1,0 +1,187 @@
+<section class="statistic">
+  <div class="section_content section_content--p30 mb-3">
+    <div class="container-fluid">
+      <div class="row shadow_border">
+        <div class="col-md-6 pb-3 pt-3">
+          <p class="font_30 pl-2">Recipe name: {{ details.details.name }}</p>
+        </div>
+        <div class="col-md-6 d-flex justify_btw pb-3 pt-3 align-center"></div>
+        <div class="col-md-12">
+          <!-- DATA TABLE-->
+          <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
+            <p class="pr-3 pl-3">Cycle: (# of Days)</p>
+            <p class="pl-3">Stage</p>
+            <p class="pl-3">Grow A</p>
+            <p class="pl-3">Grow B</p>
+            <p class="pl-3">Bloom A</p>
+            <p class="pl-3">Bloom B</p>
+            <p class="pl-4 pr-5">E-Plus/</p>
+            <p class="pr-5 pl-100">Targets</p>
+          </div>
+        </div>
+
+        <div
+          *ngFor="let data of details?.details.details; let i = index"
+          class="col-md-12 d-md-flex pt-3 pb-3"
+          (dblclick)="editableRow(i)"
+        >
+          <div
+            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
+            *ngIf="!data?.isEdit; else editable_row"
+          >
+            <p class="pr-4 pl-4">{{ data.id }}: Days</p>
+            <p class="pl-100">{{ data.stage }}</p>
+            <p class="pl-50">{{ data.grow_A }}</p>
+            <p class="pl-50">{{ data.grow_B }}</p>
+            <p class="pl-50 pr-3">{{ data.bloom_A }}</p>
+            <p class="pl-50 pr-3">{{ data.bloom_B }}</p>
+            <p class="pl-50 pr-3">{{ data.e_plus }}</p>
+          </div>
+          <ng-template #editable_row>
+            <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
+              <p class="pr-4 pl-4 first-child-input">{{ data.id }}: Days</p>
+              <input type="text" [value]="data.stage" (input)="editRow($event.target.value, 'stage', data)" />
+              <input type="number" [value]="data.grow_A" (input)="editRow($event.target.value, 'grow_A', data)" />
+              <input type="number" [value]="data.grow_B" (input)="editRow($event.target.value, 'grow_B', data)" />
+              <input type="number" [value]="data.bloom_A" (input)="editRow($event.target.value, 'bloom_A', data)" />
+              <input type="number" [value]="data.bloom_B" (input)="editRow($event.target.value, 'bloom_B', data)" />
+              <input type="number" [value]="data.e_plus" (input)="editRow($event.target.value, 'e_plus', data)" />
+            </div>
+          </ng-template>
+          <div class="col-md-4 d-flex custom-border col-sm-12">
+            <div
+              class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2"
+              *ngIf="!data?.isEdit; else editable_row_units"
+            >
+              <div class="d-flex tabs_border">
+                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
+                <p class="pl-4 pr-2">{{ data.targets[0].ph }}</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
+                <p class="pl-2 pr-2">{{ data.targets[0].ec }} uS/cm</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
+                <p class="pl-2 pr-2">{{ data.targets[0].tds }} PPM</p>
+              </div>
+            </div>
+            <ng-template #editable_row_units>
+              <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
+                <div class="d-flex tabs_border">
+                  <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
+                  <input
+                    type="number"
+                    [value]="data.targets[0].ph"
+                    (input)="editRow($event.target.value, 'targets', data, 'ph')"
+                  />
+                </div>
+
+                <div class="d-flex tabs_border">
+                  <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
+                  <input
+                    type="number"
+                    [value]="data.targets[0].ec"
+                    (input)="editRow($event.target.value, 'targets', data, 'ec')"
+                  />
+                  <p class="pl-2 pr-2">uS/cm</p>
+                </div>
+
+                <div class="d-flex tabs_border">
+                  <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
+                  <input
+                    type="number"
+                    [value]="data.targets[0].tds"
+                    (input)="editRow($event.target.value, 'targets', data, 'tds')"
+                  />
+                  <p class="pl-2 pr-2">PPM</p>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="statistic">
+  <div class="section_content section_content--p30 mb-3">
+    <div class="container-fluid">
+      <div class="row shadow_border">
+        <div class="col-md-6 pb-3 pt-3">
+          <p class="font_30 pl-2">{{ details.details.name }}: Run Times</p>
+        </div>
+        <div class="col-md-6 d-flex pb-3 pt-3 align-center justify-end">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Routine</p>
+        </div>
+        <div class="col-md-12">
+          <!-- DATA TABLE-->
+          <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
+            <div class="col-md-2">
+              <p>Start Time</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>End Time</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Total Duration</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Output % (50-105)</p>
+            </div>
+
+            <div class="col-md-4 pl-100">
+              <p>Select Days</p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngFor="let tableData of details.details.run_times" class="col-md-12 d-md-flex pt-3 pb-3">
+          <!-- DATA TABLE-->
+          <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12">
+            <div class="col-md-3 pl-4 d-flex align-center">
+              <p>{{ tableData.start_time }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex">
+              <p>{{ tableData.end_time }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex pl-4">
+              <p>{{ tableData.total_duration }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex pl-5">
+              <p>{{ tableData.output }}</p>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex pr-2 custom-border col-sm-12 pt-2 pb-2">
+            <div class="form-check-inline form-check">
+              <label
+                *ngFor="let days of tableData.select_days"
+                for="inline-checkbox1"
+                class="form-check-label text-center"
+                >{{ days.day }}
+                <input
+                  type="checkbox"
+                  [checked]="days.bool"
+                  [id]="days.id"
+                  [name]="days.id"
+                  [value]="days.day"
+                  class="form-check-input"
+                />
+              </label>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
+          <img src="assets/images/icon/icons8-calendar-128 1.png" alt="" class="img-fluid pr-2" />
+          <p>Calendar View</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

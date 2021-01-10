@@ -1,0 +1,85 @@
+<section class="statistic">
+  <div class="section__content section__content--p30 mb-3">
+    <div class="container-fluid">
+      <div *ngIf="recipeGrowthData | async; let data" class="row shadow_border">
+        <div class="col-md-6 pb-3 pt-3">
+          <p class="font_30 pl-2">Recipe/Growth Plan</p>
+        </div>
+        <div class="col-md-6 d-flex pb-3 pt-3 align-center justify-end">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add</p>
+        </div>
+        <div class="col-md-12">
+          <!-- DATA TABLE-->
+          <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
+            <div class="col-md-2">
+              <p>Name</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Description</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Total Days</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Last Updated</p>
+            </div>
+            <div class="col-md-2">
+              <p></p>
+            </div>
+            <div class="col-md-2 pl-5">
+              <p>Actions</p>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div *ngFor="let tableData of data.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
+          <!-- DATA TABLE-->
+          <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12">
+            <div class="col-md-3 pl-4 d-flex align-center">
+              <p>{{ tableData.name }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex">
+              <p>{{ tableData.description }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex pl-4">
+              <p>{{ tableData.total_days }}</p>
+            </div>
+            <div class="col-md-3 align-center d-flex">
+              <p>{{ tableData.last_updated }}</p>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex pr-2 custom-border col-sm-12">
+            <div class="col-md-6 align-center d-flex">
+              <p>{{ tableData.next_sched }}</p>
+            </div>
+            <div class="col-md-6 align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <button
+                  (click)="edit(data, tableData)"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+
+                <button class="item" data-toggle="tooltip" data-placement="top" title="Copy">
+                  <i class="zmdi zmdi-copy"></i>
+                </button>
+                <button (click)="delete(i)" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <confirm #confirm></confirm>
+</section>
