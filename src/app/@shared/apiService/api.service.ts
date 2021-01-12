@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private http: HttpClient) {}
   detailsSubject = new BehaviorSubject(0);
-  actionSubject= new BehaviorSubject(0);
+  actionSubject = new BehaviorSubject(0);
   getIrrigationData(): Observable<any> {
     return this.http.get<any>(`/irrigation`);
   }

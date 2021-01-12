@@ -11,7 +11,7 @@ import { GrowthPalnComponent } from '@app/home/components/growth-paln/growth-pal
 import { SubHeader3Component } from '@app/home/components/sub-header3/sub-header3.component';
 import { GreenCrackComponent } from '@app/home/components/green-crack/green-crack.component';
 import { AddRecipeDetailsComponent } from '@app/home/components/add-recipe-details/add-recipe-details.component';
-import {Confirm} from '@app/@shared/components/confirm';
+import { Confirm } from '@app/@shared/components/confirm';
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
 
@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
     GrowthPalnComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
-    Confirm
+    Confirm,
   ],
   exports: [
     LoaderComponent,
@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
     GrowthPalnComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
-    Confirm
+    Confirm,
   ],
 })
 export class SharedModule {}

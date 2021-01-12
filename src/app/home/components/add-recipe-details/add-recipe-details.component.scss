@@ -2,22 +2,25 @@
   padding-right: 0% !important;
 }
 
+.pointer-click {
+  cursor: pointer;
+}
+
 .first-child-input {
   // width: 12vw !important;
   text-align: center;
   margin-right: auto;
 }
 
-
-.max-width-63{
-max-width: 63% !important;
+.max-width-63 {
+  max-width: 63% !important;
 }
 
-.max-width-37{
+.max-width-37 {
   max-width: 37.5% !important;
 }
 
-input{
+input {
   width: 3vw;
   border-bottom: 1px solid;
   margin-right: 2vw;
@@ -26,11 +29,10 @@ input{
 input {
   // width: 2vw;
   width: 35px;
-font-size: 12px;
+  font-size: 12px;
   // border: 1px solid;
   // margin-right: 2vw;
   margin-right: auto;
-
 }
 
 /* Chrome, Safari, Edge, Opera */

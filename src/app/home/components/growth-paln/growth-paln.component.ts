@@ -17,7 +17,6 @@ export class GrowthPalnComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.recipeGrowthData);
-   
   }
 
   edit(headers: any, element: any) {
@@ -35,18 +34,13 @@ export class GrowthPalnComponent implements OnInit {
   async delete(id: number) {
     let recipeGrowthData_resp = await this.recipeGrowthData.toPromise();
     recipeGrowthData_resp.data.splice(id, 1);
-    this.confirm.show(`Are you sure you want to delete?`)
-    .then((opt) => {
-        if (opt == true) {
-          this.apiService.editRecipe(recipeGrowthData_resp).subscribe((res:any)=> {
-            this.apiService.actionSubject.next(1);
-           
-          });
-        }
-    })
+    this.confirm.show(`Are you sure you want to delete?`).then((opt) => {
+      if (opt == true) {
+        this.apiService.editRecipe(recipeGrowthData_resp).subscribe((res: any) => {
+          this.apiService.actionSubject.next(1);
+        });
+      }
+    });
     console.log(recipeGrowthData_resp);
   }
-
- 
-
 }

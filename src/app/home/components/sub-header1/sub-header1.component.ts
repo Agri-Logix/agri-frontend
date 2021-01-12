@@ -30,11 +30,10 @@ export class SubHeader1Component implements OnInit {
   }
 
   getUpdatedData() {
-    this.apiService.actionSubject.subscribe((res:any)=> {
-      if(res==1) {
+    this.apiService.actionSubject.subscribe((res: any) => {
+      if (res == 1) {
         this.getData();
       }
-    })
+    });
   }
-
 }
