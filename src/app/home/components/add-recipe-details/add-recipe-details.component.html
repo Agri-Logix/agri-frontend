@@ -1,11 +1,15 @@
-<section class="statistic">
+<section class="statistic p-2">
   <div class="section_content section_content--p30 mb-3">
     <div class="container-fluid">
       <div class="row shadow_border">
         <div class="col-md-6 pb-3 pt-3">
           <p class="font_30 pl-2">Recipe name: {{ details.details.name }}</p>
         </div>
-        <div class="col-md-6 d-flex justify_btw pb-3 pt-3 align-center"></div>
+
+        <div class="col-md-6 d-flex pb-3 pt-3 align-center justify-end pointer-click" (click)="editableRow('details')">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>{{ button_text }}</p>
+        </div>
         <div class="col-md-12">
           <!-- DATA TABLE-->
           <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
@@ -20,11 +24,7 @@
           </div>
         </div>
 
-        <div
-          *ngFor="let data of details?.details.details; let i = index"
-          class="col-md-12 d-md-flex pt-3 pb-3"
-          (dblclick)="editableRow(i, 'details')"
-        >
+        <div *ngFor="let data of details?.details.details; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
           <div
             class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
             *ngIf="!data?.isEdit; else editable_row"
@@ -37,6 +37,7 @@
             <p class="pl-50 pr-3">{{ data.bloom_B }}</p>
             <p class="pl-50 pr-3">{{ data.e_plus }}</p>
           </div>
+
           <ng-template #editable_row>
             <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
               <p class="pr-4 pl-4 first-child-input">{{ data.id }}: Days</p>
@@ -92,6 +93,7 @@
                 <p class="pl-2 pr-2">{{ data.targets[0].tds }} PPM</p>
               </div>
             </div>
+
             <ng-template #editable_row_units>
               <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
                 <div class="d-flex tabs_border">
@@ -125,13 +127,18 @@
               </div>
             </ng-template>
           </div>
+
           <!-- END DATA TABLE-->
+        </div>
+        <div class="col-md-7 d-flex pb-3 align-center justify-end">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Cycle</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="statistic">
+<section class="statistic p-2">
   <div class="section_content section_content--p30 mb-3">
     <div class="container-fluid">
       <div class="row shadow_border">
@@ -154,21 +161,17 @@
             <div class="col-md-2 pl-0">
               <p>Total Duration</p>
             </div>
-            <div class="col-md-2 pl-0">
+            <div class="col-md-2 pl-0" *ngIf="headerIndex === undefined">
               <p>Output % (50-105)</p>
             </div>
 
-            <div class="col-md-4 pl-100">
+            <div class="col-md-4 pl-100 text-right">
               <p>Select Days</p>
             </div>
           </div>
         </div>
 
-        <div
-          *ngFor="let tableData of details.details.run_times; let i = index"
-          class="col-md-12 d-md-flex pt-3 pb-3"
-          (dblclick)="editableRow(i, 'run_times')"
-        >
+        <div *ngFor="let tableData of details.details.run_times; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
           <!-- DATA TABLE-->
           <div
             *ngIf="!tableData?.isEdit; else editable_row_runtimes"
@@ -183,7 +186,7 @@
             <div class="col-md-3 align-center d-flex pl-4">
               <p>{{ tableData.total_duration }}</p>
             </div>
-            <div class="col-md-3 align-center d-flex pl-5">
+            <div class="col-md-3 align-center d-flex pl-5" *ngIf="headerIndex === undefined">
               <p>{{ tableData.output }}</p>
             </div>
           </div>
@@ -210,13 +213,13 @@
                   (input)="editRow($event.target.value, 'total_duration', tableData, 'run_times')"
                 />
               </div>
-              <div class="col-md-3 align-center d-flex pl-5">
+              <!-- <div class="col-md-3 align-center d-flex pl-5">
                 <input
                   type="text"
                   [value]="tableData.output"
                   (input)="editRow($event.target.value, 'output', tableData, 'run_times')"
                 />
-              </div>
+              </div> -->
             </div>
           </ng-template>
           <div class="col-md-5 d-flex pr-2 custom-border col-sm-12 pt-2 pb-2 max-width-37">
