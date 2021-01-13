@@ -148,27 +148,34 @@
     "pumps": [
       {
         "id": 1,
-        "name": "ACID"
+        "name": "ACID",
+        "isEdit": true
       },
       {
         "id": 2,
-        "name": "Grow A"
+        "name": "Grow ABC",
+        "isEdit": true
       },
+
       {
         "id": 3,
-        "name": "Grow B"
+        "name": "Grow B",
+        "isEdit": true
       },
       {
         "id": 4,
-        "name": "Bloom A"
+        "name": "Bloom A",
+        "isEdit": true
       },
       {
         "id": 5,
-        "name": "Bloom B"
+        "name": "Bloom B",
+        "isEdit": true
       },
       {
         "id": 6,
-        "name": "E-Plus"
+        "name": "E-Plus",
+        "isEdit": true
       }
     ],
     "data": [
@@ -183,6 +190,7 @@
         "details": [
           {
             "id": 1,
+            "days": "2",
             "cycle": "1.5",
             "stage": "Veg",
             "grow_A": "4",
@@ -304,6 +312,7 @@
         "details": [
           {
             "id": 2,
+            "days": "10",
             "cycle": "6",
             "stage": "Veg",
             "grow_A": "6",
@@ -318,7 +327,8 @@
                 "ec": ".05",
                 "tds": "10"
               }
-            ]
+            ],
+            "isEdit": true
           }
         ],
         "run_times": [
@@ -423,6 +433,7 @@
         "details": [
           {
             "id": 3,
+            "days": 1,
             "cycle": "7",
             "stage": "Veg",
             "grow_A": "6",
@@ -543,6 +554,7 @@
         "details": [
           {
             "id": 4,
+            "days": 1,
             "cycle": "10",
             "stage": "Veg",
             "grow_A": "6",

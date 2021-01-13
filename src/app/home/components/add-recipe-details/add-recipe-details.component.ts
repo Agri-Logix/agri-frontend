@@ -16,7 +16,8 @@ export class AddRecipeDetailsComponent implements OnInit {
   subscription: Subscription;
   debouncedFunction: any;
   details: any;
-  button_text = 'Edit Recipe';
+  button_text_recipe = 'Edit Recipe';
+  button_text_runtimes = 'Edit Routine';
   headerIndex = '';
   constructor(public apiService: ApiService, private _location: Location) {}
 
@@ -28,15 +29,15 @@ export class AddRecipeDetailsComponent implements OnInit {
   editableRow(key: string) {
     this.details.details[key] = this.details.details[key].map((x: any) => {
       x.isEdit = !x.isEdit;
-      this.button_text = x.isEdit ? 'Save' : 'Edit Recipe';
+      this.button_text_recipe = x.isEdit ? 'Save' : 'Edit Recipe';
       return x;
     });
 
-    this.details.details.run_times = this.details.details.run_times.map((val: any) => {
-      val.isEdit = !val.isEdit;
-      //
-      return val;
-    });
+    // this.details.details.run_times = this.details.details.run_times.map((val: any) => {
+    //   val.isEdit = !val.isEdit;
+    //   //
+    //   return val;
+    // });
 
     // [index].isEdit = !this.details.details[key][index].isEdit;
   }
@@ -78,15 +79,14 @@ export class AddRecipeDetailsComponent implements OnInit {
       } else {
         this.details.details.details = this.details.details.details.map((val: Object) => {
           val['isEdit'] = true;
-          this.button_text = val['isEdit'] ? 'Save' : 'Edit Recipe';
+          this.button_text_recipe = val['isEdit'] ? 'Save' : 'Edit Recipe';
           return val;
         });
         this.details.details.run_times = this.details.details.run_times.map((val: Object) => {
           val['isEdit'] = true;
-          this.button_text = val['isEdit'] ? 'Save' : 'Edit Recipe';
+          this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
           return val;
         });
-        console.log(this.details.details.run_times);
       }
     });
   }

@@ -1,13 +1,30 @@
 <div>
   <section class="statistic mt-5">
     <div class="section__content section__content--p30">
-      <div *ngIf="apiService.detailsSubject | async; let data" class="container-fluid">
+      <div class="col-md-12 d-flex pb-3 pt-3 align-center justify-end pointer-click">
+        <img
+          src="assets/images/icon/icons8-add-property-64 1.png"
+          alt=""
+          class="img-fluid pr-2"
+          (click)="editable_row()"
+        />
+        <p (click)="editable_row()">Edit Pumps</p>
+      </div>
+      <div *ngIf="data" class="container-fluid">
         <div class="row">
-          <div *ngFor="let tableData of data.pumpsData.pumps" class="col-md-6 col-lg-4 custom">
+          <div *ngFor="let tableData of data.pumpsData.pumps; let i = index" class="col-md-6 col-lg-4 custom">
             <div class="statistic__item custom-statistic__item shadow_border">
               <div class="col-md-12 d-flex pr-0 justify-center align-center">
                 <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Pump {{ tableData.id }}: {{ tableData.name }}</h4>
+                <h4 *ngIf="!tableData.isEdit; else editable_input" class="blue-clr">
+                  Pump {{ tableData.id }}: {{ tableData.name }}
+                </h4>
+                <input
+                  #editable_input
+                  type="text"
+                  [value]="tableData.name"
+                  (input)="edit_row(i, $event.target.value)"
+                />
               </div>
             </div>
           </div>
