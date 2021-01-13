@@ -20,10 +20,15 @@
           </div>
         </div>
 
-        <div *ngFor="let data of details?.details.details; let i = index" class="col-md-12 d-md-flex pt-3 pb-3"
-          (dblclick)="editableRow(i, 'details')">
-          <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
-            *ngIf="!data?.isEdit; else editable_row">
+        <div
+          *ngFor="let data of details?.details.details; let i = index"
+          class="col-md-12 d-md-flex pt-3 pb-3"
+          (dblclick)="editableRow(i, 'details')"
+        >
+          <div
+            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
+            *ngIf="!data?.isEdit; else editable_row"
+          >
             <p class="pr-4 pl-4">{{ data.id }}: Days</p>
             <p class="pl-100">{{ data.stage }}</p>
             <p class="pl-50">{{ data.grow_A }}</p>
@@ -34,18 +39,37 @@
           </div>
           <ng-template #editable_row>
             <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
-              <p class="pr-4 pl-4  first-child-input">{{ data.id }}: Days</p>
-              <input type="text" [value]="data.stage" (input)="editRow($event.target.value, 'stage', data, 'details')">
-              <input type="number" [value]="data.grow_A"
-                (input)="editRow($event.target.value, 'grow_A', data, 'details')">
-              <input type="number" [value]="data.grow_B"
-                (input)="editRow($event.target.value, 'grow_B', data, 'details')">
-              <input type="number" [value]="data.bloom_A"
-                (input)="editRow($event.target.value, 'bloom_A', data, 'details')">
-              <input type="number" [value]="data.bloom_B"
-                (input)="editRow($event.target.value, 'bloom_B', data, 'details')">
-              <input type="number" [value]="data.e_plus"
-                (input)="editRow($event.target.value, 'e_plus', data, 'details')">
+              <p class="pr-4 pl-4 first-child-input">{{ data.id }}: Days</p>
+              <input
+                type="text"
+                [value]="data.stage"
+                (input)="editRow($event.target.value, 'stage', data, 'details')"
+              />
+              <input
+                type="number"
+                [value]="data.grow_A"
+                (input)="editRow($event.target.value, 'grow_A', data, 'details')"
+              />
+              <input
+                type="number"
+                [value]="data.grow_B"
+                (input)="editRow($event.target.value, 'grow_B', data, 'details')"
+              />
+              <input
+                type="number"
+                [value]="data.bloom_A"
+                (input)="editRow($event.target.value, 'bloom_A', data, 'details')"
+              />
+              <input
+                type="number"
+                [value]="data.bloom_B"
+                (input)="editRow($event.target.value, 'bloom_B', data, 'details')"
+              />
+              <input
+                type="number"
+                [value]="data.e_plus"
+                (input)="editRow($event.target.value, 'e_plus', data, 'details')"
+              />
             </div>
           </ng-template>
           <div class="col-md-4 d-flex custom-border col-sm-12">
@@ -72,21 +96,30 @@
               <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
                 <div class="d-flex tabs_border">
                   <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
-                  <input type="number" [value]="data.targets[0].ph"
-                    (input)="editRow($event.target.value, 'targets', data,  'details','ph', 0)">
+                  <input
+                    type="number"
+                    [value]="data.targets[0].ph"
+                    (input)="editRow($event.target.value, 'targets', data, 'details', 'ph', 0)"
+                  />
                 </div>
 
                 <div class="d-flex tabs_border">
                   <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
-                  <input type="number" [value]="data.targets[0].ec"
-                    (input)="editRow($event.target.value, 'targets', data, 'details', 'ec', 0)">
+                  <input
+                    type="number"
+                    [value]="data.targets[0].ec"
+                    (input)="editRow($event.target.value, 'targets', data, 'details', 'ec', 0)"
+                  />
                   <p class="pl-2 pr-2">uS/cm</p>
                 </div>
 
                 <div class="d-flex tabs_border">
                   <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
-                  <input type="number" [value]="data.targets[0].tds"
-                    (input)="editRow($event.target.value, 'targets', data, 'details','tds', 0)">
+                  <input
+                    type="number"
+                    [value]="data.targets[0].tds"
+                    (input)="editRow($event.target.value, 'targets', data, 'details', 'tds', 0)"
+                  />
                   <p class="pl-2 pr-2">PPM</p>
                 </div>
               </div>
@@ -131,11 +164,16 @@
           </div>
         </div>
 
-        <div *ngFor="let tableData of details.details.run_times; let i = index" class="col-md-12 d-md-flex pt-3 pb-3"
-          (dblclick)="editableRow(i, 'run_times')">
+        <div
+          *ngFor="let tableData of details.details.run_times; let i = index"
+          class="col-md-12 d-md-flex pt-3 pb-3"
+          (dblclick)="editableRow(i, 'run_times')"
+        >
           <!-- DATA TABLE-->
-          <div *ngIf="!tableData?.isEdit; else editable_row_runtimes"
-            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 max-width-63">
+          <div
+            *ngIf="!tableData?.isEdit; else editable_row_runtimes"
+            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 max-width-63"
+          >
             <div class="col-md-3 pl-4 d-flex align-center">
               <p>{{ tableData.start_time }}</p>
             </div>
@@ -152,31 +190,52 @@
           <ng-template #editable_row_runtimes>
             <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 max-width-63">
               <div class="col-md-3 pl-4 d-flex align-center">
-                <input type="text" [value]="tableData.start_time"
-                  (input)="editRow($event.target.value, 'start_time', tableData, 'run_times')">
+                <input
+                  type="text"
+                  [value]="tableData.start_time"
+                  (input)="editRow($event.target.value, 'start_time', tableData, 'run_times')"
+                />
               </div>
               <div class="col-md-3 align-center d-flex">
-                <input type="text" [value]="tableData.end_time"
-                  (input)="editRow($event.target.value, 'end_time', tableData, 'run_times')">
+                <input
+                  type="text"
+                  [value]="tableData.end_time"
+                  (input)="editRow($event.target.value, 'end_time', tableData, 'run_times')"
+                />
               </div>
               <div class="col-md-3 align-center d-flex pl-4">
-                <input type="text" [value]="tableData.total_duration"
-                  (input)="editRow($event.target.value, 'total_duration', tableData, 'run_times')">
+                <input
+                  type="text"
+                  [value]="tableData.total_duration"
+                  (input)="editRow($event.target.value, 'total_duration', tableData, 'run_times')"
+                />
               </div>
               <div class="col-md-3 align-center d-flex pl-5">
-                <input type="text" [value]="tableData.output"
-                  (input)="editRow($event.target.value, 'output', tableData, 'run_times')">
+                <input
+                  type="text"
+                  [value]="tableData.output"
+                  (input)="editRow($event.target.value, 'output', tableData, 'run_times')"
+                />
               </div>
             </div>
           </ng-template>
           <div class="col-md-5 d-flex pr-2 custom-border col-sm-12 pt-2 pb-2 max-width-37">
             <div class="form-check-inline form-check">
-              <label *ngFor="let days of tableData.select_days; let i= index" for="inline-checkbox1"
-                class="form-check-label pr-2">
-                {{days.day}}
-                <input type="checkbox" [checked]="days.bool" [id]="days.id" [name]="days.id" [value]="days.day"
+              <label
+                *ngFor="let days of tableData.select_days; let i = index"
+                for="inline-checkbox1"
+                class="form-check-label pr-2"
+              >
+                {{ days.day }}
+                <input
+                  type="checkbox"
+                  [checked]="days.bool"
+                  [id]="days.id"
+                  [name]="days.id"
+                  [value]="days.day"
                   class="form-check-input"
-                  (change)="editRow($event.target.checked, 'select_days', tableData, 'run_times','bool', i)" />
+                  (change)="editRow($event.target.checked, 'select_days', tableData, 'run_times', 'bool', i)"
+                />
               </label>
             </div>
           </div>

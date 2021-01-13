@@ -13,22 +13,19 @@ export class SubHeader2Component implements OnInit {
   addClass: boolean;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {
-    this.route.url.subscribe((res:any)=> {
+    this.route.url.subscribe((res: any) => {
       console.log(res);
 
-      if(res[0].path=='component2') {
-        this.addClass= true;
+      if (res[0].path == 'component2') {
+        this.addClass = true;
         console.log(this.addClass);
+      } else {
+        this.addClass = false;
       }
-      else {
-        this.addClass=  false;
-
-      }
-    })
+    });
   }
 
   ngOnInit(): void {
-   
     this.getIrrigationData();
   }
 
