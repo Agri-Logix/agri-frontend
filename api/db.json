@@ -188,9 +188,9 @@
             "grow_A": "4",
             "grow_B": "4",
             "bloom_A": "20",
-            "bloom_B": "30",
+            "bloom_B": "20",
             "bloom_C": "3",
-            "e_plus": "2",
+            "e_plus": "4",
             "targets": [
               {
                 "ph": "6",
@@ -206,7 +206,7 @@
             "id": 1,
             "start_time": "07:00 AM",
             "end_time": "11:00 AM",
-            "total_duration": "5Hr 0Min",
+            "total_duration": "6Hr 0Min",
             "output": "85%",
             "select_days": [
               {
