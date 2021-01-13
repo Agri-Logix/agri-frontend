@@ -19,12 +19,9 @@
                 <h4 *ngIf="!tableData.isEdit; else editable_input" class="blue-clr">
                   Pump {{ tableData.id }}: {{ tableData.name }}
                 </h4>
-                <input
-                  #editable_input
-                  type="text"
-                  [value]="tableData.name"
-                  (input)="edit_row(i, $event.target.value)"
-                />
+                <ng-template #editable_input>
+                  <input type="text" [value]="tableData.name" (input)="edit_row(i, $event.target.value)" />
+                </ng-template>
               </div>
             </div>
           </div>
