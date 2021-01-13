@@ -34,6 +34,7 @@ export class AddRecipeDetailsComponent implements OnInit {
 
     this.details.details.run_times = this.details.details.run_times.map((val: any) => {
       val.isEdit = !val.isEdit;
+      //
       return val;
     });
 
