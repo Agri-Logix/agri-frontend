@@ -145,7 +145,10 @@
         <div class="col-md-10 pb-3 pt-3">
           <p class="font_30 pl-2">{{ details.details.name }}: Run Times</p>
         </div>
-        <div class="col-md-2 d-flex pb-3 pt-3 align-center justify-end" (click)="editableRow('run_times')">
+        <div
+          class="col-md-2 d-flex pb-3 pt-3 align-center justify-end pointer-click"
+          (click)="editableRow('run_times')"
+        >
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
           <p>{{ button_text_runtimes }}</p>
         </div>

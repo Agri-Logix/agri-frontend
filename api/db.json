@@ -153,10 +153,9 @@
       },
       {
         "id": 2,
-        "name": "Grow ABC",
+        "name": "Grow A",
         "isEdit": true
       },
-
       {
         "id": 3,
         "name": "Grow B",
@@ -297,7 +296,8 @@
                 "day": "Sat",
                 "bool": false
               }
-            ]
+            ],
+            "isEdit": true
           }
         ]
       },

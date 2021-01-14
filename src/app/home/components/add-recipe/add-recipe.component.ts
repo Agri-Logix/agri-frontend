@@ -22,6 +22,8 @@ export class AddRecipeComponent implements OnInit {
   editable_row() {
     this.data.pumpsData.pumps = this.data.pumpsData.pumps.map((item: any) => {
       item['isEdit'] = !item['isEdit'];
+      console.log(item);
+      item.isEdit ? (this.button_pumps = 'Save Pumps') : (this.button_pumps = 'Edit');
       return item;
     });
   }

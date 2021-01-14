@@ -27,11 +27,19 @@ export class AddRecipeDetailsComponent implements OnInit {
   }
 
   editableRow(key: string) {
-    this.details.details[key] = this.details.details[key].map((x: any) => {
-      x.isEdit = !x.isEdit;
-      this.button_text_recipe = x.isEdit ? 'Save' : 'Edit Recipe';
-      return x;
-    });
+    if (key == 'details') {
+      this.details.details[key] = this.details.details[key].map((x: any) => {
+        x.isEdit = !x.isEdit;
+        this.button_text_recipe = x.isEdit ? 'Save' : 'Edit Recipe';
+        return x;
+      });
+    } else {
+      this.details.details.run_times = this.details.details.run_times.map((val: any) => {
+        val.isEdit = !val.isEdit;
+        this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
+        return val;
+      });
+    }
 
     // this.details.details.run_times = this.details.details.run_times.map((val: any) => {
     //   val.isEdit = !val.isEdit;
