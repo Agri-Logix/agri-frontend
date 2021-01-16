@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 
 import { Logger } from '@core';
+import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 import { CredentialsService } from './credentials.service';
 
 const log = new Logger('AuthenticationGuard');
@@ -9,16 +10,37 @@ const log = new Logger('AuthenticationGuard');
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationGuard implements CanActivate {
-  constructor(private router: Router, private credentialsService: CredentialsService) {}
+export class AuthenticationGuard extends KeycloakAuthGuard {
+  constructor(
+    public router: Router,
+    private credentialsService: CredentialsService,
+    protected readonly keycloak: KeycloakService
+  ) {
+    super(router, keycloak);
+  }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.credentialsService.isAuthenticated()) {
+  public async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // Force the user to log in if currently unauthenticated.
+    if (!this.authenticated) {
+      await this.keycloak.login({
+        redirectUri: window.location.origin + state.url,
+      });
+    }
+
+    // Get the roles required from the route.
+    const requiredRoles = route.data.roles;
+
+    // Allow the user to to proceed if no additional roles are required to access the route.
+    if (!(requiredRoles instanceof Array) || requiredRoles.length === 0) {
       return true;
     }
 
-    log.debug('Not authenticated, redirecting and adding redirect url...');
-    this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
-    return false;
+    // Allow the user to proceed if all the required roles are present.
+    return requiredRoles.every((role) => this.roles.includes(role));
   }
+
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  //   if (this.credentialsService.isAuthenticated()) {
+  //     return true;
+  //   }
 }
