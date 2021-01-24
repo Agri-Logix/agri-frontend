@@ -14,9 +14,10 @@ import { AddRecipeDetailsComponent } from '@app/home/components/add-recipe-detai
 import { Confirm } from '@app/@shared/components/confirm';
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule],
+  imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
   declarations: [
     LoaderComponent,
     SubHeader1Component,

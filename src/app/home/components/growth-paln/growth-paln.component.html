@@ -2,12 +2,12 @@
   <div class="section__content section__content--p30 mb-3">
     <div class="container-fluid">
       <div *ngIf="recipeGrowthData | async; let data" class="row shadow_border">
-        <div class="col-md-6 pb-3 pt-3">
+        <div class="col-md-11 pb-3 pt-3">
           <p class="font_30 pl-2">Recipe/Growth Plan</p>
         </div>
-        <div class="col-md-6 d-flex pb-3 pt-3 align-center justify-end">
-          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
-          <p>Add</p>
+        <div class="col-md-1 d-flex pb-3 pt-3 align-center justify-end" (click)="isAdd(true)">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2 clickable-element" />
+          <p class="clickable-element">Add</p>
         </div>
         <div class="col-md-12">
           <!-- DATA TABLE-->
@@ -25,13 +25,47 @@
               <p>Last Updated</p>
             </div>
             <div class="col-md-2">
-              <p></p>
+              <p>Next Scheduled</p>
             </div>
             <div class="col-md-2 pl-5">
               <p>Actions</p>
             </div>
           </div>
           <!-- END DATA TABLE-->
+        </div>
+        <div *ngIf="allowAdd" class="col-md-12 d-md-flex pt-3 pb-3">
+          <form [formGroup]="_form" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12">
+            <div class="col-md-3 pl-4 d-flex align-center">
+              <input type="text" formControlName="name" />
+            </div>
+            <div class="col-md-3 align-center d-flex">
+              <input type="text" formControlName="desc" />
+            </div>
+            <div class="col-md-3 align-center d-flex pl-4">
+              <input type="number" formControlName="total_days" />
+            </div>
+            <div class="col-md-3 align-center d-flex"></div>
+          </form>
+          <div class="col-md-4 d-flex pr-2 custom-border col-sm-12">
+            <div class="col-md-6 align-center d-flex"></div>
+            <div class="col-md-6 align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <button
+                  (click)="addGrowthPlan()"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-floppy"></i>
+                </button>
+                <button (click)="isAdd(false)" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                  <i class="zmdi zmdi-close"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div *ngFor="let tableData of data.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
