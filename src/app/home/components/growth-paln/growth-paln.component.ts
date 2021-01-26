@@ -128,6 +128,7 @@ export class GrowthPalnComponent implements OnInit {
     _recipeGrowthData['data'].push(this.model);
     this.apiService.editRecipe(_recipeGrowthData).subscribe((resp) => {
       this.isAdd(false);
+      this.apiService.actionSubject.next(1);
     });
   }
 
