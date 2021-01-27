@@ -70,7 +70,9 @@ export class AddRecipeDetailsComponent implements OnInit {
     updateModel['details'].push(this.addRecipeForm.value);
     this.apiService.editRecipe(apiResponse).subscribe((resp) => {
       this.allowAdd = false;
-      this.getDetails();
+      let headerIndex = new URLSearchParams(window.location.search).get('data');
+      let api_details = resp['data'].find((x: any) => x['id'] === Number(headerIndex));
+      this.details = api_details.details;
     });
   }
 
@@ -129,7 +131,7 @@ export class AddRecipeDetailsComponent implements OnInit {
   }
 
   getDetails() {
-    this.subscription = this.apiService.detailsSubject.subscribe(async (res: any) => {
+    this.subscription = this.apiService.detailsSubject.subscribe((res: any) => {
       this.details = res;
 
       console.log(this.details);
