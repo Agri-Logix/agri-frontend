@@ -235,20 +235,15 @@
                 <input
                   type="text"
                   [value]="tableData.start_time"
-                  [ngxMatTimepicker]="pickerA"
-                  (click)="pickerA.open()"
                   (input)="editRow($event.target.value, 'start_time', tableData, 'run_times')"
                 />
-                <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
               </div>
               <div class="col-md-3 align-center d-flex">
                 <input
                   type="text"
                   [value]="tableData.end_time"
                   (input)="editRow($event.target.value, 'end_time', tableData, 'run_times')"
-                  (click)="pickerA.open()"
                 />
-                <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
               </div>
               <div class="col-md-3 align-center d-flex pl-4">
                 <p>{{ tableData.total_duration }}</p>
