@@ -8,7 +8,7 @@
     <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : update()" [formGroup]="Form" novalidate>
       <div class="login-error" [hidden]="!error || isLoading"></div>
       <br />
-      <div class="login-fields" fxLayout="column">
+      <div class="login-fields mat-field-30" fxLayout="column">
         <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
             <mat-form-field [hideRequiredMarker]="true">
