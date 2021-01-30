@@ -15,3 +15,13 @@ body {
   margin: 0;
   height: 100%;
 }
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 11000;
+}
+
+.cdk-global-scrollblock {
+  left: 0px !important;
+  top: 0px !important;
+}

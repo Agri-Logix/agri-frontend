@@ -1,0 +1,91 @@
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+  border-radius: 9px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable.modal-xlg {
+  max-width: 850px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable.modal-lg {
+  max-width: 700px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable.modal-sm {
+  max-width: 400px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body {
+  padding: 0 30px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+  background: #ececec;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body {
+  scrollbar-face-color: #d8d8d8;
+  scrollbar-track-color: #ececec;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body .font-16px {
+  font-size: 16px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body .font-12px {
+  font-size: 12px;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body .line-hight-1 {
+  line-height: 1;
+}
+
+::ng-deep .modal-dialog-centered.modal-dialog-scrollable .modal-body .font-weight-500 {
+  font-weight: 500;
+}
+
+.modal-header {
+  position: relative;
+  text-align: center;
+  background: #f7f8fc;
+}
+
+.modal-header .modal-title {
+  width: 100%;
+  font-size: 18px;
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  z-index: 1;
+  top: 5px;
+  background: #eaedf0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #ddd;
+  color: #000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.close .mat-icon {
+  font-size: 18px;
+  line-height: 0.7;
+}
+
+.modal-footer {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+/*# sourceMappingURL=modal.component.css.map */

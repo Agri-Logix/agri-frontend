@@ -23,7 +23,38 @@
             <p class="pr-5 pl-100">Targets</p>
           </div>
         </div>
+        <form [formGroup]="addRecipeForm" class="col-md-12 d-md-flex pt-3 pb-3" *ngIf="allowAdd">
+          <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
+            <input type="text" formControlName="days" />
+            <input type="text" formControlName="stage" />
+            <input type="text" formControlName="grow_A" />
+            <input type="text" formControlName="grow_B" />
+            <input type="text" formControlName="bloom_A" />
+            <input type="text" formControlName="bloom_B" />
+            <input type="text" formControlName="bloom_C" />
+            <input type="text" formControlName="e_plus" />
+          </div>
+          <div class="col-md-4 d-flex custom-border col-sm-12">
+            <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
+              <div class="d-flex tabs_border">
+                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
+                <input type="text" formControlName="ph" />
+              </div>
 
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
+                <input type="text" formControlName="ec" />
+                <p class="pl-2 pr-2">uS/cm</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
+                <input type="text" formControlName="tds" />
+                <p class="pl-2 pr-2">PPM</p>
+              </div>
+            </div>
+          </div>
+        </form>
         <div *ngFor="let data of details?.details.details; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
           <div
             class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
@@ -99,7 +130,7 @@
                 <div class="d-flex tabs_border">
                   <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
                   <input
-                    type="number"
+                    type="text"
                     [value]="data.targets[0].ph"
                     (input)="editRow($event.target.value, 'targets', data, 'details', 'ph', 0)"
                   />
@@ -108,7 +139,7 @@
                 <div class="d-flex tabs_border">
                   <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
                   <input
-                    type="number"
+                    type="text"
                     [value]="data.targets[0].ec"
                     (input)="editRow($event.target.value, 'targets', data, 'details', 'ec', 0)"
                   />
@@ -118,7 +149,7 @@
                 <div class="d-flex tabs_border">
                   <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
                   <input
-                    type="number"
+                    type="text"
                     [value]="data.targets[0].tds"
                     (input)="editRow($event.target.value, 'targets', data, 'details', 'tds', 0)"
                   />
@@ -131,8 +162,13 @@
           <!-- END DATA TABLE-->
         </div>
         <div class="col-md-12 d-flex pb-3 align-center justify-end">
-          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
-          <p>Add Cycle</p>
+          <img
+            src="assets/images/icon/icons8-add-property-64 1.png"
+            alt=""
+            class="img-flui pr-2 clickable-element"
+            (click)="isAdd()"
+          />
+          <p (click)="isAdd()" class="clickable-element">{{ button_text_addRecipe }}</p>
         </div>
       </div>
     </div>
@@ -193,8 +229,8 @@
               <p>{{ tableData.output }}</p>
             </div>
           </div>
-          <ng-template #editable_row_runtimes>
-            <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 max-width-63">
+          <ng-template id="editable_row_runtimes" #editable_row_runtimes>
+            <div class="col-md-8 d-flex pl-2 custom-border custom_input_width mr-1 col-sm-12 max-width-63">
               <div class="col-md-3 pl-4 d-flex align-center">
                 <input
                   type="text"
@@ -244,9 +280,14 @@
           <!-- END DATA TABLE-->
         </div>
         <!-- (changed)="editRow($event.checked, days.id, tableData, 'select_days')" -->
-        <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
+        <!-- <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
           <img src="assets/images/icon/icons8-calendar-128 1.png" alt="" class="img-fluid pr-2" />
           <p>Calendar View</p>
+        </div> -->
+
+        <div (click)="addRoutine()" class="col-md-12 d-flex pb-4 pt-4 align-center justify-end pointer-click">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Routine</p>
         </div>
       </div>
     </div>

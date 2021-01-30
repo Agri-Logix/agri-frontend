@@ -14,9 +14,11 @@ import { AddRecipeDetailsComponent } from '@app/home/components/add-recipe-detai
 import { Confirm } from '@app/@shared/components/confirm';
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from '@shared/modal/modal.component';
 
 @NgModule({
-  imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule],
+  imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
   declarations: [
     LoaderComponent,
     SubHeader1Component,
@@ -25,6 +27,7 @@ import { RouterModule } from '@angular/router';
     GreenCrackComponent,
     IrrigationComponent,
     GrowthPalnComponent,
+    ModalComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
@@ -37,6 +40,7 @@ import { RouterModule } from '@angular/router';
     GreenCrackComponent,
     IrrigationComponent,
     GrowthPalnComponent,
+    ModalComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
