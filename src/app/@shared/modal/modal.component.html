@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-header p-2 pt-4 pb-4 pl-5">
+    <h4 class="modal-title" id="modal-basic-title">
+      <ng-content select="[modal-header]"></ng-content>
+    </h4>
+    <!--  -->
+  </div>
+  <div class="modal-body pt-3">
+    <ng-content select="[modal-body]"></ng-content>
+  </div>
+  <div class="modal-footer border-0">
+    <ng-content select="[modal-footer]"></ng-content>
+  </div>
+</ng-template>

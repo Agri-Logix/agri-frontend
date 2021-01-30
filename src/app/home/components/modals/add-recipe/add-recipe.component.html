@@ -1,0 +1,70 @@
+<app-modal [size]="'md'">
+  <!-- size could be sm md lg xl -->
+  <div modal-header>
+    <div>Add Recipe</div>
+  </div>
+
+  <div class="mb-4" modal-body>
+    <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : update()" [formGroup]="Form" novalidate>
+      <div class="login-error" [hidden]="!error || isLoading"></div>
+      <br />
+      <div class="login-fields" fxLayout="column">
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="50" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Name</mat-label>
+              <input type="text" matInput formControlName="name" autocomplete="name" [placeholder]="'Name'" required />
+              <mat-error *ngIf="Form.controls.name.invalid && Form.controls.name.touched">
+                <span>Name is required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Total Days</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="total_days"
+                autocomplete="name"
+                [placeholder]="'Total Days'"
+              />
+              <mat-error *ngIf="Form.controls.total_days.invalid && Form.controls.total_days.touched">
+                <span>Total Days are required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <mat-form-field class="w-100" [hideRequiredMarker]="true">
+            <textarea
+              type="textarea"
+              class="h-50"
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="5"
+              cdkAutosizeMaxRows="5"
+              formControlName="description"
+              placeholder="Description"
+              required
+            >
+            </textarea>
+            <mat-error *ngIf="Form.controls.description.invalid && Form.controls.description.touched">
+              <span translate>description is required</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div modal-footer>
+          <div fxLayoutGap="10px" class="text-right pt-5">
+            <button (click)="close()" class="w-25 grey_bg" mat-raised-button type="button">
+              <span>Cancel</span>
+            </button>
+            <button [disabled]="Form.invalid || isLoading" color="accent" class="w-25" mat-raised-button type="submit">
+              <!-- <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader> -->
+              <span *ngIf="!isLoading">Add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-modal>

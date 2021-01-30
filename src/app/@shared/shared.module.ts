@@ -15,6 +15,7 @@ import { Confirm } from '@app/@shared/components/confirm';
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from '@shared/modal/modal.component';
 
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GreenCrackComponent,
     IrrigationComponent,
     GrowthPalnComponent,
+    ModalComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
@@ -38,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GreenCrackComponent,
     IrrigationComponent,
     GrowthPalnComponent,
+    ModalComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
