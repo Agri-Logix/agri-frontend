@@ -1,0 +1,66 @@
+<app-modal [size]="'md'">
+  <!-- size could be sm md lg xl -->
+  <div modal-header>
+    <div>Add RunTime</div>
+  </div>
+
+  <div class="mb-4" modal-body>
+    <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : update()" [formGroup]="Form" novalidate>
+      <div class="login-error" [hidden]="!error || isLoading"></div>
+      <br />
+      <div class="login-fields" fxLayout="column">
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="50" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field [hideRequiredMarker]="true">
+              <input
+                formControlName="start_time"
+                placeholder="Start Time"
+                matInput
+                [owlDateTimeTrigger]="dt2"
+                [owlDateTime]="dt2"
+              />
+              <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+              <mat-error *ngIf="Form.controls.start_time.invalid && Form.controls.start_time.touched">
+                <span translate>Start Time is required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <input
+                formControlName="end_time"
+                placeholder="End Time"
+                matInput
+                [owlDateTimeTrigger]="dt3"
+                [owlDateTime]="dt3"
+              />
+              <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+              <mat-error *ngIf="Form.controls.end_time.invalid && Form.controls.end_time.touched">
+                <span translate>End Time is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="100" fxLayout="column" fxLayoutGap="20px">
+            <ul formArrayName="days">
+              <li [formGroupName]="i" *ngFor="let item of Form.controls?.days?.controls; let i = index">
+                <input type="checkbox" formControlName="checked" /> {{ days[i].name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div modal-footer>
+          <div fxLayoutGap="10px" class="text-right pt-5">
+            <button (click)="close()" class="w-25 grey_bg" mat-raised-button type="button">
+              <span>Cancel</span>
+            </button>
+            <button [disabled]="Form.invalid || isLoading" color="accent" class="w-25" mat-raised-button type="submit">
+              <!-- <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader> -->
+              <span *ngIf="!isLoading">Add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-modal>

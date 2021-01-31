@@ -133,6 +133,7 @@ export class GrowthPalnComponent implements OnInit {
   }
 
   isAdd(checkInput: boolean) {
+    this.addRecipe();
     this.allowAdd = checkInput;
   }
 
@@ -147,5 +148,9 @@ export class GrowthPalnComponent implements OnInit {
       }
     });
     console.log(recipeGrowthData_resp);
+  }
+
+  addRecipe() {
+    this.router.navigate(['/component1/', { outlets: { RECIPE_MODAL: ['add-new', 'Add New'] } }]);
   }
 }

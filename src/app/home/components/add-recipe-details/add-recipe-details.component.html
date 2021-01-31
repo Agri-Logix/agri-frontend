@@ -280,9 +280,14 @@
           <!-- END DATA TABLE-->
         </div>
         <!-- (changed)="editRow($event.checked, days.id, tableData, 'select_days')" -->
-        <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
+        <!-- <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
           <img src="assets/images/icon/icons8-calendar-128 1.png" alt="" class="img-fluid pr-2" />
           <p>Calendar View</p>
+        </div> -->
+
+        <div (click)="addRoutine()" class="col-md-12 d-flex pb-4 pt-4 align-center justify-end pointer-click">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Routine</p>
         </div>
       </div>
     </div>

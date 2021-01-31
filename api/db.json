@@ -192,7 +192,7 @@
             "days": "2",
             "cycle": "1.5",
             "stage": "Veg",
-            "grow_A": "4",
+            "grow_A": "5",
             "grow_B": "4",
             "bloom_A": "20",
             "bloom_B": "20",
@@ -276,6 +276,60 @@
                 "ph": "2",
                 "ec": "2",
                 "tds": "2"
+              }
+            ]
+          },
+          {
+            "days": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 6,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ]
+          },
+          {
+            "days": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 7,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ]
+          },
+          {
+            "days": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 8,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
               }
             ]
           }
@@ -650,7 +704,7 @@
             "grow_A": "6",
             "grow_B": "4",
             "bloom_A": "20",
-            "bloom_B": "",
+            "bloom_B": "3",
             "bloom_C": "",
             "e_plus": "2",
             "targets": [
@@ -659,7 +713,27 @@
                 "ec": ".05",
                 "tds": "4"
               }
-            ]
+            ],
+            "isEdit": true
+          },
+          {
+            "days": "2",
+            "stage": "vegs",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 2,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ],
+            "isEdit": true
           }
         ],
         "run_times": [
@@ -709,8 +783,8 @@
           },
           {
             "id": 2,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
+            "start_time": "08:00 AM",
+            "end_time": "10:00 AM",
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
@@ -749,7 +823,8 @@
                 "day": "Sat",
                 "bool": false
               }
-            ]
+            ],
+            "isEdit": true
           }
         ]
       },

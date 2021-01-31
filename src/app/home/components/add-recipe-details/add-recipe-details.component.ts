@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 import { debounce } from 'lodash';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -22,7 +23,12 @@ export class AddRecipeDetailsComponent implements OnInit {
   allowAdd: boolean = false;
   addRecipeForm: FormGroup;
 
-  constructor(public apiService: ApiService, private _location: Location, private _formBuilder: FormBuilder) {
+  constructor(
+    public apiService: ApiService,
+    private router: Router,
+    private _location: Location,
+    private _formBuilder: FormBuilder
+  ) {
     this.createRecipeForm();
   }
   createRecipeForm() {
@@ -47,6 +53,7 @@ export class AddRecipeDetailsComponent implements OnInit {
   }
 
   isAdd() {
+    this.addCycle();
     this.allowAdd = !this.allowAdd;
     this.button_text_addRecipe = this.allowAdd ? 'Cancel' : 'Add Cycle';
     this.button_text_recipe = this.allowAdd ? 'Save' : 'Edit Recipe';
@@ -150,5 +157,16 @@ export class AddRecipeDetailsComponent implements OnInit {
         });
       }
     });
+  }
+
+  addCycle() {
+    this.router.navigate(['/component1/add-recipe/', { outlets: { RECIPE_CYCLE_MODAL: ['add-new', 'Add New'] } }]);
+  }
+
+  addRoutine() {
+    this.router.navigate([
+      '/component1/add-recipe/',
+      { outlets: { RECIPE_RUNTIME_MODAL: ['add-run-time', 'Add New'] } },
+    ]);
   }
 }

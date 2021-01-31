@@ -1,0 +1,132 @@
+<app-modal [size]="'md'">
+  <!-- size could be sm md lg xl -->
+  <div modal-header>
+    <div>Add Cycle</div>
+  </div>
+
+  <div class="mb-4" modal-body>
+    <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : update()" [formGroup]="Form" novalidate>
+      <div class="login-error" [hidden]="!error || isLoading"></div>
+      <br />
+      <div class="login-fields mat-field-30" fxLayout="column">
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label># of Days</mat-label>
+              <input type="number" matInput formControlName="days" autocomplete="days" [placeholder]="'# of Days'" />
+              <mat-error *ngIf="Form.controls.days.invalid && Form.controls.days.touched">
+                <span>Days are required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Stage</mat-label>
+              <input type="text" matInput formControlName="stage" autocomplete="stage" [placeholder]="'Stage'" />
+              <mat-error *ngIf="Form.controls.stage.invalid && Form.controls.stage.touched">
+                <span>Stage is required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Grow A</mat-label>
+              <input type="number" matInput formControlName="grow_A" autocomplete="grow_A" [placeholder]="'Grow A'" />
+              <mat-error *ngIf="Form.controls.grow_A.invalid && Form.controls.grow_A.touched">
+                <span>Grow A is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Grow B</mat-label>
+              <input type="number" matInput formControlName="grow_B" autocomplete="grow_B" [placeholder]="'Grow B'" />
+              <mat-error *ngIf="Form.controls.grow_B.invalid && Form.controls.grow_B.touched">
+                <span>Grow B is required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Bloom A</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="bloom_A"
+                autocomplete="bloom_A"
+                [placeholder]="'Bloom A'"
+              />
+              <mat-error *ngIf="Form.controls.bloom_A.invalid && Form.controls.bloom_A.touched">
+                <span>Bloom A is required</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Bloom B</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="bloom_B"
+                autocomplete="bloom_B"
+                [placeholder]="'Bloom B'"
+              />
+              <mat-error *ngIf="Form.controls.bloom_B.invalid && Form.controls.bloom_B.touched">
+                <span>Bloom B is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field style="width: 100% !important" [hideRequiredMarker]="true">
+              <mat-label>E Plus</mat-label>
+              <input type="number" matInput formControlName="e_plus" autocomplete="e_plus" [placeholder]="'E Plus'" />
+              <mat-error *ngIf="Form.controls.e_plus.invalid && Form.controls.e_plus.touched">
+                <span>E Plus is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+          <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>Ph</mat-label>
+              <input type="number" matInput formControlName="ph" autocomplete="ph" [placeholder]="'Ph'" />
+              <mat-error *ngIf="Form.controls.ph.invalid && Form.controls.ph.touched">
+                <span>Ph is required</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>EC</mat-label>
+              <input type="number" matInput formControlName="ec" autocomplete="ec" [placeholder]="'EC'" />
+              <mat-error *ngIf="Form.controls.ec.invalid && Form.controls.ec.touched">
+                <span>EC is required</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]="true">
+              <mat-label>TDS</mat-label>
+              <input type="number" matInput formControlName="tds" autocomplete="tds" [placeholder]="'TDS'" />
+              <mat-error *ngIf="Form.controls.tds.invalid && Form.controls.tds.touched">
+                <span>TDS is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div modal-footer>
+          <div fxLayoutGap="10px" class="text-right pt-5">
+            <button (click)="close()" class="w-25 grey_bg" mat-raised-button type="button">
+              <span>Cancel</span>
+            </button>
+            <button [disabled]="Form.invalid || isLoading" color="accent" class="w-25" mat-raised-button type="submit">
+              <!-- <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader> -->
+              <span *ngIf="!isLoading">Add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-modal>
