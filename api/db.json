@@ -148,32 +148,32 @@
     "pumps": [
       {
         "id": 1,
-        "name": "ACID",
+        "name": "ACID123",
         "isEdit": true
       },
       {
         "id": 2,
-        "name": "Grow A",
+        "name": "Grow Azxc",
         "isEdit": true
       },
       {
         "id": 3,
-        "name": "Grow B",
+        "name": "Grow Bnmp",
         "isEdit": true
       },
       {
         "id": 4,
-        "name": "Bloom A",
+        "name": "Bloom Amko",
         "isEdit": true
       },
       {
         "id": 5,
-        "name": "Bloom B",
+        "name": "Bloom Bnju",
         "isEdit": true
       },
       {
         "id": 6,
-        "name": "E-Plus",
+        "name": "E-Pluszxc",
         "isEdit": true
       }
     ],
@@ -401,6 +401,24 @@
               }
             ],
             "isEdit": true
+          },
+          {
+            "days": "31",
+            "stage": "testing another",
+            "grow_A": "1",
+            "grow_B": "1",
+            "bloom_A": "1",
+            "bloom_B": "1",
+            "bloom_C": "1",
+            "e_plus": "1",
+            "id": 2,
+            "targets": [
+              {
+                "ph": "1",
+                "ec": "1",
+                "tds": "1"
+              }
+            ]
           }
         ],
         "run_times": [
@@ -732,6 +750,162 @@
                 "bool": false
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "growth",
+        "description": "desc",
+        "total_days": 12,
+        "last_updated": "1/27/2021, 8:13:03 PM",
+        "next_sched": "1/29/2021, 8:13:03 PM",
+        "status": true,
+        "details": [
+          {
+            "id": 1,
+            "days": "2",
+            "cycle": "",
+            "stage": "veg",
+            "grow_A": "3",
+            "grow_B": "3",
+            "bloom_A": "3",
+            "bloom_B": "2",
+            "bloom_C": "",
+            "e_plus": "1",
+            "targets": [
+              {
+                "ph": "3",
+                "ec": "3",
+                "tds": "3"
+              }
+            ],
+            "isEdit": true
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "",
+            "end_time": "",
+            "total_duration": "0Hr 0Min",
+            "output": "",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ],
+            "isEdit": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "testing",
+        "description": "descr",
+        "total_days": 12,
+        "last_updated": "1/27/2021, 8:22:54 PM",
+        "next_sched": "1/29/2021, 8:22:54 PM",
+        "status": true,
+        "details": [
+          {
+            "id": 1,
+            "days": "2",
+            "cycle": "",
+            "stage": "v",
+            "grow_A": "3",
+            "grow_B": "5",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ],
+            "isEdit": true
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "",
+            "end_time": "",
+            "total_duration": "0Hr 0Min",
+            "output": "",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ],
+            "isEdit": false
           }
         ]
       }
