@@ -332,6 +332,24 @@
                 "tds": "0"
               }
             ]
+          },
+          {
+            "days": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 9,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ]
           }
         ],
         "run_times": [

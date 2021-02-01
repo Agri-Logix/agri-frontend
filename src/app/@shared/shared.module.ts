@@ -16,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '@shared/modal/modal.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
@@ -31,6 +32,7 @@ import { ModalComponent } from '@shared/modal/modal.component';
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
+    CardsComponent,
   ],
   exports: [
     LoaderComponent,

@@ -1,0 +1,121 @@
+.page-layout {
+  padding-top: 50px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  .border-r-40 {
+    border-radius: 40px;
+  }
+
+  .border-r-20 {
+    border-radius: 20px;
+  }
+  .example-card {
+    // padding: 1rem!important;
+
+    width: 100%;
+    // max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    background: #ffffff;
+
+    .header {
+      font-size: 23.7px;
+    }
+    .body {
+      margin-top: -10px;
+      .para-one {
+        color: #304956;
+        font-size: 30px;
+      }
+      .font-20 {
+        font-size: 20.41px;
+        color: #304956;
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+        }
+      }
+
+      .font-12 {
+        font-size: 12px;
+        color: #304956;
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+        }
+      }
+
+      .border-layout {
+        img {
+          width: 10px;
+          height: 10px;
+          object-fit: contain;
+        }
+
+        padding-left: 10px;
+        padding-right: 10px;
+        background: #ffffff;
+        box-shadow: 0px 0.809524px 6.47619px rgba(0, 0, 0, 0.25);
+        border-radius: 12.86px;
+
+        p {
+          font-size: 8px;
+        }
+      }
+
+      .font-30 {
+        font-size: 30px;
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+        }
+      }
+
+      .font-20 {
+        font-size: 20px;
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+        }
+      }
+      .guage_card {
+        background: #ffffff;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        img {
+          bottom: 15px;
+          object-fit: contain;
+          position: relative;
+        }
+      }
+      .font-40 {
+        font-size: 40px;
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+        }
+      }
+      .para-two {
+        font-size: 50px;
+
+        img {
+          width: 120px;
+          height: 100px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
