@@ -71,6 +71,7 @@ export class RecipeAddCycleModalComponent implements OnInit {
 
   add() {
     this.isLoading = true;
+
     this.isLoading = false;
   }
 
