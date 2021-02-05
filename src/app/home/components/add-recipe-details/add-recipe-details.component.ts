@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '@app/@shared/apiService/api.service';
 import { Observable, Subscription } from 'rxjs';
 import { Location } from '@angular/common';
@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
   templateUrl: './add-recipe-details.component.html',
   styleUrls: ['./add-recipe-details.component.scss'],
 })
-export class AddRecipeDetailsComponent implements OnInit {
+export class AddRecipeDetailsComponent implements OnInit, OnChanges {
   @Input('details') data: Observable<any>;
+  @Input('pumps') pumps: any;
   subscription: Subscription;
   debouncedFunction: any;
   details: any;
@@ -30,6 +31,9 @@ export class AddRecipeDetailsComponent implements OnInit {
     private _formBuilder: FormBuilder
   ) {
     this.createRecipeForm();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.group(changes);
   }
   createRecipeForm() {
     this.addRecipeForm = this._formBuilder.group({
@@ -50,13 +54,7 @@ export class AddRecipeDetailsComponent implements OnInit {
   async ngOnInit() {
     this.getDetails();
     this.headerIndex = new URLSearchParams(window.location.search).get('data');
-  }
-
-  isAdd() {
-    this.addCycle();
-    this.allowAdd = !this.allowAdd;
-    this.button_text_addRecipe = this.allowAdd ? 'Cancel' : 'Add Cycle';
-    this.button_text_recipe = this.allowAdd ? 'Save' : 'Edit Recipe';
+    console.table(this.pumps);
   }
 
   async addRecipe() {
@@ -138,23 +136,24 @@ export class AddRecipeDetailsComponent implements OnInit {
   }
 
   getDetails() {
-    this.subscription = this.apiService.detailsSubject.subscribe((res: any) => {
+    this.subscription = this.apiService.getRecipeGrowthPlan().subscribe((res: any) => {
+      console.log(res);
       this.details = res;
 
       console.log(this.details);
       if (this.details == 0) {
         this._location.back();
       } else {
-        this.details.details.details = this.details.details.details.map((val: Object) => {
-          val['isEdit'] = true;
-          this.button_text_recipe = val['isEdit'] ? 'Save' : 'Edit Recipe';
-          return val;
-        });
-        this.details.details.run_times = this.details.details.run_times.map((val: Object) => {
-          val['isEdit'] = true;
-          this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
-          return val;
-        });
+        // this.details.details.details = this.details.details.details.map((val: Object) => {
+        //   val['isEdit'] = true;
+        //   this.button_text_recipe = val['isEdit'] ? 'Save' : 'Edit Recipe';
+        //   return val;
+        // });
+        // this.details.details.run_times = this.details.details.run_times.map((val: Object) => {
+        //   val['isEdit'] = true;
+        //   this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
+        //   return val;
+        // });
       }
     });
   }

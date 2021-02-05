@@ -15,11 +15,13 @@
           <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
             <p class="pr-3 pl-3">Cycle: (# of Days)</p>
             <p class="pl-3">Stage</p>
-            <p class="pl-3">Grow A</p>
-            <p class="pl-3">Grow B</p>
+            <p *ngFor="let pump of pumps" class="pl-3">
+              {{ pump.name }}
+            </p>
+            <!-- <p class="pl-3">Grow B</p>
             <p class="pl-3">Bloom A</p>
             <p class="pl-3">Bloom B</p>
-            <p class="pl-4 pr-5">E-Plus/</p>
+            <p class="pl-4 pr-5">E-Plus/</p> -->
             <p class="pr-5 pl-100">Targets</p>
           </div>
         </div>
@@ -166,9 +168,9 @@
             src="assets/images/icon/icons8-add-property-64 1.png"
             alt=""
             class="img-flui pr-2 clickable-element"
-            (click)="isAdd()"
+            (click)="addCycle()"
           />
-          <p (click)="isAdd()" class="clickable-element">{{ button_text_addRecipe }}</p>
+          <p (click)="addCycle()" class="clickable-element">{{ button_text_addRecipe }}</p>
         </div>
       </div>
     </div>

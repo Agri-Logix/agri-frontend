@@ -332,6 +332,24 @@
                 "tds": "0"
               }
             ]
+          },
+          {
+            "days": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "id": 9,
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ]
           }
         ],
         "run_times": [
@@ -934,6 +952,161 @@
               }
             ],
             "isEdit": true
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "",
+            "end_time": "",
+            "total_duration": "0Hr 0Min",
+            "output": "",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ],
+            "isEdit": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "admin",
+        "total_days": 12,
+        "last_updated": "2/1/2021, 7:06:25 PM",
+        "next_sched": "2/3/2021, 7:06:25 PM",
+        "status": true,
+        "details": [
+          {
+            "id": 1,
+            "days": "",
+            "cycle": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ],
+            "isEdit": false
+          }
+        ],
+        "run_times": [
+          {
+            "id": 1,
+            "start_time": "",
+            "end_time": "",
+            "total_duration": "0Hr 0Min",
+            "output": "",
+            "select_days": [
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
+            ],
+            "isEdit": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "test Name",
+        "description": "Testing Description",
+        "total_days": 12,
+        "last_updated": "2/1/2021, 7:13:59 PM",
+        "next_sched": "2/3/2021, 7:13:59 PM",
+        "status": true,
+        "details": [
+          {
+            "id": 1,
+            "days": "",
+            "cycle": "",
+            "stage": "",
+            "grow_A": "",
+            "grow_B": "",
+            "bloom_A": "",
+            "bloom_B": "",
+            "bloom_C": "",
+            "e_plus": "",
+            "targets": [
+              {
+                "ph": "0",
+                "ec": "0",
+                "tds": "0"
+              }
+            ],
+            "isEdit": false
           }
         ],
         "run_times": [

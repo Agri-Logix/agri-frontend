@@ -10,7 +10,7 @@ import { debounce } from 'lodash';
 })
 export class AddRecipeComponent implements OnInit {
   data: any;
-  button_pumps = 'Save Pumps';
+  button_pumps = 'Edit';
   debouncedFunction: any;
 
   constructor(private _router: ActivatedRoute, public apiService: ApiService) {
@@ -42,12 +42,15 @@ export class AddRecipeComponent implements OnInit {
     }, 1000);
     this.debouncedFunction();
   }
+
   ngOnInit(): void {
-    this.apiService.detailsSubject.subscribe((resp) => {
+    this.apiService.getRecipeGrowthPlan().subscribe((resp) => {
+      console.log(resp);
+
       this.data = resp;
       let headerIndex = new URLSearchParams(window.location.search).get('data');
-      this.data.pumpsData.pumps = this.data.pumpsData.pumps.map((item: any) => {
-        item['isEdit'] = headerIndex ? true : false;
+      this.data.pumpsData.pumps = resp.pumps.map((item: any) => {
+        item['isEdit'] = false;
         return item;
       });
     });
