@@ -8,12 +8,12 @@
           class="img-fluid pr-2"
           (click)="editable_row()"
         />
-        <!--  -->
+
         <p (click)="editable_row()">{{ button_pumps }}</p>
       </div>
-      <div *ngIf="data" class="container-fluid">
+      <div *ngIf="recipePumps" class="container-fluid">
         <div class="row">
-          <div *ngFor="let tableData of data.pumpsData.pumps; let i = index" class="col-md-6 col-lg-4 custom">
+          <div *ngFor="let tableData of recipePumps; let i = index" class="col-md-6 col-lg-4 custom">
             <div class="statistic__item custom-statistic__item shadow_border">
               <div class="col-md-12 d-flex pr-0 justify-center align-center">
                 <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
@@ -31,7 +31,7 @@
     </div>
   </section>
 
-  <app-recipe-details *ngIf="data" [pumps]="data.pumpsData.pumps"></app-recipe-details>
+  <app-recipe-details [pumps]="recipePumps"></app-recipe-details>
   <router-outlet name="RECIPE_CYCLE_MODAL"></router-outlet>
   <router-outlet name="RECIPE_RUNTIME_MODAL"></router-outlet>
 </div>

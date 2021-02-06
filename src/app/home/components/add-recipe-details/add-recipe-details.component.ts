@@ -1,9 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '@app/@shared/apiService/api.service';
-import { Observable, Subscription } from 'rxjs';
-import { Location } from '@angular/common';
+import { forkJoin, Observable, Subscription } from 'rxjs';
 import { debounce } from 'lodash';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,24 +11,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-recipe-details.component.scss'],
 })
 export class AddRecipeDetailsComponent implements OnInit, OnChanges {
-  @Input('details') data: Observable<any>;
   @Input('pumps') pumps: any;
   subscription: Subscription;
   debouncedFunction: any;
   details: any;
+  run_times: any;
+  recipeName: string;
   button_text_recipe = 'Edit Recipe';
   button_text_runtimes = 'Edit Routine';
   button_text_addRecipe = 'Add Cycle';
-  headerIndex = '';
+  headerIndex = 0;
   allowAdd: boolean = false;
   addRecipeForm: FormGroup;
 
-  constructor(
-    public apiService: ApiService,
-    private router: Router,
-    private _location: Location,
-    private _formBuilder: FormBuilder
-  ) {
+  constructor(public apiService: ApiService, private router: Router, private _formBuilder: FormBuilder) {
     this.createRecipeForm();
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -51,10 +46,9 @@ export class AddRecipeDetailsComponent implements OnInit, OnChanges {
     });
   }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.headerIndex = Number(new URLSearchParams(window.location.search).get('data'));
     this.getDetails();
-    this.headerIndex = new URLSearchParams(window.location.search).get('data');
-    console.table(this.pumps);
   }
 
   async addRecipe() {
@@ -84,13 +78,13 @@ export class AddRecipeDetailsComponent implements OnInit, OnChanges {
   editableRow(key: string) {
     if (!this.allowAdd) {
       if (key == 'details') {
-        this.details.details[key] = this.details.details[key].map((x: any) => {
+        this.details = this.details.map((x: any) => {
           x.isEdit = !x.isEdit;
           this.button_text_recipe = x.isEdit ? 'Save' : 'Edit Recipe';
           return x;
         });
       } else {
-        this.details.details.run_times = this.details.details.run_times.map((val: any) => {
+        this.run_times = this.run_times.map((val: any) => {
           val.isEdit = !val.isEdit;
           this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
           return val;
@@ -99,13 +93,6 @@ export class AddRecipeDetailsComponent implements OnInit, OnChanges {
     } else {
       this.addRecipe();
     }
-    // this.details.details.run_times = this.details.details.run_times.map((val: any) => {
-    //   val.isEdit = !val.isEdit;
-    //   //
-    //   return val;
-    // });
-
-    // [index].isEdit = !this.details.details[key][index].isEdit;
   }
 
   editRow(newValue: any, keyName: string, rowData: Object, objectName: string, subValue?: string, subIndex?: number) {
@@ -126,36 +113,47 @@ export class AddRecipeDetailsComponent implements OnInit, OnChanges {
         rowData[keyName] = newValue;
       }
       apiResponse['data'][apiResponse['data'].indexOf(updateModel)][objectName][index_of_rowData] = rowData;
-      this.apiService.editRecipe(apiResponse).subscribe((resp) => {
-        // if (typeof newValue !== 'boolean') {
-        //   this.editableRow(index_of_rowData, objectName);
-        // }
+      this.apiService.editRecipe(apiResponse).subscribe(() => {
+        this.getDetails();
       });
     }, 1000);
     this.debouncedFunction();
   }
 
-  getDetails() {
-    this.subscription = this.apiService.getRecipeGrowthPlan().subscribe((res: any) => {
-      console.log(res);
-      this.details = res;
-
-      console.log(this.details);
-      if (this.details == 0) {
-        this._location.back();
-      } else {
-        // this.details.details.details = this.details.details.details.map((val: Object) => {
-        //   val['isEdit'] = true;
-        //   this.button_text_recipe = val['isEdit'] ? 'Save' : 'Edit Recipe';
-        //   return val;
-        // });
-        // this.details.details.run_times = this.details.details.run_times.map((val: Object) => {
-        //   val['isEdit'] = true;
-        //   this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
-        //   return val;
-        // });
-      }
+  editDetails(newValue: any, keyName: string, index: number, subValue?: string) {
+    console.log(this.details);
+    if (subValue) {
+      this.details[index][keyName][subValue] = newValue;
+    } else {
+      this.details[index][keyName] = newValue;
+    }
+    console.log(this.details);
+    this.apiService.editRecipeDetails(this.headerIndex, this.details).subscribe((resp) => {
+      this.getDetails();
     });
+  }
+
+  getDetails() {
+    forkJoin([
+      this.apiService.getRecipeDetails(this.headerIndex),
+      this.apiService.getSingleRecipeGrowthPlan(this.headerIndex),
+      this.apiService.getRecipeRuntimes(this.headerIndex),
+    ]).subscribe(
+      (res: any) => {
+        this.details = res[0].data.map((item: any) => {
+          item['isEdit'] = false;
+          return item;
+        });
+        this.run_times = res[2].data.map((item: any) => {
+          item['isEdit'] = false;
+          return item;
+        });
+        this.recipeName = res[1].name;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   addCycle() {

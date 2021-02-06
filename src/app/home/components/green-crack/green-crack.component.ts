@@ -17,7 +17,7 @@ export class GreenCrackComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-    // this.getDetails();
+    this.getDetails();
   }
   getDetails() {
     this.subscription = this.apiService.detailsSubject.subscribe(async (res: any) => {

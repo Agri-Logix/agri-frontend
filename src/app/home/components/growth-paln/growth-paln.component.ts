@@ -11,12 +11,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./growth-paln.component.scss'],
 })
 export class GrowthPalnComponent implements OnInit {
-  @Input('recipeGrowthData') recipeGrowthData: Observable<any>;
+  recipeGrowthData: Observable<any>;
   @ViewChild('confirm') public confirm: Confirm;
   _form: FormGroup;
 
   allowAdd: boolean = false;
-  constructor(private apiService: ApiService, private router: Router, private _fb: FormBuilder) {}
+  constructor(private apiService: ApiService, private router: Router, private _fb: FormBuilder) {
+    this.recipeGrowthData = this.apiService.getRecipeGrowthPlan();
+  }
 
   ngOnInit(): void {
     this._form = this._fb.group({
@@ -37,22 +39,6 @@ export class GrowthPalnComponent implements OnInit {
       queryParams: { data: element.id },
     });
   }
-
-  // async addGrowthPlan() {
-  //   let _recipeGrowthData = await this.recipeGrowthData.toPromise();
-  //   this.model.id = _recipeGrowthData['data'].length + 1;
-  //   this.model.name = this._form.value.name;
-  //   this.model.description = this._form.value.desc;
-  //   this.model.total_days = this._form.value.total_days;
-  //   let _todayDate = new Date();
-  //   this.model.last_updated = _todayDate.toLocaleString();
-  //   this.model.next_sched = new Date(_todayDate.setDate(_todayDate.getDate() + 2)).toLocaleString();
-  //   _recipeGrowthData['data'].push(this.model);
-  //   this.apiService.editRecipe(_recipeGrowthData).subscribe((resp) => {
-  //     this.isAdd(false);
-  //     this.apiService.actionSubject.next(1);
-  //   });
-  // }
 
   isAdd(checkInput: boolean) {
     this.addRecipe();

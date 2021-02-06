@@ -5,6 +5,7 @@
         <div class="col-md-11 pb-3 pt-3">
           <p class="font_30 pl-2">Recipe/Growth Plan</p>
         </div>
+
         <div class="col-md-1 d-flex pb-3 pt-3 align-center justify-end" (click)="addRecipe()">
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2 clickable-element" />
           <p class="clickable-element">Add</p>
@@ -34,7 +35,7 @@
           <!-- END DATA TABLE-->
         </div>
 
-        <div *ngFor="let tableData of data.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
+        <div *ngFor="let tableData of data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
           <!-- DATA TABLE-->
           <div class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12">
             <div class="col-md-3 pl-4 d-flex align-center">

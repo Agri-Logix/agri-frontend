@@ -46,7 +46,6 @@
       ]
     }
   ],
-
   "recipee_growth_plan": [
     {
       "id": 1,
@@ -83,12 +82,136 @@
       "last_updated": "12/20/2020 3:00 PM",
       "next_sched": "01/24/2021 11:00 AM",
       "status": true
+    },
+    {
+      "id": 5,
+      "name": "testing Recipee",
+      "description": "I am a testing server",
+      "total_days": 18,
+      "last_updated": "2/5/2021, 4:35:52 PM",
+      "next_sched": "2/7/2021, 4:35:52 PM",
+      "status": true
     }
   ],
-
   "recipe_detail_pumps": [
     {
       "id": 1,
+      "pumps": [
+        {
+          "id": 1,
+          "name": "ACID"
+        },
+        {
+          "id": 2,
+          "name": "Grow ABC"
+        },
+        {
+          "id": 3,
+          "name": "Grow B"
+        },
+        {
+          "id": 4,
+          "name": "Bloom A"
+        },
+        {
+          "id": 5,
+          "name": "Bloom B"
+        },
+        {
+          "id": 6,
+          "name": "E-Plus"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "pumps": [
+        {
+          "id": 1,
+          "name": "ACID"
+        },
+        {
+          "id": 2,
+          "name": "Grow A"
+        },
+        {
+          "id": 3,
+          "name": "Grow B"
+        },
+        {
+          "id": 4,
+          "name": "Bloom A"
+        },
+        {
+          "id": 5,
+          "name": "Bloom B"
+        },
+        {
+          "id": 6,
+          "name": "E-Plus"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "pumps": [
+        {
+          "id": 1,
+          "name": "ACID"
+        },
+        {
+          "id": 2,
+          "name": "Grow A"
+        },
+        {
+          "id": 3,
+          "name": "Grow B"
+        },
+        {
+          "id": 4,
+          "name": "Bloom A"
+        },
+        {
+          "id": 5,
+          "name": "Bloom B"
+        },
+        {
+          "id": 6,
+          "name": "E-Plus"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "pumps": [
+        {
+          "id": 1,
+          "name": "ACID"
+        },
+        {
+          "id": 2,
+          "name": "Grow A"
+        },
+        {
+          "id": 3,
+          "name": "Grow B"
+        },
+        {
+          "id": 4,
+          "name": "Bloom A"
+        },
+        {
+          "id": 5,
+          "name": "Bloom B"
+        },
+        {
+          "id": 6,
+          "name": "E-Plus"
+        }
+      ]
+    },
+    {
+      "id": 5,
       "pumps": [
         {
           "id": 1,
@@ -117,9 +240,25 @@
       ]
     }
   ],
-
   "recipe_detail_name": [
     {
+      "0": {
+        "id": 1,
+        "cycle": "1.5",
+        "stage": "Veg",
+        "grow_A": "4",
+        "grow_B": "4",
+        "bloom_A": "201",
+        "bloom_B": "2",
+        "bloom_C": "3",
+        "e_plus": "2",
+        "targets": {
+          "ph": "6",
+          "ec": ".05",
+          "tds": "10"
+        },
+        "isEdit": true
+      },
       "id": 1,
       "data": [
         {
@@ -141,7 +280,6 @@
       ]
     }
   ],
-
   "recipe_detail_run_time": [
     {
       "id": 1,
@@ -153,19 +291,46 @@
           "total_duration": "4Hr 0Min",
           "output": "85%",
           "select_days": [
-            { "id": 1, "day": "Sun", "bool": true },
-            { "id": 2, "day": "M", "bool": false },
-            { "id": 3, "day": "Tu", "bool": false },
-            { "id": 4, "day": "W", "bool": false },
-            { "id": 5, "day": "Th", "bool": true },
-            { "id": 6, "day": "F", "bool": false },
-            { "id": 7, "day": "Sat", "bool": false }
+            {
+              "id": 1,
+              "day": "Sun",
+              "bool": true
+            },
+            {
+              "id": 2,
+              "day": "M",
+              "bool": false
+            },
+            {
+              "id": 3,
+              "day": "Tu",
+              "bool": false
+            },
+            {
+              "id": 4,
+              "day": "W",
+              "bool": false
+            },
+            {
+              "id": 5,
+              "day": "Th",
+              "bool": true
+            },
+            {
+              "id": 6,
+              "day": "F",
+              "bool": false
+            },
+            {
+              "id": 7,
+              "day": "Sat",
+              "bool": false
+            }
           ]
         }
       ]
     }
   ],
-
   "recipees": {
     "name": "Growth Plan",
     "pumps": [
@@ -249,16 +414,43 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": true },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": true },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": true
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": true
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           },
-
           {
             "id": 2,
             "start_time": "07:00 AM",
@@ -266,13 +458,41 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": true },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": true
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           }
         ]
@@ -313,16 +533,43 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           },
-
           {
             "id": 2,
             "start_time": "07:00 AM",
@@ -330,13 +577,41 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           }
         ]
@@ -377,16 +652,43 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           },
-
           {
             "id": 2,
             "start_time": "07:00 AM",
@@ -394,13 +696,41 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           }
         ]
@@ -441,16 +771,43 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           },
-
           {
             "id": 2,
             "start_time": "07:00 AM",
@@ -458,13 +815,41 @@
             "total_duration": "4Hr 0Min",
             "output": "85%",
             "select_days": [
-              { "id": 1, "day": "Sun", "bool": false },
-              { "id": 2, "day": "M", "bool": false },
-              { "id": 3, "day": "Tu", "bool": false },
-              { "id": 4, "day": "W", "bool": false },
-              { "id": 5, "day": "Th", "bool": false },
-              { "id": 6, "day": "F", "bool": false },
-              { "id": 7, "day": "Sat", "bool": false }
+              {
+                "id": 1,
+                "day": "Sun",
+                "bool": false
+              },
+              {
+                "id": 2,
+                "day": "M",
+                "bool": false
+              },
+              {
+                "id": 3,
+                "day": "Tu",
+                "bool": false
+              },
+              {
+                "id": 4,
+                "day": "W",
+                "bool": false
+              },
+              {
+                "id": 5,
+                "day": "Th",
+                "bool": false
+              },
+              {
+                "id": 6,
+                "day": "F",
+                "bool": false
+              },
+              {
+                "id": 7,
+                "day": "Sat",
+                "bool": false
+              }
             ]
           }
         ]
