@@ -14737,6 +14737,11 @@ section {
   font-size: 30px;
   font-weight: 300;
 }
+
+.font_23 {
+  font-size: 23px;
+  font-weight: 300;
+}
 .align-center {
   align-items: center;
 }

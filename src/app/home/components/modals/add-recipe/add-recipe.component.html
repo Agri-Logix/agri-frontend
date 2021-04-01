@@ -1,7 +1,7 @@
 <app-modal [size]="'md'">
   <!-- size could be sm md lg xl -->
   <div modal-header>
-    <div>Add Recipe</div>
+    <div>{{ type }} Recipe</div>
   </div>
 
   <div class="mb-4" modal-body>
@@ -10,8 +10,8 @@
       <br />
       <div class="login-fields" fxLayout="column">
         <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="50" fxLayout="row" fxLayoutGap="20px">
-            <mat-form-field [hideRequiredMarker]="true">
+          <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50" [hideRequiredMarker]="true">
               <mat-label>Name</mat-label>
               <input type="text" matInput formControlName="name" autocomplete="name" [placeholder]="'Name'" required />
               <mat-error *ngIf="Form.controls.name.invalid && Form.controls.name.touched">
@@ -19,7 +19,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field [hideRequiredMarker]="true">
+            <mat-form-field fxFlex="50" [hideRequiredMarker]="true">
               <mat-label>Total Days</mat-label>
               <input
                 type="number"

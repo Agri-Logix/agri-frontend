@@ -1,11 +1,11 @@
 <app-modal [size]="'md'">
   <!-- size could be sm md lg xl -->
   <div modal-header>
-    <div>Add Cycle</div>
+    <div>Add Recipe</div>
   </div>
 
   <div class="mb-4" modal-body>
-    <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : update()" [formGroup]="Form" novalidate>
+    <form class="pl-4 pr-4" (ngSubmit)="type == 'Add New' ? add() : add()" [formGroup]="Form" novalidate>
       <div class="login-error" [hidden]="!error || isLoading"></div>
       <br />
       <div class="login-fields mat-field-30" fxLayout="column">
@@ -28,10 +28,16 @@
             </mat-form-field>
 
             <mat-form-field [hideRequiredMarker]="true">
-              <mat-label>Grow A</mat-label>
-              <input type="number" matInput formControlName="grow_A" autocomplete="grow_A" [placeholder]="'Grow A'" />
-              <mat-error *ngIf="Form.controls.grow_A.invalid && Form.controls.grow_A.touched">
-                <span>Grow A is required</span>
+              <mat-label>Sunrise Min</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="sun_rise_min"
+                autocomplete="sun_rise_min"
+                [placeholder]="'Sunrise Min'"
+              />
+              <mat-error *ngIf="Form.controls.sun_rise_min.invalid && Form.controls.sun_rise_min.touched">
+                <span>Sunrise Min is required</span>
               </mat-error>
             </mat-form-field>
           </div>
@@ -40,50 +46,44 @@
         <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
             <mat-form-field [hideRequiredMarker]="true">
-              <mat-label>Grow B</mat-label>
-              <input type="number" matInput formControlName="grow_B" autocomplete="grow_B" [placeholder]="'Grow B'" />
-              <mat-error *ngIf="Form.controls.grow_B.invalid && Form.controls.grow_B.touched">
-                <span>Grow B is required</span>
+              <mat-label>Sunset Min</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="sun_set_min"
+                autocomplete="sun_set_min"
+                [placeholder]="'Sunset min'"
+              />
+              <mat-error *ngIf="Form.controls.sun_set_min.invalid && Form.controls.sun_set_min.touched">
+                <span>Sunset min is required</span>
               </mat-error>
             </mat-form-field>
 
             <mat-form-field [hideRequiredMarker]="true">
-              <mat-label>Bloom A</mat-label>
+              <mat-label>Auto Dim T</mat-label>
               <input
                 type="number"
                 matInput
-                formControlName="bloom_A"
-                autocomplete="bloom_A"
-                [placeholder]="'Bloom A'"
+                formControlName="auto_dim_temp"
+                autocomplete="auto_dim_temp"
+                [placeholder]="'Auto Dim Temp'"
               />
-              <mat-error *ngIf="Form.controls.bloom_A.invalid && Form.controls.bloom_A.touched">
-                <span>Bloom A is required</span>
+              <mat-error *ngIf="Form.controls.auto_dim_temp.invalid && Form.controls.auto_dim_temp.touched">
+                <span>Auto Dim Temp is required</span>
               </mat-error>
             </mat-form-field>
 
             <mat-form-field [hideRequiredMarker]="true">
-              <mat-label>Bloom B</mat-label>
+              <mat-label>Auto Shutoff T</mat-label>
               <input
                 type="number"
                 matInput
-                formControlName="bloom_B"
-                autocomplete="bloom_B"
-                [placeholder]="'Bloom B'"
+                formControlName="auto_shutoff_temp"
+                autocomplete="auto_shutoff_temp"
+                [placeholder]="'Auto Shutoff Temp'"
               />
-              <mat-error *ngIf="Form.controls.bloom_B.invalid && Form.controls.bloom_B.touched">
-                <span>Bloom B is required</span>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="100" fxLayout="row" fxLayoutGap="20px">
-            <mat-form-field style="width: 100% !important" [hideRequiredMarker]="true">
-              <mat-label>E Plus</mat-label>
-              <input type="number" matInput formControlName="e_plus" autocomplete="e_plus" [placeholder]="'E Plus'" />
-              <mat-error *ngIf="Form.controls.e_plus.invalid && Form.controls.e_plus.touched">
-                <span>E Plus is required</span>
+              <mat-error *ngIf="Form.controls.auto_shutoff_temp.invalid && Form.controls.auto_shutoff_temp.touched">
+                <span>Auto Shutoff Temp is required</span>
               </mat-error>
             </mat-form-field>
           </div>

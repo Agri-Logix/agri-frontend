@@ -55,7 +55,7 @@
   </div>
 </section> -->
 
-<div class="page-layout mt-5">
+<!-- <div class="page-layout mt-5">
   <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
     <div fxFlex="100" fxLayout="column">
       <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
@@ -81,12 +81,21 @@
       <app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>
     </div>
   </div>
-</div>
-<!-- 
+</div> -->
+
 <div class="page-layout mt-5">
-  <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
-    <div fxFlex="75" fxLayout="column" fxLayoutGap="20px">
-      <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
+  <div
+    fxFlex="100"
+    [fxLayout]="isMobile ? 'column' : 'row'"
+    fxLayoutAlign="space-between"
+    [fxLayoutGap]="isMobile ? '10px' : '20px'"
+  >
+    <div
+      [fxFlex]="isMobile ? '100' : '75'"
+      [fxLayout]="isMobile ? 'column' : 'column'"
+      [fxLayoutGap]="isMobile ? '10px' : '20px'"
+    >
+      <div fxFlex="100" [fxLayout]="isMobile ? 'column' : 'row'" [fxLayoutGap]="isMobile ? '10px' : '10px'">
         <div fxFlex="100" *ngFor="let data of cardModel">
           <mat-card class="example-card border-r-20 pb-3 p-0">
             <mat-card-content>
@@ -105,7 +114,7 @@
           </mat-card>
         </div>
       </div>
-      <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="100" [fxLayout]="isMobile ? 'column' : 'row'" [fxLayoutGap]="isMobile ? '10px' : '10px'">
         <mat-card class="example-card border-r-40 p-0">
           <mat-card-content>
             <div fxLayoutAlign="end end" class="header pr-3">
@@ -151,16 +160,23 @@
       </div>
       <app-irrigation [irrigationData]="irrigationData"></app-irrigation>
       <app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>
+      <div style="position: relative">
+        <app-heatmap></app-heatmap>
+      </div>
     </div>
     <div fxFlex="25" fxLayout="row" fxLayoutGap="10px">
-      <div fxFlex="100">
-        <mat-card class="example-card border-r-20 h-30">
-          <mat-card-content class="h-100">
+      <div fxFlex="100" fxLayout="column" fxLayoutGap="20px">
+        <mat-card class="example-card border-r-20">
+          <mat-card-content>
             <div fxLayoutAlign="end end" class="header">
               <a> <i class="fa fa-ellipsis-h color-black"></i></a>
             </div>
+            <div style="font-size: 20px !important; font-weight: bold" fxLayoutAlign="start start" class="header mb-3">
+              HVAC Control
+            </div>
+
             <div class="body h-100" fxLayoutGap="20px" fxLayoutAlign="center stretch" fxLayout="column">
-              <div class="font-40" fxLayoutAlign="center center">
+              <div fxLayoutAlign="center center">
                 <img [src]="'assets/custom_ac.svg'" alt="" />
               </div>
 
@@ -212,9 +228,74 @@
             </div>
           </mat-card-content>
         </mat-card>
+        <mat-card class="example-card border-r-20">
+          <mat-card-content fxLayout="column">
+            <div fxLayoutAlign="end end" class="header">
+              <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+            </div>
+            <div style="font-size: 16px !important" fxLayoutAlign="start start" class="header mb-2">ORGANIZATION</div>
+            <div fxFlex="100" fxLayoutGap="20px" fxLayout="row">
+              <div fxFlex="100" fxLayoutGap="20px" fxLayout="column">
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 1 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 3 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+
+              <div fxFlex="100" fxLayoutGap="20px" fxLayout="column">
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 2 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 4 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <router-outlet name="RECIPE_MODAL"></router-outlet>

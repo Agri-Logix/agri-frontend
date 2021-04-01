@@ -3,9 +3,9 @@
     <div class="container-fluid">
       <div class="row shadow_border">
         <div class="col-md-6 pt-3">
-          <p class="font_30 pl-2">Recipe name: {{ recipee_details?.name }}</p>
+          <p class="font_30 pl-2">Recipe name: {{ (lightsNamesData | async)?.name }}</p>
         </div>
-        <div (click)="addCycle()" class="col-md-6 d-flex pt-3 align-center justify-end pointer-click">
+        <div (click)="openRecipeModal()" class="col-md-6 d-flex pt-3 align-center justify-end pointer-click">
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
           <p>Add Recipe</p>
         </div>
@@ -15,27 +15,25 @@
           <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
             <p class="col-md-1">Cycle: (# of Days)</p>
             <p class="col-md-1">Stage</p>
-            <p class="col-md-1">Grow A</p>
-            <p class="col-md-1">Grow B</p>
-            <p class="col-md-1 white-spaces">Bloom A</p>
-            <p class="col-md-1 white-spaces">Bloom B</p>
-            <p class="col-md-1">E-Plus</p>
+            <p class="col-md-1">Sunrise (min)</p>
+            <p class="col-md-1">Sunset (min)</p>
+            <p class="col-md-2">Auto Dim Temp</p>
+            <p class="col-md-1">Auto Shutoff Temp</p>
             <p class="col-md-3 text-center">Targets</p>
             <p class="col-md-2 text-right">Actions</p>
           </div>
           <!-- END DATA TABLE-->
         </div>
 
-        <div *ngFor="let data of recipee_details?.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
+        <div *ngFor="let data of (lightsNamesData | async)?.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
           <!-- DATA TABLE-->
           <div class="col-md-7 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
             <p class="col-md-2">{{ i + 1 }}: {{ data.cycle }} Days</p>
             <p class="col-md-2">{{ data.stage }}</p>
-            <p class="col-md-2">{{ data.grow_A }}</p>
-            <p class="col-md-1">{{ data.grow_B }}</p>
-            <p class="col-md-2">{{ data.bloom_A }}</p>
-            <p class="col-md-2">{{ data.bloom_B }}</p>
-            <p class="col-md-1">{{ data.e_plus }}</p>
+            <p class="col-md-2">{{ data.sun_rise_min }}</p>
+            <p class="col-md-2">{{ data.sun_set_min }}</p>
+            <p class="col-md-3">{{ data.auto_dim_temp }}</p>
+            <p class="col-md-1">{{ data.auto_shutoff_temp }}</p>
           </div>
           <div class="col-md d-flex custom-border col-sm-12 mr-1">
             <div class="d-flex white-spaces justify_btw align-center pl-0 pr-0 pt-2 pb-2">
@@ -60,7 +58,7 @@
               <div class="table-data-feature">
                 <!-- (click)="edit(data, tableData)" -->
                 <button
-                  (click)="editCycle(data)"
+                  (click)="editRecipeModal(data)"
                   style="cursor: pointer !important"
                   class="item"
                   data-toggle="tooltip"
@@ -78,7 +76,7 @@
           </div>
           <!-- END DATA TABLE-->
         </div>
-        <div *ngIf="isEmptyObject(recipee_details?.data)" class="col-md-12 d-md-flex pt-3 pb-3">
+        <div *ngIf="!(lightsNamesData | async)?.data" class="col-md-12 d-md-flex pt-3 pb-3">
           <h5 class="ml-auto mr-auto">No data to display</h5>
         </div>
       </div>
@@ -91,7 +89,7 @@
     <div class="container-fluid">
       <div class="row shadow_border">
         <div class="col-md-6 pb-3 pt-3">
-          <p class="font_30 pl-2">{{ recipee_details?.name }}: Run Times</p>
+          <p class="font_30 pl-2">{{ (lightsNamesData | async)?.name }}: Run Times</p>
         </div>
         <div (click)="addRoutine()" class="col-md-6 d-flex pb-3 pt-3 align-center justify-end pointer-click">
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
@@ -111,8 +109,8 @@
             </div>
 
             <!-- <div class="col-md-2 ">
-                 <p></p>
-              </div> -->
+                   <p></p>
+                </div> -->
             <div class="col-md pl-100">
               <p>Select Days</p>
             </div>
@@ -120,7 +118,7 @@
           <!-- END DATA TABLE-->
         </div>
 
-        <div *ngFor="let data of runTimeDetails?.data; let i = index" class="col-md d-md-flex pt-3">
+        <div *ngFor="let data of (lightsRunTimeData | async)?.data; let i = index" class="col-md d-md-flex pt-3">
           <!-- DATA TABLE-->
           <div class="col-md d-flex pl-2 custom-border mr-1 col-sm-12" [ngClass]="isMobile ? '' : 'white-spaces'">
             <div class="col-md pl-4 d-flex align-center">
@@ -179,7 +177,7 @@
           <!-- END DATA TABLE-->
         </div>
 
-        <div *ngIf="isEmptyObject(runTimeDetails?.data)" class="col-md-12 d-md-flex pt-3">
+        <div *ngIf="!(lightsRunTimeData | async)?.data" class="col-md-12 d-md-flex pt-3">
           <h5 class="ml-auto mr-auto">No data to display</h5>
         </div>
 

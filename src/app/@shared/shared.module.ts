@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from '@shared/modal/modal.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { LightsDetailComponent } from '@app/home/components/lights-detail/lights-detail.component';
+import { HeatmapComponent } from './components/heatmap/heatmap.component';
 
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
@@ -28,11 +30,13 @@ import { CardsComponent } from './components/cards/cards.component';
     GreenCrackComponent,
     IrrigationComponent,
     GrowthPalnComponent,
+    LightsDetailComponent,
     ModalComponent,
     AddRecipeDetailsComponent,
     SearchComponent,
     Confirm,
     CardsComponent,
+    HeatmapComponent,
   ],
   exports: [
     LoaderComponent,
@@ -44,8 +48,10 @@ import { CardsComponent } from './components/cards/cards.component';
     GrowthPalnComponent,
     ModalComponent,
     AddRecipeDetailsComponent,
+    LightsDetailComponent,
     SearchComponent,
     Confirm,
+    HeatmapComponent,
   ],
 })
 export class SharedModule {}

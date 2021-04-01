@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
 import { ApiService } from '@shared/apiService/api.service';
 import { Observable } from 'rxjs';
 @Component({
@@ -12,13 +13,17 @@ export class SubHeader1Component implements OnInit {
   recipeGrowthData: Observable<any>;
   cardModel: any = [];
   irrigationModel: any = [];
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private media: MediaObserver) {}
 
   ngOnInit(): void {
     this.getData();
     this.getUpdatedData();
     this.setModel();
     this.setIrrigationModel();
+  }
+
+  get isMobile(): boolean {
+    return this.media.isActive('xs') || this.media.isActive('sm');
   }
 
   setModel() {
@@ -70,7 +75,8 @@ export class SubHeader1Component implements OnInit {
 
   getData() {
     this.irrigationData = this.apiService.getIrrigationData();
-    this.recipeGrowthData = this.apiService.getRecipeGrowthPlan();
+    // this.recipeGrowthData = this.apiService.getRecipeGrowthPlan();
+    this.recipeGrowthData = this.apiService.getRecipeeGrowthPlanData();
     this.setLoadingSpinner(this.irrigationData);
     this.setLoadingSpinner(this.recipeGrowthData);
   }

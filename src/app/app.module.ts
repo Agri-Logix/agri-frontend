@@ -18,29 +18,32 @@ import { GraphQLModule } from './graphql.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/tooltip';
-import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
+// import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+// import { MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/tooltip';
+// import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
 
-function keycloakInitFactory(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: 'https://auth.agri-logix.io/auth',
-        realm: 'agri-logix',
-        clientId: 'agri-logix-test',
-      },
-      initOptions: {
-        onLoad: 'login-required',
-        silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
-      },
-      bearerExcludedUrls: ['/assets', ''],
-    });
-}
+// function keycloakInitFactory(keycloak: KeycloakService) {
+//   return () =>
+//     keycloak.init({
+//       config: {
+//         url: 'https://auth.agri-logix.io/auth',
+//         realm: 'agri-logix',
+//         clientId: 'agri-logix-test',
+//       },
+//       initOptions: {
+//         onLoad: 'login-required',
+//         silentCheckSsoRedirectUri:
+//           window.location.origin + '/assets/silent-check-sso.html',
+//       },
+//       bearerExcludedUrls: ['/assets', ''],
+//     });
+// }
 @NgModule({
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('./ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     FormsModule,
     GraphQLModule,
     HttpClientModule,
@@ -52,23 +55,23 @@ function keycloakInitFactory(keycloak: KeycloakService) {
     ShellModule,
     HomeModule,
     AuthModule,
-    KeycloakAngularModule,
+    // KeycloakAngularModule,
     Angulartics2Module.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: keycloakInitFactory,
-      multi: true,
-      deps: [KeycloakService],
-    },
-    MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER,
-    MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
-  ],
+  // providers: [
+  //   {
+  //     provide: APP_INITIALIZER,
+  //     useFactory: keycloakInitFactory,
+  //     multi: true,
+  //     deps: [KeycloakService],
+  //   },
+  //   MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER,
+  //   MAT_SELECT_SCROLL_STRATEGY_PROVIDER,
+  // ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

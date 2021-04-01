@@ -1,53 +1,13 @@
-<div [ngClass]="addClass ? 'w-80 ' : 'pr-20'">
+<div [ngClass]="addClass ? 'w-100 ' : 'pr-20'">
   <section class="statistic mt-5">
     <div class="section__content section__content--p30">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 col-lg-4 custom">
+          <div *ngFor="let item of (lightsData | async)?.lights; let i = index" class="col-md-6 col-lg-4 custom">
             <div class="statistic__item custom-statistic__item shadow_border">
               <div class="col-md-12 d-flex pr-0 justify-center align-center">
                 <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 1: Connected</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 custom">
-            <div class="statistic__item custom-statistic__item shadow_border">
-              <div class="col-md-12 d-flex pr-0 justify-center align-center">
-                <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 2: Connected</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 custom">
-            <div class="statistic__item custom-statistic__item shadow_border">
-              <div class="col-md-12 d-flex pr-0 justify-center align-center">
-                <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 3: Connected</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 custom">
-            <div class="statistic__item custom-statistic__item shadow_border">
-              <div class="col-md-12 d-flex pr-0 justify-center align-center">
-                <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 4: Connected</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 custom">
-            <div class="statistic__item custom-statistic__item shadow_border">
-              <div class="col-md-12 d-flex pr-0 justify-center align-center">
-                <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 5: Connected</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 custom">
-            <div class="statistic__item custom-statistic__item shadow_border">
-              <div class="col-md-12 d-flex pr-0 justify-center align-center">
-                <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
-                <h4 class="blue-clr">Light 6: Connected</h4>
+                <h4 class="blue-clr">Light {{ i + 1 }}: {{ item.connection }}</h4>
               </div>
             </div>
           </div>
@@ -55,5 +15,8 @@
       </div>
     </div>
   </section>
-  <app-green-crack></app-green-crack>
+  <app-lights-detail *ngIf="!isLoading" [lightsNamesData]="lightsNamesData" [lightsRunTimeData]="lightsRunTimeData">
+  </app-lights-detail>
 </div>
+
+<router-outlet name="RECIPEE_MODAL"></router-outlet>

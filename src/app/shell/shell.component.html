@@ -1,6 +1,22 @@
 <div class="shell" fxFlex>
   <mat-sidenav-container style="background: #fff; width: 90% !important; min-width: 90% !important" fxFill>
     <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile">
+      <div *ngIf="isMobile" class="text-center mt-3">
+        <div class="inline-flex tabs_border_2">
+          <p
+            style="color: #fff"
+            class="tabs___border pl-2 pr-2 text-white d-flex align-center"
+            style="border: 1px solid #fff"
+          >
+            Alert
+            <img src="assets/images/icon/Alarm.png" alt="" class="img-fulid pl-2" width="25px" />
+          </p>
+          <p style="color: #fff" class="pl-2 pr-2 d-flex align-center">
+            Alarm
+            <img src="assets/images/icon/emojione-v1_alarm-clock.png" alt="" class="img-fluid pl-2" width="25px" />
+          </p>
+        </div>
+      </div>
       <nav>
         <mat-list *ngIf="routes?.length > 0" fxLayout="column" fxLayoutGap="5px">
           <ng-container *ngFor="let route of routes">
@@ -24,6 +40,7 @@
                   src="assets/circle.png"
                   alt=""
                 />
+
                 <span style="padding-top: 20px; font-weight: 600" translate>{{ route?.name }}</span>
                 <!-- <span
                   *ngIf="!rla.isActive"
@@ -60,9 +77,12 @@
             </button>
             <!-- <span> {{ title }}</span> -->
           </div>
-          <div class="col-md-3">
+          <div *ngIf="!isMobile" class="col-md-3">
             <div class="inline-flex tabs_border_2">
-              <p class="tabs___border darkgray_bg pl-2 pr-2 text-white d-flex align-center">
+              <p
+                class="tabs___border darkgray_bg pl-2 pr-2 text-white d-flex align-center"
+                style="border: 1px solid #fff !important"
+              >
                 Alert
                 <img src="assets/images/icon/Alarm.png" alt="" class="img-fulid pl-2" width="25px" />
               </p>

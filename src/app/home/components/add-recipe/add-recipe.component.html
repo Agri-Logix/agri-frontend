@@ -1,27 +1,22 @@
 <div>
   <section class="statistic mt-5">
     <div class="section__content section__content--p30">
-      <div class="col-md-12 d-flex pb-3 pt-3 align-center justify-end pointer-click">
-        <img
-          src="assets/images/icon/icons8-add-property-64 1.png"
-          alt=""
-          class="img-fluid pr-2"
-          (click)="editable_row()"
-        />
+      <div (click)="editable_row()" class="col-md-12 d-flex pb-3 pt-3 align-center justify-end pointer-click">
+        <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
         <!--  -->
-        <p (click)="editable_row()">{{ button_pumps }}</p>
+        <p>{{ isEditing ? 'Save Pumps' : 'Edit' }}</p>
       </div>
       <div *ngIf="data" class="container-fluid">
         <div class="row">
-          <div *ngFor="let tableData of data.pumpsData.pumps; let i = index" class="col-md-6 col-lg-4 custom">
+          <div *ngFor="let tableData of data?.pumps; let i = index" class="col-md-6 col-lg-4 custom">
             <div class="statistic__item custom-statistic__item shadow_border">
               <div class="col-md-12 d-flex pr-0 justify-center align-center">
                 <img src="assets/images/icon/icons8-pump-100 5.png" alt="" class="img-responsive pr-1" />
                 <h4 *ngIf="!tableData.isEdit; else editable_input" class="blue-clr">
-                  Pump {{ tableData.id }}: {{ tableData.name }}
+                  Pump {{ tableData?.id }}: {{ tableData?.name }}
                 </h4>
                 <ng-template #editable_input>
-                  <input type="text" [value]="tableData.name" (input)="edit_row(i, $event.target.value)" />
+                  <input type="text" [value]="tableData?.name" (input)="edit_row(i, $event.target.value)" />
                 </ng-template>
               </div>
             </div>
@@ -31,7 +26,11 @@
     </div>
   </section>
 
-  <app-recipe-details></app-recipe-details>
+  <app-recipe-details
+    *ngIf="recipee_details && run_time_details"
+    [runTimeDetails]="run_time_details"
+    [details]="recipee_details"
+  ></app-recipe-details>
   <router-outlet name="RECIPE_CYCLE_MODAL"></router-outlet>
   <router-outlet name="RECIPE_RUNTIME_MODAL"></router-outlet>
 </div>

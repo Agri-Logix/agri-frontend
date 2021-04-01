@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class IrrigationComponent implements OnInit {
   rowData: any = [];
   @Input('irrigationData') irrigationData: Observable<any>;
-  constructor() {
+  constructor(private media: MediaObserver) {
     // this.setIrrigationData();
   }
 
@@ -18,6 +19,10 @@ export class IrrigationComponent implements OnInit {
     // this.irrigationData.subscribe((res: any) => {
     //   console.log(res);
     // });
+  }
+
+  get isMobile(): boolean {
+    return this.media.isActive('xs') || this.media.isActive('sm');
   }
 
   setIrrigationData() {
