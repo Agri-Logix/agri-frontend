@@ -1,0 +1,191 @@
+<section>
+  <div class="section__content section__content--p30 mb-3">
+    <div class="container-fluid">
+      <div class="row shadow_border">
+        <div class="col-md-6 pt-3">
+          <p class="font_30 pl-2">Recipe name: {{ (lightsNamesData | async)?.name }}</p>
+        </div>
+        <div (click)="openRecipeModal()" class="col-md-6 d-flex pt-3 align-center justify-end pointer-click">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Recipe</p>
+        </div>
+        <div class="col-md-6 d-flex justify_btw pb-3 pt-3 align-center"></div>
+        <div class="col-md-12">
+          <!-- DATA TABLE-->
+          <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
+            <p class="col-md-1">Cycle: (# of Days)</p>
+            <p class="col-md-1">Stage</p>
+            <p class="col-md-1">Sunrise (min)</p>
+            <p class="col-md-1">Sunset (min)</p>
+            <p class="col-md-2">Auto Dim Temp</p>
+            <p class="col-md-1">Auto Shutoff Temp</p>
+            <p class="col-md-3 text-center">Targets</p>
+            <p class="col-md-2 text-right">Actions</p>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div *ngFor="let data of (lightsNamesData | async)?.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
+          <!-- DATA TABLE-->
+          <div class="col-md-7 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
+            <p class="col-md-2">{{ i + 1 }}: {{ data.cycle }} Days</p>
+            <p class="col-md-2">{{ data.stage }}</p>
+            <p class="col-md-2">{{ data.sun_rise_min }}</p>
+            <p class="col-md-2">{{ data.sun_set_min }}</p>
+            <p class="col-md-3">{{ data.auto_dim_temp }}</p>
+            <p class="col-md-1">{{ data.auto_shutoff_temp }}</p>
+          </div>
+          <div class="col-md d-flex custom-border col-sm-12 mr-1">
+            <div class="d-flex white-spaces justify_btw align-center pl-0 pr-0 pt-2 pb-2">
+              <div class="d-flex tabs_border">
+                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">P <sup>H</sup></p>
+                <p class="pl-4 pr-2">{{ data.targets.ph }}</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
+                <p class="pl-2 pr-2">{{ data.targets.ec }} uS/cm</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
+                <p class="pl-2 pr-2">{{ data.targets.tds }} PPM</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md white-spaces d-flex custom-border col-sm-12 mr-1">
+            <div class="align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <!-- (click)="edit(data, tableData)" -->
+                <button
+                  (click)="editRecipeModal(data)"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+
+                <button (click)="delete(data)" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+        <div *ngIf="!(lightsNamesData | async)?.data" class="col-md-12 d-md-flex pt-3 pb-3">
+          <h5 class="ml-auto mr-auto">No data to display</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <confirm #confirm></confirm>
+</section>
+<section>
+  <div class="section__content section__content--p30 mb-3">
+    <div class="container-fluid">
+      <div class="row shadow_border">
+        <div class="col-md-6 pb-3 pt-3">
+          <p class="font_30 pl-2">{{ (lightsNamesData | async)?.name }}: Run Times</p>
+        </div>
+        <div (click)="addRoutine()" class="col-md-6 d-flex pb-3 pt-3 align-center justify-end pointer-click">
+          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
+          <p>Add Routine</p>
+        </div>
+        <div class="col-md">
+          <!-- DATA TABLE-->
+          <div class="col-md d-md-flex pt-2 pb-2 header_bg">
+            <div class="col-md-2">
+              <p>Start Time</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>Duration</p>
+            </div>
+            <div class="col-md-2 pl-0">
+              <p>End Time</p>
+            </div>
+
+            <!-- <div class="col-md-2 ">
+                   <p></p>
+                </div> -->
+            <div class="col-md pl-100">
+              <p>Select Days</p>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div *ngFor="let data of (lightsRunTimeData | async)?.data; let i = index" class="col-md d-md-flex pt-3">
+          <!-- DATA TABLE-->
+          <div class="col-md d-flex pl-2 custom-border mr-1 col-sm-12" [ngClass]="isMobile ? '' : 'white-spaces'">
+            <div class="col-md pl-4 d-flex align-center">
+              <p>{{ data.start_time | date: 'shortTime' }}</p>
+            </div>
+            <div class="col-md align-center d-flex">
+              <p>{{ data.total_duration.h }}Hr {{ data.total_duration.m }}Min {{ data.total_duration.s }}Sec</p>
+            </div>
+
+            <div class="col-md align-center d-flex pl-5">
+              <p>{{ data.end_time | date: 'shortTime' }}</p>
+            </div>
+          </div>
+          <div class="col-md d-flex pr-2 custom-border col-sm-12 pt-2 pb-2 mr-1">
+            <div class="form-check-inline form-check" [ngClass]="isMobile ? '' : 'white-spaces'">
+              <label *ngFor="let days of data.select_days" [for]="days.id" class="form-check-label"
+                >{{ days.day }}
+                <input
+                  type="checkbox"
+                  [id]="days.id"
+                  name="inline-checkbox1"
+                  [value]="days.day"
+                  [checked]="days.bool"
+                  class="form-check-input"
+                />
+              </label>
+            </div>
+          </div>
+          <div class="col-md-1 d-flex custom-border col-sm-12 mr-1" [ngClass]="isMobile ? '' : 'white-spaces'">
+            <div class="align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <!-- (click)="edit(data, tableData)" -->
+                <button
+                  (click)="editRoutine(data)"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+
+                <button
+                  (click)="deleteRoutine(data)"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Delete"
+                >
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div *ngIf="!(lightsRunTimeData | async)?.data" class="col-md-12 d-md-flex pt-3">
+          <h5 class="ml-auto mr-auto">No data to display</h5>
+        </div>
+
+        <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
+          <img src="assets/images/icon/icons8-calendar-128 1.png" alt="" class="img-fluid pr-2" />
+          <p>Calendar View</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

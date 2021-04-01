@@ -1,101 +1,4 @@
 {
-  "users": [
-    {
-      "email": "nouman@gmail.com",
-      "password": "$2a$10$LjM4NxzZU0P7JPGhOERBheTd0kgXwemctij5/brMK01n.hoVr5JWS",
-      "confirmpassword": "ahmed2405",
-      "firstname": "nouman",
-      "lastname": "ahmed",
-      "phone": 1231231234,
-      "termandconditions": true,
-      "id": 6
-    },
-    {
-      "email": "asad2@gmail.com",
-      "firstname": "Asad",
-      "lastname": "Ali",
-      "phone": 1231231232,
-      "password": "$2a$10$kEpz4/fWr9mX/OS5R/qioeyd4S8GiOMMDFS/iePSjtqDF7B0tLU1W",
-      "confirmpassword": "12312312a",
-      "termandconditions": true,
-      "isBanned": true,
-      "id": 7
-    },
-    {
-      "email": "salman@gmail.com",
-      "password": "$2a$10$O4mg9mX4EqJoP6PX/gOmE.xAk/rStLwdsPZiz8lfzClqFMgFJ/sm.",
-      "confirmpassword": "12312312a",
-      "firstname": "Salman",
-      "lastname": "Khan",
-      "phone": 1231231231,
-      "termandconditions": true,
-      "id": 8
-    },
-    {
-      "email": "rizwan@gmail.com",
-      "password": "$2a$10$5yAMy9y.0DOg/TDXzJw/POhixVR4OeNccQUYxLSerPSX34BFgvPVG",
-      "confirmpassword": "12312312a",
-      "firstname": "rizwan",
-      "lastname": "khan",
-      "phone": 1231231212,
-      "termandconditions": true,
-      "id": 9
-    },
-    {
-      "email": "asad5@gmail.com",
-      "password": "$2a$10$NiQKW1uo7/Mokrs4K1XMLeoxDFRYPWVOYJewgbWZnZ0h3WSVC74XS",
-      "confirmpassword": "12312312a",
-      "firstname": "asad",
-      "lastname": "ali",
-      "phone": 1231231230,
-      "termandconditions": true,
-      "id": 10
-    },
-    {
-      "email": "nouman@codesorbit.com",
-      "password": "$2a$10$ElED8JFIfTfHUfmcKezq8OIKD1rX7WiI08vmvKmejaAr/KxR0jcte",
-      "confirmpassword": "ahmed2405",
-      "firstname": "codes",
-      "lastname": "orbit",
-      "dob": "1996-05-23T19:00:00.000Z",
-      "phone": 3075337151,
-      "termandconditions": true,
-      "id": 11
-    },
-    {
-      "email": "asad3@gmail.com",
-      "password": "$2a$10$Kt/8L8Hnmswp.bAUyNJlMOYU1xM3KbzG.aNLhqjVG5w9DyZxK12H6",
-      "confirmpassword": "12312312a",
-      "firstname": "Asad",
-      "lastname": "Ali",
-      "dob": "2020-12-19T19:00:00.000Z",
-      "phone": 1231231245,
-      "termandconditions": true,
-      "id": 12
-    },
-    {
-      "email": "asad4@gmail.com",
-      "password": "$2a$10$oCV.KLhbd9krH8HCkNprZuI1QDP4zxR2EttbQv48f82GPd.zyjUC6",
-      "confirmpassword": "12312312a",
-      "firstname": "Asad",
-      "lastname": "Ali",
-      "dob": "2020-12-06T19:00:00.000Z",
-      "phone": 1231231267,
-      "termandconditions": true,
-      "id": 13
-    },
-    {
-      "email": "asad6@gmail.com",
-      "password": "$2a$10$GiFET1QW8r5G7t1gEe5owelGdnXhabES/Q3gM5pOhO0HYD9yOM7De",
-      "confirmpassword": "12312312a",
-      "firstname": "Asad",
-      "lastname": "Ali",
-      "dob": "2020-12-08T19:00:00.000Z",
-      "phone": 1231231239,
-      "termandconditions": true,
-      "id": 14
-    }
-  ],
   "irrigation": [
     {
       "stats": {
@@ -143,802 +46,422 @@
       ]
     }
   ],
-  "recipees": {
-    "name": "Growth Plan",
-    "pumps": [
-      {
-        "id": 1,
-        "name": "ACID",
-        "isEdit": true
-      },
-      {
-        "id": 2,
-        "name": "Grow A",
-        "isEdit": true
-      },
-      {
-        "id": 3,
-        "name": "Grow B",
-        "isEdit": true
-      },
-      {
-        "id": 4,
-        "name": "Bloom A",
-        "isEdit": true
-      },
-      {
-        "id": 5,
-        "name": "Bloom B",
-        "isEdit": true
-      },
-      {
-        "id": 6,
-        "name": "E-Plus",
-        "isEdit": true
-      }
-    ],
-    "data": [
-      {
-        "id": 1,
-        "name": "Green Crack",
-        "description": "Green Plan  v1.0",
-        "total_days": "83",
-        "last_updated": "01/24/2021 11:00 AM",
-        "next_sched": "01/24/2021 11:00 AM",
-        "status": true,
-        "details": [
-          {
-            "id": 1,
-            "days": "2",
-            "cycle": "1.5",
-            "stage": "Veg",
-            "grow_A": "5",
-            "grow_B": "4",
-            "bloom_A": "20",
-            "bloom_B": "20",
-            "bloom_C": "3",
-            "e_plus": "4",
-            "targets": [
-              {
-                "ph": "6",
-                "ec": ".05",
-                "tds": "10"
-              }
-            ],
-            "isEdit": true
-          },
-          {
-            "days": "3",
-            "stage": "NonVeg",
-            "grow_A": "5",
-            "grow_B": "5",
-            "bloom_A": "2",
-            "bloom_B": "3",
-            "bloom_C": "2",
-            "e_plus": "3",
-            "id": 2,
-            "targets": [
-              {
-                "ph": "6",
-                "ec": ".05",
-                "tds": "11"
-              }
-            ]
-          },
-          {
-            "days": "21",
-            "stage": "test",
-            "grow_A": "5",
-            "grow_B": "6",
-            "bloom_A": "6",
-            "bloom_B": "7",
-            "bloom_C": "9",
-            "e_plus": "10",
-            "id": 3,
-            "targets": [
-              {
-                "ph": "8",
-                "ec": ".9",
-                "tds": "7"
-              }
-            ]
-          },
-          {
-            "days": "18",
-            "stage": "new test",
-            "grow_A": "3",
-            "grow_B": "3",
-            "bloom_A": "3",
-            "bloom_B": "3",
-            "bloom_C": "3",
-            "e_plus": "3",
-            "id": 4,
-            "targets": [
-              {
-                "ph": "3",
-                "ec": "3",
-                "tds": "3"
-              }
-            ]
-          },
-          {
-            "days": "52",
-            "stage": "another test",
-            "grow_A": "2",
-            "grow_B": "2",
-            "bloom_A": "2",
-            "bloom_B": "2",
-            "bloom_C": "2",
-            "e_plus": "2",
-            "id": 5,
-            "targets": [
-              {
-                "ph": "2",
-                "ec": "2",
-                "tds": "2"
-              }
-            ]
-          },
-          {
-            "days": "",
-            "stage": "",
-            "grow_A": "",
-            "grow_B": "",
-            "bloom_A": "",
-            "bloom_B": "",
-            "bloom_C": "",
-            "e_plus": "",
-            "id": 6,
-            "targets": [
-              {
-                "ph": "0",
-                "ec": "0",
-                "tds": "0"
-              }
-            ]
-          },
-          {
-            "days": "",
-            "stage": "",
-            "grow_A": "",
-            "grow_B": "",
-            "bloom_A": "",
-            "bloom_B": "",
-            "bloom_C": "",
-            "e_plus": "",
-            "id": 7,
-            "targets": [
-              {
-                "ph": "0",
-                "ec": "0",
-                "tds": "0"
-              }
-            ]
-          }
-        ],
-        "run_times": [
-          {
-            "id": 1,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "6Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": true
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": true
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ],
-            "isEdit": true
-          },
-          {
-            "id": 2,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": true
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ],
-            "isEdit": true
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "OG Kush",
-        "description": "TEST Grow Plan v1",
-        "total_days": "13",
-        "last_updated": "09/21/2020 1:00 PM",
-        "next_sched": "01/24/2021 11:00 AM",
-        "status": true,
-        "details": [
-          {
-            "id": 2,
-            "days": "10",
-            "cycle": "6",
-            "stage": "Veg",
-            "grow_A": "6",
-            "grow_B": "4",
-            "bloom_A": "20",
-            "bloom_B": "",
-            "bloom_C": "",
-            "e_plus": "2",
-            "targets": [
-              {
-                "ph": "2",
-                "ec": ".05",
-                "tds": "10"
-              }
-            ],
-            "isEdit": true
-          }
-        ],
-        "run_times": [
-          {
-            "id": 1,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Sour diesel",
-        "description": "Test Grow Plan v1.1",
-        "total_days": "80",
-        "last_updated": "01/25/2021 8:00 AM",
-        "next_sched": "01/24/2021 11:00 AM",
-        "status": true,
-        "details": [
-          {
-            "id": 3,
-            "days": 1,
-            "cycle": "7",
-            "stage": "Veg",
-            "grow_A": "6",
-            "grow_B": "4",
-            "bloom_A": "20",
-            "bloom_B": "9",
-            "bloom_C": "",
-            "e_plus": "2",
-            "targets": [
-              {
-                "ph": "4",
-                "ec": ".05",
-                "tds": "10"
-              }
-            ],
-            "isEdit": true
-          }
-        ],
-        "run_times": [
-          {
-            "id": 1,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Cookies",
-        "description": "Grow Plan v1.0",
-        "total_days": "81",
-        "last_updated": "12/20/2020 3:00 PM",
-        "next_sched": "01/24/2021 11:00 AM",
-        "status": true,
-        "details": [
-          {
-            "id": 4,
-            "days": 1,
-            "cycle": "10",
-            "stage": "Veg",
-            "grow_A": "6",
-            "grow_B": "4",
-            "bloom_A": "20",
-            "bloom_B": "3",
-            "bloom_C": "",
-            "e_plus": "2",
-            "targets": [
-              {
-                "ph": "9",
-                "ec": ".05",
-                "tds": "4"
-              }
-            ],
-            "isEdit": true
-          },
-          {
-            "days": "2",
-            "stage": "vegs",
-            "grow_A": "",
-            "grow_B": "",
-            "bloom_A": "",
-            "bloom_B": "",
-            "bloom_C": "",
-            "e_plus": "",
-            "id": 2,
-            "targets": [
-              {
-                "ph": "0",
-                "ec": "0",
-                "tds": "0"
-              }
-            ],
-            "isEdit": true
-          }
-        ],
-        "run_times": [
-          {
-            "id": 1,
-            "start_time": "07:00 AM",
-            "end_time": "11:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "start_time": "08:00 AM",
-            "end_time": "10:00 AM",
-            "total_duration": "4Hr 0Min",
-            "output": "85%",
-            "select_days": [
-              {
-                "id": 1,
-                "day": "Sun",
-                "bool": false
-              },
-              {
-                "id": 2,
-                "day": "M",
-                "bool": false
-              },
-              {
-                "id": 3,
-                "day": "Tu",
-                "bool": false
-              },
-              {
-                "id": 4,
-                "day": "W",
-                "bool": false
-              },
-              {
-                "id": 5,
-                "day": "Th",
-                "bool": false
-              },
-              {
-                "id": 6,
-                "day": "F",
-                "bool": false
-              },
-              {
-                "id": 7,
-                "day": "Sat",
-                "bool": false
-              }
-            ],
-            "isEdit": true
-          }
-        ]
-      }
-    ]
-  },
-  "lightning_schedule": [
+  "recipee_growth_plan": [
     {
-      "name": "Growth Plan",
+      "id": 1,
+      "name": "Green Crack",
+      "description": "Green Plan  v1.0",
+      "total_days": "83",
+      "last_updated": "2021-02-07T08:18:40.238Z",
+      "next_sched": "2021-02-05T18:47:50.605Z",
+      "status": true
+    },
+    {
+      "name": "Asad Ali",
+      "description": "dad",
+      "total_days": 3,
+      "last_updated": "2021-02-07T14:41:36.655Z",
+      "next_sched": "2021-02-07T14:36:57.656Z",
+      "id": 2
+    }
+  ],
+  "recipe_detail_pumps": [
+    {
+      "id": 1,
+      "name": "Green Crack",
       "pumps": [
         {
           "id": 1,
-          "name": "ACID"
+          "name": "ACID",
+          "isEdit": false
         },
         {
           "id": 2,
-          "name": "Grow A"
+          "name": "Grow A",
+          "isEdit": false
         },
         {
           "id": 3,
-          "name": "Grow B"
+          "name": "Grow B",
+          "isEdit": false
         },
         {
           "id": 4,
-          "name": "Bloom A"
+          "name": "Bloom A",
+          "isEdit": false
         },
         {
           "id": 5,
-          "name": "Bloom B"
+          "name": "Bloom B",
+          "isEdit": false
         },
         {
           "id": 6,
-          "name": "E-Plus"
+          "name": "E-Plus",
+          "isEdit": false
         }
-      ],
-      "data": [
+      ]
+    },
+    {
+      "id": 2,
+      "pumps": [
         {
           "id": 1,
-          "name": "Green Crack",
-          "description": "Green Plan  v1.0",
-          "total_days": "83",
-          "last_updated": "01/24/2021 11:00 AM",
-          "next_sched": "01/24/2021 11:00 AM",
-          "status": true,
-          "details": {
-            "id": 1,
-            "cycle": "1.5",
-            "stage": "Veg",
-            "sun_rise_min": "4",
-            "sun_set_min": "2",
-            "auto_dim_temp": "20",
-            "auto_shutoff_temp": [
-              {
-                "ph": [
-                  {
-                    "p": "5",
-                    "h": "2"
-                  }
-                ],
-                "ec": ".05",
-                "tds": "10"
-              }
-            ]
-          }
+          "name": "ACID",
+          "isEdit": false
         },
         {
           "id": 2,
-          "name": "OG Kush",
-          "description": "TEST Grow Plan v1",
-          "total_days": "13",
-          "last_updated": "09/21/2020 1:00 PM",
-          "next_sched": "01/24/2021 11:00 AM",
-          "status": true,
-          "details": {
-            "id": 2,
-            "cycle": "1.6",
-            "stage": "Veg",
-            "sun_rise_min": "5",
-            "sun_set_min": "1",
-            "auto_dim_temp": "10",
-            "auto_shutoff_temp": [
-              {
-                "ph": [
-                  {
-                    "p": "5",
-                    "h": "2"
-                  }
-                ],
-                "ec": ".05",
-                "tds": "10"
-              }
-            ]
-          }
+          "name": "Grow A",
+          "isEdit": false
         },
         {
           "id": 3,
-          "name": "Sour diesel",
-          "description": "Test Grow Plan v1.1",
-          "total_days": "80",
-          "last_updated": "01/25/2021 8:00 AM",
-          "next_sched": "01/24/2021 11:00 AM",
-          "status": true,
-          "details": {
-            "id": 3,
-            "cycle": "1.2",
-            "stage": "Veg",
-            "sun_rise_min": "4",
-            "sun_set_min": "2",
-            "auto_dim_temp": "20",
-            "auto_shutoff_temp": [
-              {
-                "ph": [
-                  {
-                    "p": "5",
-                    "h": "2"
-                  }
-                ],
-                "ec": ".05",
-                "tds": "10"
-              }
-            ]
-          }
+          "name": "Grow B",
+          "isEdit": false
         },
         {
           "id": 4,
-          "name": "Cookies",
-          "description": "Grow Plan v1.0",
-          "total_days": "81",
-          "last_updated": "12/20/2020 3:00 PM",
-          "next_sched": "01/24/2021 11:00 AM",
-          "status": true,
-          "details": {
-            "id": 4,
-            "cycle": "1.7",
-            "stage": "Veg",
-            "sun_rise_min": "4",
-            "sun_set_min": "2",
-            "auto_dim_temp": "20",
-            "auto_shutoff_temp": [
-              {
-                "ph": [
-                  {
-                    "p": "5",
-                    "h": "2"
-                  }
-                ],
-                "ec": ".05",
-                "tds": "10"
-              }
-            ]
-          }
+          "name": "Bloom A",
+          "isEdit": false
+        },
+        {
+          "id": 5,
+          "name": "Bloom B",
+          "isEdit": false
+        },
+        {
+          "id": 6,
+          "name": "E-Plus",
+          "isEdit": false
+        }
+      ]
+    }
+  ],
+  "recipe_detail_name": [
+    {
+      "id": 1,
+      "data": [
+        {
+          "cycle": 1,
+          "stage": "veg",
+          "grow_A": 4,
+          "grow_B": 5,
+          "bloom_A": 6,
+          "bloom_B": 7,
+          "e_plus": 8,
+          "targets": {
+            "ph": 6,
+            "ec": 4,
+            "tds": 6
+          },
+          "id": 3
+        },
+        {
+          "cycle": 3,
+          "stage": "3",
+          "grow_A": 7,
+          "grow_B": 76,
+          "bloom_A": 8,
+          "bloom_B": 8,
+          "e_plus": 6,
+          "targets": {
+            "ph": 7,
+            "ec": 8,
+            "tds": 9
+          },
+          "id": 4
+        }
+      ]
+    }
+  ],
+  "recipe_detail_run_time": [
+    {
+      "id": 1,
+      "data": [
+        {
+          "start_time": "2021-02-07T08:12:39.095Z",
+          "end_time": "2021-02-07T09:12:40.000Z",
+          "total_duration": {
+            "h": 1,
+            "m": 60,
+            "s": 3600
+          },
+          "select_days": [
+            {
+              "bool": true,
+              "id": 1,
+              "day": "Sun"
+            },
+            {
+              "bool": false,
+              "id": 2,
+              "day": "M"
+            },
+            {
+              "bool": false,
+              "id": 3,
+              "day": "Tu"
+            },
+            {
+              "bool": false,
+              "id": 4,
+              "day": "W"
+            },
+            {
+              "bool": false,
+              "id": 5,
+              "day": "Th"
+            },
+            {
+              "bool": false,
+              "id": 6,
+              "day": "F"
+            },
+            {
+              "bool": false,
+              "id": 7,
+              "day": "Sat"
+            }
+          ],
+          "id": 2
+        },
+        {
+          "start_time": "2021-02-05T18:47:50.605Z",
+          "end_time": "2021-02-06T21:12:26.536Z",
+          "total_duration": {
+            "h": 26,
+            "m": 1584,
+            "s": 95075
+          },
+          "select_days": [
+            {
+              "bool": true,
+              "id": 1,
+              "day": "Sun"
+            },
+            {
+              "bool": true,
+              "id": 2,
+              "day": "M"
+            },
+            {
+              "bool": false,
+              "id": 3,
+              "day": "Tu"
+            },
+            {
+              "bool": false,
+              "id": 4,
+              "day": "W"
+            },
+            {
+              "bool": true,
+              "id": 5,
+              "day": "Th"
+            },
+            {
+              "bool": false,
+              "id": 6,
+              "day": "F"
+            },
+            {
+              "bool": false,
+              "id": 7,
+              "day": "Sat"
+            }
+          ],
+          "id": 1
+        },
+        {
+          "start_time": "2021-02-22T15:15:11.683Z",
+          "end_time": "2021-02-22T17:15:12.000Z",
+          "total_duration": {
+            "h": 2,
+            "m": 120,
+            "s": 7200
+          },
+          "select_days": [
+            {
+              "bool": false,
+              "id": 1,
+              "day": "Sun"
+            },
+            {
+              "bool": true,
+              "id": 2,
+              "day": "M"
+            },
+            {
+              "bool": false,
+              "id": 3,
+              "day": "Tu"
+            },
+            {
+              "bool": false,
+              "id": 4,
+              "day": "W"
+            },
+            {
+              "bool": false,
+              "id": 5,
+              "day": "Th"
+            },
+            {
+              "bool": false,
+              "id": 6,
+              "day": "F"
+            },
+            {
+              "bool": false,
+              "id": 7,
+              "day": "Sat"
+            }
+          ],
+          "id": 2
+        }
+      ]
+    }
+  ],
+  "recipe_detail_lights": [
+    {
+      "id": 1,
+      "name": "Green Crack",
+      "lights": [
+        {
+          "id": 1,
+          "name": "Light 1",
+          "connection": "Connected"
+        },
+        {
+          "id": 2,
+          "name": "Light 2",
+          "connection": "Connected"
+        },
+        {
+          "id": 3,
+          "name": "Light 3",
+          "connection": "Connected"
+        },
+        {
+          "id": 4,
+          "name": "Light 4",
+          "connection": "Connected"
+        },
+        {
+          "id": 5,
+          "name": "Light 5",
+          "connection": "Connected"
+        },
+        {
+          "id": 6,
+          "name": "Light 6",
+          "connection": "Connected"
+        }
+      ]
+    }
+  ],
+  "recipe_detail_lights_name": [
+    {
+      "id": 1,
+      "name": "Green Crack",
+      "data": [
+        {
+          "cycle": 7,
+          "stage": "7",
+          "sun_rise_min": 7,
+          "sun_set_min": 7,
+          "auto_dim_temp": 7,
+          "auto_shutoff_temp": 7,
+          "targets": {
+            "ph": 7,
+            "ec": 7,
+            "tds": 7
+          },
+          "id": 10
+        },
+        {
+          "cycle": 2,
+          "stage": "3",
+          "sun_rise_min": 3,
+          "sun_set_min": 3,
+          "auto_dim_temp": 3,
+          "auto_shutoff_temp": 3,
+          "targets": {
+            "ph": 3,
+            "ec": 3,
+            "tds": 3
+          },
+          "id": 16
+        },
+        {
+          "cycle": 33,
+          "stage": "gee",
+          "sun_rise_min": 8,
+          "sun_set_min": 9,
+          "auto_dim_temp": 7,
+          "auto_shutoff_temp": 6,
+          "targets": {
+            "ph": 5,
+            "ec": 6,
+            "tds": 7
+          },
+          "id": 18
+        }
+      ]
+    }
+  ],
+  "recipe_detail_lights_run_time": [
+    {
+      "id": 1,
+      "data": [
+        {
+          "id": 1,
+          "start_time": "2021-02-07T08:12:39.095Z",
+          "end_time": "2021-02-07T09:12:40.000Z",
+          "output": "85%",
+          "total_duration": {
+            "h": 1,
+            "m": 60,
+            "s": 3600
+          },
+          "select_days": [
+            {
+              "bool": true,
+              "id": 1,
+              "day": "Sun"
+            },
+            {
+              "bool": false,
+              "id": 2,
+              "day": "M"
+            },
+            {
+              "bool": false,
+              "id": 3,
+              "day": "Tu"
+            },
+            {
+              "bool": false,
+              "id": 4,
+              "day": "W"
+            },
+            {
+              "bool": false,
+              "id": 5,
+              "day": "Th"
+            },
+            {
+              "bool": false,
+              "id": 6,
+              "day": "F"
+            },
+            {
+              "bool": false,
+              "id": 7,
+              "day": "Sat"
+            }
+          ]
         }
       ]
     }

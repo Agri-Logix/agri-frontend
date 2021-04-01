@@ -1,4 +1,4 @@
-<section class="statistic mt-5">
+<!-- <section class="statistic mt-5">
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div *ngFor="let data of irrigationData | async" class="row">
@@ -7,7 +7,6 @@
             <div class="col-md-12 d-flex pr-0">
               <div class="col-md-10">
                 <h4 class="text-center">pH</h4>
-                <!-- <h4 class="text-center">p <sup>H</sup></h4> -->
               </div>
               <div class="col-md-2 pr-0 bar_dots">
                 <a href="#"> <i class="fa fa-ellipsis-h color-black"></i></a>
@@ -54,8 +53,249 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<app-irrigation [irrigationData]="irrigationData"></app-irrigation>
-<app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>
+<!-- <div class="page-layout mt-5">
+  <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
+    <div fxFlex="100" fxLayout="column">
+      <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="100" *ngFor="let data of irrigationModel">
+          <mat-card class="example-card border-r-20">
+            <mat-card-content>
+              <div fxLayoutAlign="end end" class="header">
+                <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+              </div>
+              <div class="body" fxLayout="column">
+                <div class="font-20" fxLayoutAlign="center center">
+                  <span class="font-weight-bold"> {{ data.text }} &nbsp;</span>
+                </div>
+                <div class="font-30 pl-3 pb-2 mr-5" fxLayoutAlign="center center">
+                  <img class="mr-3" [src]="data.img" alt="" /> <span> {{ data.img_text }}</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <app-irrigation [irrigationData]="irrigationData"></app-irrigation>
+      <app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>
+    </div>
+  </div>
+</div> -->
+
+<div class="page-layout mt-5">
+  <div
+    fxFlex="100"
+    [fxLayout]="isMobile ? 'column' : 'row'"
+    fxLayoutAlign="space-between"
+    [fxLayoutGap]="isMobile ? '10px' : '20px'"
+  >
+    <div
+      [fxFlex]="isMobile ? '100' : '75'"
+      [fxLayout]="isMobile ? 'column' : 'column'"
+      [fxLayoutGap]="isMobile ? '10px' : '20px'"
+    >
+      <div fxFlex="100" [fxLayout]="isMobile ? 'column' : 'row'" [fxLayoutGap]="isMobile ? '10px' : '10px'">
+        <div fxFlex="100" *ngFor="let data of cardModel">
+          <mat-card class="example-card border-r-20 pb-3 p-0">
+            <mat-card-content>
+              <div fxLayoutAlign="end end" class="header pr-3">
+                <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+              </div>
+              <div class="body" fxLayout="column">
+                <div class="font-20" fxLayoutAlign="center center">
+                  <span class="font-weight-bold"> {{ data.text }} &nbsp;</span>
+                </div>
+                <div class="font-20 pl-3 pb-2" fxLayoutAlign="start center">
+                  <img class="mr-3" [src]="data.img" alt="" /> <span> {{ data.img_text }}</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div fxFlex="100" [fxLayout]="isMobile ? 'column' : 'row'" [fxLayoutGap]="isMobile ? '10px' : '10px'">
+        <mat-card class="example-card border-r-40 p-0">
+          <mat-card-content>
+            <div fxLayoutAlign="end end" class="header pr-3">
+              <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+            </div>
+            <div class="body" fxLayout="column">
+              <div class="font-20 pr-2" fxLayoutAlign="end center">
+                <span class="font-weight-bold"> Temperature &nbsp;</span>
+                <span class="mr-0"
+                  >&deg;C
+
+                  <label class="switch switch-text switch-warning switch-pill">
+                    <input type="checkbox" class="switch-input" [checked]="true" />
+                    <span data-on="On" data-off="Off" class="switch-label"></span>
+                    <span class="switch-handle"></span>
+                  </label>
+                  &deg;F</span
+                >
+              </div>
+              <div class="para-two pl-3" fxLayoutAlign="center center">
+                <img class="pr-5" src="assets/carbon_temperature-hot.svg" alt="" />
+                <span class="font-weight-light"> 25&deg;F</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="example-card border-r-40 p-0">
+          <mat-card-content>
+            <div fxLayoutAlign="end end" class="header pr-3">
+              <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+            </div>
+            <div class="body" fxLayout="column">
+              <div class="font-20" fxLayoutAlign="center center">
+                <span class="font-weight-bold"> Humidity &nbsp;</span>
+              </div>
+              <div class="para-two pl-3 pb-2" fxLayoutAlign="center end">
+                <img class="pr-5" src="assets/carbon_ibm-cloud.svg" alt="" />
+                <span class="font-weight-light"> 20%</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <app-irrigation [irrigationData]="irrigationData"></app-irrigation>
+      <app-growth-paln [recipeGrowthData]="recipeGrowthData"></app-growth-paln>
+      <div style="position: relative">
+        <app-heatmap></app-heatmap>
+      </div>
+    </div>
+    <div fxFlex="25" fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="100" fxLayout="column" fxLayoutGap="20px">
+        <mat-card class="example-card border-r-20">
+          <mat-card-content>
+            <div fxLayoutAlign="end end" class="header">
+              <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+            </div>
+            <div style="font-size: 20px !important; font-weight: bold" fxLayoutAlign="start start" class="header mb-3">
+              HVAC Control
+            </div>
+
+            <div class="body h-100" fxLayoutGap="20px" fxLayoutAlign="center stretch" fxLayout="column">
+              <div fxLayoutAlign="center center">
+                <img [src]="'assets/custom_ac.svg'" alt="" />
+              </div>
+
+              <div fxlayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+                <div class="font-12" fxLayout="column" fxLayoutAlign="center center">
+                  <img [src]="'assets/Vector_left.svg'" alt="" />
+                  <div>Cool At:</div>
+                  <div>76 &deg;F</div>
+                </div>
+
+                <div class="guage_card" fxLayout="column" fxLayoutAlign="center center">
+                  <img class="p-2" [src]="'assets/custom_guage.svg'" alt="" />
+                  <div fxLayout="column" fxLayoutAlign="center center" style="position: absolute">
+                    <div style="font-size: 16px">72 &deg;</div>
+                    <div style="font-size: 8px" class="font-weight-bold">HEATING UP !</div>
+                  </div>
+                </div>
+
+                <div class="font-12" fxLayout="column" fxLayoutAlign="center center">
+                  <img [src]="'assets/Vector_right.svg'" alt="" />
+                  <div>HEAT At:</div>
+                  <div>76 &deg;F</div>
+                </div>
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+                <div fxLayout="column" fxLayoutGap="10px" fxFlex="100">
+                  <div fxLayoutAlign="center center" class="font-weight-bold">HVAC MODE</div>
+                  <div fxFlex="100" fxLayoutGap="10px" fxLayoutAlign="center center" fxLayout="row">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="border-layout">
+                      <img [src]="'assets/Vector_right.svg'" alt="" />
+                      <p>HEAT</p>
+                    </div>
+                    <div class="border-layout" fxLayout="column" fxLayoutAlign="center center">
+                      <img [src]="'assets/Vector_left.svg'" alt="" />
+                      <p>HEAT</p>
+                    </div>
+                    <div class="border-layout" fxLayout="column" fxLayoutAlign="center center">
+                      <img [src]="'assets/Vector_left.svg'" alt="" />
+                      <p>HEAT</p>
+                    </div>
+                    <div class="border-layout" fxLayout="column" fxLayoutAlign="center center">
+                      <img [src]="'assets/Vector_left.svg'" alt="" />
+                      <p>HEAT</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="example-card border-r-20">
+          <mat-card-content fxLayout="column">
+            <div fxLayoutAlign="end end" class="header">
+              <a> <i class="fa fa-ellipsis-h color-black"></i></a>
+            </div>
+            <div style="font-size: 16px !important" fxLayoutAlign="start start" class="header mb-2">ORGANIZATION</div>
+            <div fxFlex="100" fxLayoutGap="20px" fxLayout="row">
+              <div fxFlex="100" fxLayoutGap="20px" fxLayout="column">
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 1 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 3 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+
+              <div fxFlex="100" fxLayoutGap="20px" fxLayout="column">
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 2 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <mat-card class="example-card border-r-20 pb-2 p-0">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="space-between center">
+                      <div class="font-20 p-1" fxLayoutAlign="center center">
+                        <img [src]="'assets/Bed.svg'" alt="" /> <span></span>
+                      </div>
+                      <div style="font-size: 20px !important" fxLayoutAlign="center center">
+                        <span class="font-weight-bold"> ROOM 4 </span>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet name="RECIPE_MODAL"></router-outlet>

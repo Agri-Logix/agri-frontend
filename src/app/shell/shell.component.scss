@@ -1,7 +1,13 @@
+@import "../../theme/mixings.scss";
+
 :host {
   display: flex;
   flex: 1;
+  ::ng-deep .mat-drawer-inner-container {
+    overflow: visible !important;
+  }
 }
+
 .custom-margin {
   margin-bottom: 130px !important;
   span {
@@ -26,6 +32,8 @@
 
 .mat-sidenav {
   position: relative;
+  @include scrollbars(0.5em, #d8d8d8);
+
   // &::before {
   //   position: fixed;
   //   bottom: -100px;
@@ -125,6 +133,7 @@
 
 .menu-button {
   margin-right: 1rem;
+  color: #000;
 }
 
 .topbar-bg {

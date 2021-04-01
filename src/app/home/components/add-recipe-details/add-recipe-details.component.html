@@ -1,293 +1,191 @@
-<section class="statistic p-2">
-  <div class="section_content section_content--p30 mb-3">
+<section>
+  <div class="section__content section__content--p30 mb-3">
     <div class="container-fluid">
       <div class="row shadow_border">
-        <div class="col-md-10 pb-3 pt-3">
-          <p class="font_30 pl-2">Recipe name: {{ details.details.name }}</p>
+        <div class="col-md-6 pt-3">
+          <p class="font_30 pl-2">Recipe name: {{ recipee_details?.name }}</p>
         </div>
-
-        <div class="col-md-2 d-flex pb-3 pt-3 align-center justify-end pointer-click" (click)="editableRow('details')">
+        <div (click)="addCycle()" class="col-md-6 d-flex pt-3 align-center justify-end pointer-click">
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
-          <p>{{ button_text_recipe }}</p>
+          <p>Add Recipe</p>
         </div>
+        <div class="col-md-6 d-flex justify_btw pb-3 pt-3 align-center"></div>
         <div class="col-md-12">
           <!-- DATA TABLE-->
           <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
-            <p class="pr-3 pl-3">Cycle: (# of Days)</p>
-            <p class="pl-3">Stage</p>
-            <p class="pl-3">Grow A</p>
-            <p class="pl-3">Grow B</p>
-            <p class="pl-3">Bloom A</p>
-            <p class="pl-3">Bloom B</p>
-            <p class="pl-4 pr-5">E-Plus/</p>
-            <p class="pr-5 pl-100">Targets</p>
+            <p class="col-md-1">Cycle: (# of Days)</p>
+            <p class="col-md-1">Stage</p>
+            <p class="col-md-1">Grow A</p>
+            <p class="col-md-1">Grow B</p>
+            <p class="col-md-1 white-spaces">Bloom A</p>
+            <p class="col-md-1 white-spaces">Bloom B</p>
+            <p class="col-md-1">E-Plus</p>
+            <p class="col-md-3 text-center">Targets</p>
+            <p class="col-md-2 text-right">Actions</p>
           </div>
-        </div>
-        <form [formGroup]="addRecipeForm" class="col-md-12 d-md-flex pt-3 pb-3" *ngIf="allowAdd">
-          <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
-            <input type="text" formControlName="days" />
-            <input type="text" formControlName="stage" />
-            <input type="text" formControlName="grow_A" />
-            <input type="text" formControlName="grow_B" />
-            <input type="text" formControlName="bloom_A" />
-            <input type="text" formControlName="bloom_B" />
-            <input type="text" formControlName="bloom_C" />
-            <input type="text" formControlName="e_plus" />
-          </div>
-          <div class="col-md-4 d-flex custom-border col-sm-12">
-            <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
-              <div class="d-flex tabs_border">
-                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
-                <input type="text" formControlName="ph" />
-              </div>
-
-              <div class="d-flex tabs_border">
-                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
-                <input type="text" formControlName="ec" />
-                <p class="pl-2 pr-2">uS/cm</p>
-              </div>
-
-              <div class="d-flex tabs_border">
-                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
-                <input type="text" formControlName="tds" />
-                <p class="pl-2 pr-2">PPM</p>
-              </div>
-            </div>
-          </div>
-        </form>
-        <div *ngFor="let data of details?.details.details; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
-          <div
-            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center"
-            *ngIf="!data?.isEdit; else editable_row"
-          >
-            <p class="pr-4 pl-4">{{ data.days }}: Days</p>
-            <p class="pl-100">{{ data.stage }}</p>
-            <p class="pl-50">{{ data.grow_A }}</p>
-            <p class="pl-50">{{ data.grow_B }}</p>
-            <p class="pl-50 pr-3">{{ data.bloom_A }}</p>
-            <p class="pl-50 pr-3">{{ data.bloom_B }}</p>
-            <p class="pl-50 pr-3">{{ data.e_plus }}</p>
-          </div>
-
-          <ng-template #editable_row>
-            <div id="editable_row" class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
-              <input type="text" [value]="data.days" (input)="editRow($event.target.value, 'days', data, 'details')" />
-              <input
-                type="text"
-                [value]="data.stage"
-                (input)="editRow($event.target.value, 'stage', data, 'details')"
-              />
-              <input
-                type="number"
-                [value]="data.grow_A"
-                (input)="editRow($event.target.value, 'grow_A', data, 'details')"
-              />
-              <input
-                type="number"
-                [value]="data.grow_B"
-                (input)="editRow($event.target.value, 'grow_B', data, 'details')"
-              />
-              <input
-                type="number"
-                [value]="data.bloom_A"
-                (input)="editRow($event.target.value, 'bloom_A', data, 'details')"
-              />
-              <input
-                type="number"
-                [value]="data.bloom_B"
-                (input)="editRow($event.target.value, 'bloom_B', data, 'details')"
-              />
-              <input
-                type="number"
-                [value]="data.e_plus"
-                (input)="editRow($event.target.value, 'e_plus', data, 'details')"
-              />
-            </div>
-          </ng-template>
-          <div class="col-md-4 d-flex custom-border col-sm-12">
-            <div
-              class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2"
-              *ngIf="!data?.isEdit; else editable_row_units"
-            >
-              <div class="d-flex tabs_border">
-                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
-                <p class="pl-4 pr-2">{{ data.targets[0].ph }}</p>
-              </div>
-
-              <div class="d-flex tabs_border">
-                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
-                <p class="pl-2 pr-2">{{ data.targets[0].ec }} uS/cm</p>
-              </div>
-
-              <div class="d-flex tabs_border">
-                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
-                <p class="pl-2 pr-2">{{ data.targets[0].tds }} PPM</p>
-              </div>
-            </div>
-
-            <ng-template #editable_row_units>
-              <div class="col-md-12 d-flex justify_btw align-center pl-0 pr-0 pt-2 pb-2">
-                <div class="d-flex tabs_border">
-                  <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">PH</p>
-                  <input
-                    type="text"
-                    [value]="data.targets[0].ph"
-                    (input)="editRow($event.target.value, 'targets', data, 'details', 'ph', 0)"
-                  />
-                </div>
-
-                <div class="d-flex tabs_border">
-                  <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
-                  <input
-                    type="text"
-                    [value]="data.targets[0].ec"
-                    (input)="editRow($event.target.value, 'targets', data, 'details', 'ec', 0)"
-                  />
-                  <p class="pl-2 pr-2">uS/cm</p>
-                </div>
-
-                <div class="d-flex tabs_border">
-                  <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
-                  <input
-                    type="text"
-                    [value]="data.targets[0].tds"
-                    (input)="editRow($event.target.value, 'targets', data, 'details', 'tds', 0)"
-                  />
-                  <p class="pl-2 pr-2">PPM</p>
-                </div>
-              </div>
-            </ng-template>
-          </div>
-
           <!-- END DATA TABLE-->
         </div>
-        <div class="col-md-12 d-flex pb-3 align-center justify-end">
-          <img
-            src="assets/images/icon/icons8-add-property-64 1.png"
-            alt=""
-            class="img-flui pr-2 clickable-element"
-            (click)="isAdd()"
-          />
-          <p (click)="isAdd()" class="clickable-element">{{ button_text_addRecipe }}</p>
+
+        <div *ngFor="let data of recipee_details?.data; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
+          <!-- DATA TABLE-->
+          <div class="col-md-7 d-flex pl-2 custom-border mr-1 col-sm-12 align-center">
+            <p class="col-md-2">{{ i + 1 }}: {{ data.cycle }} Days</p>
+            <p class="col-md-2">{{ data.stage }}</p>
+            <p class="col-md-2">{{ data.grow_A }}</p>
+            <p class="col-md-1">{{ data.grow_B }}</p>
+            <p class="col-md-2">{{ data.bloom_A }}</p>
+            <p class="col-md-2">{{ data.bloom_B }}</p>
+            <p class="col-md-1">{{ data.e_plus }}</p>
+          </div>
+          <div class="col-md d-flex custom-border col-sm-12 mr-1">
+            <div class="d-flex white-spaces justify_btw align-center pl-0 pr-0 pt-2 pb-2">
+              <div class="d-flex tabs_border">
+                <p class="tabs__border pl-2 pr-2 text-white maroon_bg font-weight-bold">P <sup>H</sup></p>
+                <p class="pl-4 pr-2">{{ data.targets.ph }}</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">EC</p>
+                <p class="pl-2 pr-2">{{ data.targets.ec }} uS/cm</p>
+              </div>
+
+              <div class="d-flex tabs_border">
+                <p class="tabs___border darkgray_bg pl-2 pr-2 text-white">TDS</p>
+                <p class="pl-2 pr-2">{{ data.targets.tds }} PPM</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md white-spaces d-flex custom-border col-sm-12 mr-1">
+            <div class="align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <!-- (click)="edit(data, tableData)" -->
+                <button
+                  (click)="editCycle(data)"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+
+                <button (click)="delete(data)" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+        <div *ngIf="isEmptyObject(recipee_details?.data)" class="col-md-12 d-md-flex pt-3 pb-3">
+          <h5 class="ml-auto mr-auto">No data to display</h5>
         </div>
       </div>
     </div>
   </div>
+  <confirm #confirm></confirm>
 </section>
-<section class="statistic p-2">
-  <div class="section_content section_content--p30 mb-3">
+<section>
+  <div class="section__content section__content--p30 mb-3">
     <div class="container-fluid">
       <div class="row shadow_border">
-        <div class="col-md-10 pb-3 pt-3">
-          <p class="font_30 pl-2">{{ details.details.name }}: Run Times</p>
+        <div class="col-md-6 pb-3 pt-3">
+          <p class="font_30 pl-2">{{ recipee_details?.name }}: Run Times</p>
         </div>
-        <div
-          class="col-md-2 d-flex pb-3 pt-3 align-center justify-end pointer-click"
-          (click)="editableRow('run_times')"
-        >
+        <div (click)="addRoutine()" class="col-md-6 d-flex pb-3 pt-3 align-center justify-end pointer-click">
           <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
-          <p>{{ button_text_runtimes }}</p>
+          <p>Add Routine</p>
         </div>
-        <div class="col-md-12">
+        <div class="col-md">
           <!-- DATA TABLE-->
-          <div class="col-md-12 d-md-flex pt-2 pb-2 header_bg">
+          <div class="col-md d-md-flex pt-2 pb-2 header_bg">
             <div class="col-md-2">
               <p>Start Time</p>
             </div>
             <div class="col-md-2 pl-0">
-              <p>End Time</p>
+              <p>Duration</p>
             </div>
             <div class="col-md-2 pl-0">
-              <p>Total Duration</p>
-            </div>
-            <div class="col-md-2 pl-0" *ngIf="headerIndex === undefined">
-              <p>Output % (50-105)</p>
+              <p>End Time</p>
             </div>
 
-            <div class="col-md-4 pl-100 text-right">
-              <p>Select Days</p>
-            </div>
-          </div>
-        </div>
-
-        <div *ngFor="let tableData of details.details.run_times; let i = index" class="col-md-12 d-md-flex pt-3 pb-3">
-          <!-- DATA TABLE-->
-          <div
-            *ngIf="!tableData?.isEdit; else editable_row_runtimes"
-            class="col-md-8 d-flex pl-2 custom-border mr-1 col-sm-12 max-width-63"
-          >
-            <div class="col-md-3 pl-4 d-flex align-center">
-              <p>{{ tableData.start_time }}</p>
-            </div>
-            <div class="col-md-3 align-center d-flex">
-              <p>{{ tableData.end_time }}</p>
-            </div>
-            <div class="col-md-3 align-center d-flex pl-4">
-              <p>{{ tableData.total_duration }}</p>
-            </div>
-            <div class="col-md-3 align-center d-flex pl-5" *ngIf="headerIndex === undefined">
-              <p>{{ tableData.output }}</p>
-            </div>
-          </div>
-          <ng-template id="editable_row_runtimes" #editable_row_runtimes>
-            <div class="col-md-8 d-flex pl-2 custom-border custom_input_width mr-1 col-sm-12 max-width-63">
-              <div class="col-md-3 pl-4 d-flex align-center">
-                <input
-                  type="text"
-                  [value]="tableData.start_time"
-                  (input)="editRow($event.target.value, 'start_time', tableData, 'run_times')"
-                />
-              </div>
-              <div class="col-md-3 align-center d-flex">
-                <input
-                  type="text"
-                  [value]="tableData.end_time"
-                  (input)="editRow($event.target.value, 'end_time', tableData, 'run_times')"
-                />
-              </div>
-              <div class="col-md-3 align-center d-flex pl-4">
-                <p>{{ tableData.total_duration }}</p>
-              </div>
-              <!-- <div class="col-md-3 align-center d-flex pl-5">
-                <input
-                  type="text"
-                  [value]="tableData.output"
-                  (input)="editRow($event.target.value, 'output', tableData, 'run_times')"
-                />
+            <!-- <div class="col-md-2 ">
+                 <p></p>
               </div> -->
-            </div>
-          </ng-template>
-          <div class="col-md-5 d-flex pr-2 custom-border col-sm-12 pt-2 pb-2 max-width-37">
-            <div class="form-check-inline form-check">
-              <label
-                *ngFor="let days of tableData.select_days; let i = index"
-                for="inline-checkbox1"
-                class="form-check-label pr-2"
-              >
-                {{ days.day }}
-                <input
-                  type="checkbox"
-                  [checked]="days.bool"
-                  [id]="days.id"
-                  [name]="days.id"
-                  [value]="days.day"
-                  class="form-check-input"
-                  (change)="editRow($event.target.checked, 'select_days', tableData, 'run_times', 'bool', i)"
-                />
-              </label>
+            <div class="col-md pl-100">
+              <p>Select Days</p>
             </div>
           </div>
           <!-- END DATA TABLE-->
         </div>
-        <!-- (changed)="editRow($event.checked, days.id, tableData, 'select_days')" -->
-        <!-- <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
+
+        <div *ngFor="let data of runTimeDetails?.data; let i = index" class="col-md d-md-flex pt-3">
+          <!-- DATA TABLE-->
+          <div class="col-md d-flex pl-2 custom-border mr-1 col-sm-12" [ngClass]="isMobile ? '' : 'white-spaces'">
+            <div class="col-md pl-4 d-flex align-center">
+              <p>{{ data.start_time | date: 'shortTime' }}</p>
+            </div>
+            <div class="col-md align-center d-flex">
+              <p>{{ data.total_duration.h }}Hr {{ data.total_duration.m }}Min {{ data.total_duration.s }}Sec</p>
+            </div>
+
+            <div class="col-md align-center d-flex pl-5">
+              <p>{{ data.end_time | date: 'shortTime' }}</p>
+            </div>
+          </div>
+          <div class="col-md d-flex pr-2 custom-border col-sm-12 pt-2 pb-2 mr-1">
+            <div class="form-check-inline form-check" [ngClass]="isMobile ? '' : 'white-spaces'">
+              <label *ngFor="let days of data.select_days" [for]="days.id" class="form-check-label"
+                >{{ days.day }}
+                <input
+                  type="checkbox"
+                  [id]="days.id"
+                  name="inline-checkbox1"
+                  [value]="days.day"
+                  [checked]="days.bool"
+                  class="form-check-input"
+                />
+              </label>
+            </div>
+          </div>
+          <div class="col-md-1 d-flex custom-border col-sm-12 mr-1" [ngClass]="isMobile ? '' : 'white-spaces'">
+            <div class="align-center d-flex pt-1 pb-1">
+              <div class="table-data-feature">
+                <!-- (click)="edit(data, tableData)" -->
+                <button
+                  (click)="editRoutine(data)"
+                  style="cursor: pointer !important"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Edit"
+                >
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+
+                <button
+                  (click)="deleteRoutine(data)"
+                  class="item"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Delete"
+                >
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- END DATA TABLE-->
+        </div>
+
+        <div *ngIf="isEmptyObject(runTimeDetails?.data)" class="col-md-12 d-md-flex pt-3">
+          <h5 class="ml-auto mr-auto">No data to display</h5>
+        </div>
+
+        <div class="col-md-12 d-flex pb-4 pt-4 align-center justify-end">
           <img src="assets/images/icon/icons8-calendar-128 1.png" alt="" class="img-fluid pr-2" />
           <p>Calendar View</p>
-        </div> -->
-
-        <div (click)="addRoutine()" class="col-md-12 d-flex pb-4 pt-4 align-center justify-end pointer-click">
-          <img src="assets/images/icon/icons8-add-property-64 1.png" alt="" class="img-fluid pr-2" />
-          <p>Add Routine</p>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export const environment = {
   hmr: false,
   version: env.npm_package_version,
   // serverUrl: 'https://api.chucknorris.io',
-  serverUrl: 'http://localhost:3000',
+  serverUrl: 'https://agrigation-backend.herokuapp.com',
 
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],

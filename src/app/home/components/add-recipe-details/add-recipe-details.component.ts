@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '@app/@shared/apiService/api.service';
 import { Observable, Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 import { debounce } from 'lodash';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from '@app/@shared/services/shared.service';
+import { Confirm } from '@app/@shared/components/confirm';
+import { MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-recipe-details',
@@ -12,13 +15,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-recipe-details.component.scss'],
 })
 export class AddRecipeDetailsComponent implements OnInit {
-  @Input('details') data: Observable<any>;
+  @Input('details') recipee_details: any;
+  @Input('runTimeDetails') runTimeDetails: any;
+
   subscription: Subscription;
   debouncedFunction: any;
   details: any;
   button_text_recipe = 'Edit Recipe';
   button_text_runtimes = 'Edit Routine';
   button_text_addRecipe = 'Add Cycle';
+  @ViewChild('confirm') public confirm: Confirm;
   headerIndex = '';
   allowAdd: boolean = false;
   addRecipeForm: FormGroup;
@@ -27,114 +33,18 @@ export class AddRecipeDetailsComponent implements OnInit {
     public apiService: ApiService,
     private router: Router,
     private _location: Location,
-    private _formBuilder: FormBuilder
-  ) {
-    this.createRecipeForm();
-  }
-  createRecipeForm() {
-    this.addRecipeForm = this._formBuilder.group({
-      days: [''],
-      stage: [''],
-      grow_A: [''],
-      grow_B: [''],
-      bloom_A: [''],
-      bloom_B: [''],
-      bloom_C: [''],
-      e_plus: [''],
-      ph: ['0'],
-      ec: ['0'],
-      tds: ['0'],
-    });
+    private _formBuilder: FormBuilder,
+    private sharedService: SharedService,
+    private media: MediaObserver
+  ) {}
+
+  ngOnInit() {
+    console.log(this.recipee_details);
+    console.log(this.runTimeDetails);
   }
 
-  async ngOnInit() {
-    this.getDetails();
-    this.headerIndex = new URLSearchParams(window.location.search).get('data');
-  }
-
-  isAdd() {
-    this.addCycle();
-    this.allowAdd = !this.allowAdd;
-    this.button_text_addRecipe = this.allowAdd ? 'Cancel' : 'Add Cycle';
-    this.button_text_recipe = this.allowAdd ? 'Save' : 'Edit Recipe';
-  }
-
-  async addRecipe() {
-    let apiResponse = (await this.apiService.getRecipeGrowthPlan().toPromise()) as Object;
-    let headerIndex = new URLSearchParams(window.location.search).get('data');
-    let updateModel = apiResponse['data'].find((x: any) => x.id === parseInt(headerIndex));
-    this.addRecipeForm.value['id'] = updateModel['details'].length + 1;
-    this.addRecipeForm.value['targets'] = [
-      {
-        ph: this.addRecipeForm.value['ph'],
-        ec: this.addRecipeForm.value['ec'],
-        tds: this.addRecipeForm.value['tds'],
-      },
-    ];
-    delete this.addRecipeForm.value['ph'];
-    delete this.addRecipeForm.value['ec'];
-    delete this.addRecipeForm.value['tds'];
-    updateModel['details'].push(this.addRecipeForm.value);
-    this.apiService.editRecipe(apiResponse).subscribe((resp) => {
-      this.allowAdd = false;
-      let headerIndex = new URLSearchParams(window.location.search).get('data');
-      let api_details = resp['data'].find((x: any) => x['id'] === Number(headerIndex));
-      this.details = api_details.details;
-    });
-  }
-
-  editableRow(key: string) {
-    if (!this.allowAdd) {
-      if (key == 'details') {
-        this.details.details[key] = this.details.details[key].map((x: any) => {
-          x.isEdit = !x.isEdit;
-          this.button_text_recipe = x.isEdit ? 'Save' : 'Edit Recipe';
-          return x;
-        });
-      } else {
-        this.details.details.run_times = this.details.details.run_times.map((val: any) => {
-          val.isEdit = !val.isEdit;
-          this.button_text_runtimes = val['isEdit'] ? 'Save' : 'Edit Routine';
-          return val;
-        });
-      }
-    } else {
-      this.addRecipe();
-    }
-    // this.details.details.run_times = this.details.details.run_times.map((val: any) => {
-    //   val.isEdit = !val.isEdit;
-    //   //
-    //   return val;
-    // });
-
-    // [index].isEdit = !this.details.details[key][index].isEdit;
-  }
-
-  editRow(newValue: any, keyName: string, rowData: Object, objectName: string, subValue?: string, subIndex?: number) {
-    console.log(this.debouncedFunction);
-    if (this.debouncedFunction) {
-      this.debouncedFunction.cancel();
-    }
-    this.debouncedFunction = debounce(async () => {
-      let apiResponse = (await this.apiService.getRecipeGrowthPlan().toPromise()) as Object;
-      let headerIndex = new URLSearchParams(window.location.search).get('data');
-      let updateModel = apiResponse['data'].find((x: any) => x.id === parseInt(headerIndex));
-      let index_of_rowData = updateModel[objectName].indexOf(
-        updateModel[objectName].find((x: any) => x.id === rowData['id'])
-      );
-      if (subValue) {
-        rowData[keyName][subIndex][subValue] = newValue;
-      } else {
-        rowData[keyName] = newValue;
-      }
-      apiResponse['data'][apiResponse['data'].indexOf(updateModel)][objectName][index_of_rowData] = rowData;
-      this.apiService.editRecipe(apiResponse).subscribe((resp) => {
-        // if (typeof newValue !== 'boolean') {
-        //   this.editableRow(index_of_rowData, objectName);
-        // }
-      });
-    }, 1000);
-    this.debouncedFunction();
+  get isMobile(): boolean {
+    return this.media.isActive('xs') || this.media.isActive('sm');
   }
 
   getDetails() {
@@ -143,7 +53,7 @@ export class AddRecipeDetailsComponent implements OnInit {
 
       console.log(this.details);
       if (this.details == 0) {
-        this._location.back();
+        // this._location.back();
       } else {
         this.details.details.details = this.details.details.details.map((val: Object) => {
           val['isEdit'] = true;
@@ -159,14 +69,100 @@ export class AddRecipeDetailsComponent implements OnInit {
     });
   }
 
+  isEmptyObject(obj: any) {
+    return obj && Object.keys(obj).length === 0;
+  }
+
   addCycle() {
-    this.router.navigate(['/component1/add-recipe/', { outlets: { RECIPE_CYCLE_MODAL: ['add-new', 'Add New'] } }]);
+    this.sharedService.sharedServiceData.next(this.recipee_details);
+    this.router.navigate([
+      `/component1/add-recipe/${this.recipee_details.id}`,
+      { outlets: { RECIPE_CYCLE_MODAL: ['add-new', 'Add New'] } },
+    ]);
+  }
+
+  delete(data: any) {
+    var arrToMake: any;
+    var arrayToPush: any = {
+      id: '',
+      data: [],
+    };
+    this.confirm.show(`Are you sure you want to delete?`).then((opt) => {
+      if (opt == true) {
+        this.apiService.getRecipe_detail_name(this.recipee_details.id).subscribe((res: any) => {
+          arrToMake = res.data;
+          var index = arrToMake
+            .map((x: any) => {
+              return x.id;
+            })
+            .indexOf(data.id);
+          arrToMake.splice(index, 1);
+          arrayToPush.id = this.recipee_details.id;
+          arrayToPush.data = arrToMake;
+          this.apiService.addRecipe_detail_name(arrayToPush).subscribe((res: any) => {
+            this.apiService.actionSubject.next(1);
+          });
+        });
+      }
+    });
+  }
+
+  editCycle(data: any) {
+    let obj: any = {
+      id: this.recipee_details.id,
+      data: data,
+    };
+    this.sharedService.sharedServiceData.next(obj);
+    this.router.navigate([
+      `/component1/add-recipe/${this.recipee_details.id}`,
+      { outlets: { RECIPE_CYCLE_MODAL: ['add-new', 'Edit'] } },
+    ]);
+  }
+
+  editRoutine(data: any) {
+    let obj: any = {
+      id: this.runTimeDetails,
+      data: data,
+    };
+    this.sharedService.sharedServiceData.next(obj);
+    this.router.navigate([
+      `/component1/add-recipe/${this.runTimeDetails.id}`,
+      { outlets: { RECIPE_RUNTIME_MODAL: ['add-run-time', 'Edit'] } },
+    ]);
   }
 
   addRoutine() {
+    this.sharedService.sharedServiceData.next(this.runTimeDetails);
     this.router.navigate([
-      '/component1/add-recipe/',
+      `/component1/add-recipe/${this.runTimeDetails.id}`,
       { outlets: { RECIPE_RUNTIME_MODAL: ['add-run-time', 'Add New'] } },
     ]);
+  }
+
+  deleteRoutine(data: any) {
+    var arrToMake: any;
+    var arrayToPush: any = {
+      id: '',
+      data: [],
+    };
+    this.confirm.show(`Are you sure you want to delete?`).then((opt) => {
+      if (opt == true) {
+        this.apiService.getRecipe_detail_run_time(this.runTimeDetails.id).subscribe((res: any) => {
+          console.log(res);
+          arrToMake = res.data;
+          var index = arrToMake
+            .map((x: any) => {
+              return x.id;
+            })
+            .indexOf(data.id);
+          arrToMake.splice(index, 1);
+          arrayToPush.id = this.runTimeDetails.id;
+          arrayToPush.data = arrToMake;
+          this.apiService.addRecipe_detail_run_time(arrayToPush).subscribe((res: any) => {
+            this.apiService.actionSubject.next(1);
+          });
+        });
+      }
+    });
   }
 }

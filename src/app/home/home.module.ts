@@ -13,6 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RecipeDetailRunTimeComponent } from './components/modals/recipe-detail-run-time/recipe-detail-run-time.component';
 import { RecipeAddCycleModalComponent } from './components/modals/recipe-add-cycle-modal/recipe-add-cycle-modal.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { RecipeComponent } from './components/modals/home/recipe/recipe.component';
+import { RoutineComponent } from './components/modals/home/routine/routine.component';
 
 @NgModule({
   imports: [
@@ -33,6 +35,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     AddRecipeModalComponent,
     RecipeDetailRunTimeComponent,
     RecipeAddCycleModalComponent,
+    RecipeComponent,
+    RoutineComponent,
   ],
 })
 export class HomeModule {}

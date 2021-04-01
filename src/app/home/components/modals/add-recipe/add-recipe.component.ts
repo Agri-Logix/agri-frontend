@@ -38,13 +38,18 @@ export class AddRecipeModalComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDetails();
+  }
 
   private createForm() {
     this.Form = this.formBuilder.group({
       name: [''],
       description: [''],
       total_days: [''],
+      last_updated: new Date(),
+      next_sched: new Date(),
+
       // date: ['', Validators.required],
     });
   }
@@ -55,22 +60,53 @@ export class AddRecipeModalComponent implements OnInit {
     this.subscription = this.sharedService.sharedServiceData.subscribe(async (res: any) => {
       this.details = res;
       console.log(this.details);
-
-      if (this.details == 0) {
+      if (this.details == 0 && Object.keys(this.details).length == 0) {
         this._location.back();
       } else if (this.details) {
+        this.Form.patchValue({
+          name: this.details.name,
+          description: this.details.description,
+          total_days: this.details.total_days,
+          last_updated: this.details.last_updated,
+          next_sched: this.details.next_sched,
+        });
       }
     });
   }
 
   add() {
     this.isLoading = true;
+    (this.Form.value.last_updated = new Date()),
+      (this.Form.value.next_sched = new Date()),
+      this.apiService.addRecipeeGrowthPlanData(this.Form.value).subscribe(
+        (res: any) => {
+          this.apiService.actionSubject.next(1);
+          // this.apiService.addSubject.next(res);
+          this._location.back();
+          this.isLoading = false;
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
     this.isLoading = false;
   }
 
   update() {
     this.isLoading = true;
-    this.isLoading = false;
+    console.log(this.Form.value);
+    (this.Form.value.id = this.details.id),
+      this.apiService.updateRecipeeGrowthPlanData(this.Form.value).subscribe(
+        (res: any) => {
+          this.apiService.actionSubject.next(1);
+          this._location.back();
+          this.isLoading = false;
+        },
+        (error: any) => {
+          console.log(error);
+          this.isLoading = false;
+        }
+      );
   }
 
   close() {

@@ -11,6 +11,8 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
 import { AddRecipeModalComponent } from './components/modals/add-recipe/add-recipe.component';
 import { RecipeAddCycleModalComponent } from './components/modals/recipe-add-cycle-modal/recipe-add-cycle-modal.component';
 import { RecipeDetailRunTimeComponent } from './components/modals/recipe-detail-run-time/recipe-detail-run-time.component';
+import { GreenCrackComponent } from './components/green-crack/green-crack.component';
+import { RecipeComponent } from './components/modals/home/recipe/recipe.component';
 
 const routes: Routes = [
   Shell.childRoutes([
@@ -30,7 +32,7 @@ const routes: Routes = [
       ],
     },
     {
-      path: 'component1/add-recipe',
+      path: 'component1/add-recipe/:id',
       component: AddRecipeComponent,
       data: { title: marker('Add Cycle') },
       children: [
@@ -54,7 +56,16 @@ const routes: Routes = [
       path: 'component2',
       component: SubHeader2Component,
       data: { title: marker('Home') },
+      children: [
+        {
+          path: 'add-new/:type',
+          component: RecipeComponent,
+          data: { title: marker('add-recipe') },
+          outlet: 'RECIPEE_MODAL',
+        },
+      ],
     },
+
     {
       path: 'component3',
       component: SubHeader3Component,
