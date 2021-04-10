@@ -25,7 +25,7 @@ export class SidebarLinksService {
           {
             link: '/component1',
             name: 'ORGANIZATION',
-            icon: 'custom_vector_black',
+            icon: 'custom_vector_white',
             icon_active: 'custom_vector_black',
           },
           {
@@ -41,7 +41,7 @@ export class SidebarLinksService {
             icon_active: 'custom_leaf_black',
           },
           {
-            link: '/component4',
+            link: '/token-cast',
             name: 'DEVICES',
             icon: 'custom_mobile',
             icon_active: 'custom_mobile_black',

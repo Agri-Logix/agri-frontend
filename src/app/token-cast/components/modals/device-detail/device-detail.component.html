@@ -1,0 +1,67 @@
+<app-modal [size]="'md'">
+  <!-- size could be sm md lg xl -->
+  <div modal-header>
+    <div>Device Name</div>
+  </div>
+
+  <div modal-body>
+    <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px">
+      <div
+        class="w-75"
+        [fxFlex]="isMobile ? '100' : '75'"
+        [fxLayout]="isMobile ? 'column' : 'column'"
+        [fxLayoutGap]="isMobile ? '10px' : '20px'"
+      >
+        <div [fxFlex]="isMobile ? '100' : '100'">
+          <div fxLayout="column" fxLayoutAlign="center center" class="p-4 bg-dark border-r-20">
+            <img
+              [style.border]="border"
+              [style.transform]="transformImg"
+              [style.object-fit]="fitImage"
+              class="img-fluid"
+              [src]="deviceDetails?.img"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="w-100" fxFlex="100" fxLayout="column" fxLayoutAlign="start start">
+        <div class="container">
+          <h5 class="text-black mb-2 row">Background color</h5>
+          <div class="row">
+            <div *ngFor="let bgClr of bg_Colors">
+              <div class="box mr-1" [style.background-color]="bgClr.color"></div>
+            </div>
+          </div>
+        </div>
+        <div class="w-100">
+          <h5 class="text-black">Border width percentage</h5>
+          <mat-slider
+            class="example-margin w-100"
+            [disabled]="disabled"
+            [invert]="invert"
+            [max]="max"
+            [min]="min"
+            [step]="step"
+            [thumbLabel]="thumbLabel"
+            [tickInterval]="getSliderTickInterval()"
+            [(ngModel)]="value"
+            [vertical]="vertical"
+          >
+          </mat-slider>
+        </div>
+
+        <div>
+          <h5 class="text-black mb-2">Fit Screen</h5>
+          <mat-checkbox (change)="fitPicture($event)"></mat-checkbox>
+        </div>
+
+        <div>
+          <h5 class="text-black mb-2">Rotate Orientation</h5>
+          <mat-checkbox (change)="transformPicture($event)"></mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>

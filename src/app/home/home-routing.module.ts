@@ -16,7 +16,7 @@ import { RecipeComponent } from './components/modals/home/recipe/recipe.componen
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/component1', pathMatch: 'full' },
     { path: 'home', component: HomeComponent, data: { title: marker('Home') } },
     {
       path: 'component1',
