@@ -12,6 +12,7 @@ const icons: ICON[] = [
   //custom fz3a svg icons
   { name: 'login_background', path: '/assets/login-page-background.svg' },
   { name: 'custom_vector', path: '/assets/custom_vector.svg' },
+  { name: 'custom_vector_white', path: '/assets/custom_vector_white.svg' },
   { name: 'custom_vector_black', path: '/assets/custom_vector_black.svg' },
   { name: 'custom_mobile_black', path: '/assets/custom_mobile_black.svg' },
   { name: 'custom_home_black', path: '/assets/custom_home_black.svg' },

@@ -100,4 +100,8 @@ export class ApiService {
   editRecipe(bodyParams: any) {
     return this.http.put(`/recipees`, bodyParams);
   }
+
+  tokenCastDevices(): Observable<any> {
+    return this.http.get('/tokenCast');
+  }
 }

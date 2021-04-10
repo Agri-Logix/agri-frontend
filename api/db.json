@@ -1,4 +1,26 @@
 {
+  "tokenCast": [
+    {
+      "id": 1,
+      "img": "assets/images/bg-title-01.jpg",
+      "name": "DeviceTest1"
+    },
+    {
+      "id": 2,
+      "img": "assets/images/bg-title-02.jpg",
+      "name": "DeviceTest1"
+    },
+    {
+      "id": 3,
+      "img": "assets/images/icon/avatar-big-01.jpg",
+      "name": "DeviceTest1"
+    },
+    {
+      "id": 4,
+      "img": "assets/media/9606031aabebde32fa96edeff071a132.jpg",
+      "name": "DeviceTest1"
+    }
+  ],
   "irrigation": [
     {
       "stats": {

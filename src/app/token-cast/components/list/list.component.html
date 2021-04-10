@@ -1,0 +1,36 @@
+<div class="page-layout container mt-5 mb-5">
+  <div fxLayout="column">
+    <div class="text-center mb-5">
+      <h2 class="text-light">Token Cast</h2>
+    </div>
+    <div
+      fxFlex="100"
+      [fxLayout]="isMobile ? 'column' : 'row'"
+      fxLayoutAlign="center center"
+      [fxLayoutGap]="isMobile ? '10px' : '20px'"
+    >
+      <div
+        class="w-75"
+        [fxFlex]="isMobile ? '100' : '75'"
+        [fxLayout]="isMobile ? 'column' : 'column'"
+        [fxLayoutGap]="isMobile ? '10px' : '20px'"
+      >
+        <div fxFlex="100" [fxLayout]="isMobile ? 'column' : 'row wrap'" fxLayoutGap="30px">
+          <div *ngFor="let device of devices" class="mb-5" [fxFlex]="isMobile ? '100' : '45'">
+            <div
+              (click)="deviceDetails(device)"
+              fxLayout="column"
+              fxLayoutAlign="center center"
+              class="p-4 bg-white border-r-20"
+            >
+              <img [src]="device.img" alt="" />
+              <p class="font-weight-bold pt-3">{{ device.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet name="DEVICE_DETAIL_MODAL"></router-outlet>

@@ -10,7 +10,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from '@app/app.module';
 import { environment } from '@env/environment';
 import { hmrBootstrap } from './hmr';
-
+import * as $ from 'jquery';
+window['$'] = $;
+window['jQuery'] = $;
 if (environment.production) {
   enableProdMode();
 }

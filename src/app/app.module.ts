@@ -14,10 +14,13 @@ import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
+import { TokenCastModule } from './token-cast/token-cast.module';
+
 import { GraphQLModule } from './graphql.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+declare var $: any;
 // import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 // import { MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/tooltip';
 // import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
@@ -54,6 +57,7 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     ShellModule,
     HomeModule,
+    TokenCastModule,
     AuthModule,
     // KeycloakAngularModule,
     Angulartics2Module.forRoot(),
